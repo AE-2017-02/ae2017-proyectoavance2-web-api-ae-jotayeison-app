@@ -22,7 +22,7 @@ class Configuraciones extends Controller
             $res_bad = response()->json([
                 'status' => 'Bad',
                 'code' => '400',
-                'message' => "Datos incompletos",
+                'message' => "Parametros incorrectos",
                 'result' => []
             ]);
         
