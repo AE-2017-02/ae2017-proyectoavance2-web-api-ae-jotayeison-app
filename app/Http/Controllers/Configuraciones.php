@@ -19,7 +19,7 @@ class Configuraciones extends Controller
         $pwd = $request->input("pwd");
 
         if($user == null || empty($user) || $pwd == null || empty($pwd)){
-            $res_bad = response()->json([
+           /* $res_bad = response()->json([
                 'status' => 'Bad',
                 'code' => '400',
                 'message' => "Parametros incorrectos",
@@ -27,19 +27,39 @@ class Configuraciones extends Controller
             ]);
         
             return response($res_bad, 400)
+            ->header('Content-Type', 'application/json');*/
+
+            return response()->json([
+                'status' => 'Bad',
+                'code' => '400',
+                'message' => "Parametros incorrectos",
+                'result' => []
+            ],400)
+            ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
+            
         }
 
         $results = app('db')->select("SELECT usuario FROM configuraciones where usuario = '$user' and pwd = md5('$pwd')");
 
+        /*
         $res = response()->json([
             'status' => 'OK',
             'code' => '200',
             'result' => $results
         ]);
-    
+        
         return response($res, 200)
+        ->header('Content-Type', 'application/json');*/
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => '200',
+            'result' => $results
+        ],200)
+        ->header('Access-Control-Allow-Origin','*')
         ->header('Content-Type', 'application/json');
+
     }
 }
 
