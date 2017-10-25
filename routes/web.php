@@ -12,12 +12,22 @@
 */
 
 $router->get('/', function () use ($router) {
-    $results = app('db')->select("SELECT usuario FROM configuraciones;");
-    return json_encode($results);
+    return response()->json(
+        [
+            "name" => "Nutriservices",
+            "type" => "API REST",
+            "version" => 1.0
+        ], 200
+    )
+    ->header('Access-Control-Allow-Origin','*')
+    ->header('Content-Type', 'application/json');
 });
 
 /*
     RUTAS DEL MODULO DE CONFIGURACIONES
+
 */
 
 $router->get('login','Configuraciones@login');
+
+$router->post('setConfig','Configuraciones@insertConfig'); 
