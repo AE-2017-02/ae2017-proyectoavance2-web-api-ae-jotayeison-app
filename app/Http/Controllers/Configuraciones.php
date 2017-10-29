@@ -15,6 +15,7 @@ class Configuraciones extends Controller
      * @param  Request  $request
      * @return Response
      */
+
     public function login(Request $request)
     {
        
@@ -37,7 +38,7 @@ class Configuraciones extends Controller
 
         return response()->json([
             'status' => 'OK',
-            'code' => '200',
+            'code' => 200,
             'result' => $results
         ],200)
         ->header('Access-Control-Allow-Origin','*')
@@ -46,7 +47,7 @@ class Configuraciones extends Controller
     }//login()
 
 
-    public function insertConfig(Request $request){
+    public function setConfig(Request $request){
         $nombre = $request->input('consultorio');
         $telefono = $request->input('telefono');
         $direccion = $request->input('direccion');
@@ -94,7 +95,22 @@ class Configuraciones extends Controller
         ->header('Content-Type', 'application/json');
 
         
-    }//insertConfig()
+    }//setConfig()
+
+
+    public function getConfig(){
+
+        $results = app('db')->select("SELECT consultorio , telefono, direccion, horario, logo FROM configuraciones;");
+        //print "".$results[0]->logo; 
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $results
+        ],200)
+        ->header('Access-Control-Allow-Origin','*')
+        ->header('Content-Type', 'application/json');
+
+    }//getConfig()
 
 
 
