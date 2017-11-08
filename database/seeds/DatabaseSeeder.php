@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        DB::table('configuraciones')->insert([
+            'usuario' => 'admin',
+            'pwd' => md5('admin')
+        ]);
     }
 }

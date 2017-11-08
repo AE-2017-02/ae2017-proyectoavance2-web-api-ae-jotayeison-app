@@ -33,3 +33,5 @@ $router->get('login','Configuraciones@login');
 $router->post('setConfig','Configuraciones@setConfig'); 
 
 $router->get('getConfig','Configuraciones@getConfig');
+
+$router->post('changePassword','Configuraciones@changePassword');
