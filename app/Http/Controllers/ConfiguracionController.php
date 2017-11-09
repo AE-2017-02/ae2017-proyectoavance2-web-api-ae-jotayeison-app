@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
-class Configuraciones extends Controller
+class ConfiguracionController extends Controller
 {
     /**
      * Store a new user.
@@ -72,7 +72,7 @@ class Configuraciones extends Controller
             $ruta = "imagenes/".$filename;
         }//subimos el logo al server
 
-        $conf = \App\Configuraciones::find(1);
+        $conf = \App\Configuracion::find(1);
         $conf->consultorio = $nombre;
         $conf->telefono = $telefono;
         $conf->direccion = $direccion;
@@ -90,7 +90,7 @@ class Configuraciones extends Controller
     }//setConfig()
 
     public function getConfig(){
-        $conf = \App\Configuraciones::find(1);
+        $conf = \App\Configuracion::find(1);
         $conf->logo = "http://".$_SERVER['REMOTE_ADDR']."/public/".$conf->logo;
         return response()->json([
             'status' => 'OK',
@@ -106,7 +106,7 @@ class Configuraciones extends Controller
             'pwd' => 'required',
         ]);
         $new = $request->input('pwd');
-        $conf = \App\Configuraciones::find(1);
+        $conf = \App\Configuracion::find(1);
         $conf->pwd = md5($new);
         $conf->save();
 
@@ -117,7 +117,7 @@ class Configuraciones extends Controller
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
-    }
+    }//changePassword
 
-}//Configuraciones
+}//Configuracion
 

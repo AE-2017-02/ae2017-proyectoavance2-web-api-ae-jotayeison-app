@@ -28,17 +28,21 @@ class Pacientes extends Migration
             $table->string('domicilio',80)->nullable();
             $table->string('telefono',30)->nullable();
             $table->string('email',30);
-            $table->string('alcohol',1)->nullable();
-            $table->string('obesidad',1)->nullable();
-            $table->string('tabaco',1)->nullable();
-            $table->string('colesterol',1)->nullable();
-            $table->string('diabetes',1)->nullable();
-            $table->string('hipertencion',1)->nullable();
-            $table->string('hipotencion',1)->nullable();
+            $table->boolean('alcohol')->nullable();
+            $table->boolean('obesidad')->nullable();
+            $table->boolean('tabaco')->nullable();
+            $table->boolean('colesterol')->nullable();
+            $table->boolean('diabetes')->nullable();
+            $table->boolean('hipertencion')->nullable();
+            $table->boolean('hipotencion')->nullable();
+            $table->string('meta',500)->nullable();
+            $table->string('alergias',500)->nullable();
+            $table->string('patologias',500)->nullable();
             $table->string('antibioticos',700)->nullable();
             $table->string('alimentos_unlike',700)->nullable();
-            $table->string('pwd',500);
+            $table->string('pwd',500)->nullable();
             $table->date('fecha_reg')->nullable();
+            $table->boolean('activo')->nullable();
 
         });
     }

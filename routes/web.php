@@ -28,10 +28,21 @@ $router->get('/', function () use ($router) {
 
 */
 
-$router->get('login','Configuraciones@login');
+$router->get('login','Configuracion@login');
 
-$router->post('setConfig','Configuraciones@setConfig'); 
+$router->post('setConfig','Configuracion@setConfig');
 
-$router->get('getConfig','Configuraciones@getConfig');
+$router->get('getConfig','Configuracion@getConfig');
 
-$router->post('changePassword','Configuraciones@changePassword');
+$router->post('changePassword','Configuracion@changePassword');
+
+/*
+ *      PRE-REGISTRO DEL PACIENTE
+ * */
+
+$router->post('setPreRegistro','PacienteController@preRegistro');
+
+$router->get('getPreRegistros','PacienteController@getPreRegistros');
+
+$router->post('setEstadoRegistro','PacienteController@estadoRegistro');
+
