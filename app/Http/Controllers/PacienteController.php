@@ -20,8 +20,6 @@ class PacienteController extends Controller
      * @param  Request  $request
      * @return Response
      */
-
-
     public function preRegistro(Request $request){
         $this->validate($request,[
             'nombre' => 'required',
@@ -33,9 +31,9 @@ class PacienteController extends Controller
         ]);
 
         $paciente = new Paciente;
-        $paciente->nombre = $request->input('nombre');
-        $paciente->ape_paterno = $request->input('ape_paterno');
-        $paciente->ape_materno = $request->input('ape_materno');
+        $paciente->nombre = mb_strtoupper($request->input('nombre'));
+        $paciente->ape_paterno = mb_strtoupper($request->input('ape_paterno'));
+        $paciente->ape_materno = mb_strtoupper($request->input('ape_materno'));
         $paciente->email = $request->input('email');
         $paciente->fecha_naci = $request->input('fecha_naci');
         $paciente->sexo = $request->input('sexo');
@@ -80,6 +78,11 @@ class PacienteController extends Controller
         $estado = $request->input('estado');
         $paciente = Paciente::find($id);
         $paciente->activo = $estado;
+
+        if ($estado == 1){
+            //enviamos correo con contrasela y despues guardamos
+        }
+
         $paciente->save();
 
         return response()->json([
@@ -91,6 +94,26 @@ class PacienteController extends Controller
             ->header('Content-Type', 'application/json');
     }//estadoRegistro
 
+    public function loginPaciente(Request $request){
+        $this->validate($request,[
+            'email' => 'required',
+            'pwd' => 'required'
+        ]);
+        $email = $request->input('email');
+        $pwd = $request->input('pwd');
+        $login = DB::table('pacientes')->select('email')->where([
+            ['email' , '=' , $email] ,
+            ['pwd','=',md5($pwd)]
+        ])->get();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $login
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+    }//loginPaciente
 
 
 }//PacienteController

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Configuracion;
 
 
 
@@ -72,7 +72,7 @@ class ConfiguracionController extends Controller
             $ruta = "imagenes/".$filename;
         }//subimos el logo al server
 
-        $conf = \App\Configuracion::find(1);
+        $conf = Configuracion::find(1);
         $conf->consultorio = $nombre;
         $conf->telefono = $telefono;
         $conf->direccion = $direccion;
@@ -90,7 +90,7 @@ class ConfiguracionController extends Controller
     }//setConfig()
 
     public function getConfig(){
-        $conf = \App\Configuracion::find(1);
+        $conf = Configuracion::find(1);
         $conf->logo = "http://".$_SERVER['REMOTE_ADDR']."/public/".$conf->logo;
         return response()->json([
             'status' => 'OK',

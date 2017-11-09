@@ -15,10 +15,8 @@ class Menus extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->increments('menu_id');
-            $table->integer('comida_id')->nullable();
-            $table->integer('paciente_id')->nullable();
-            $table->foreign('comida_id')->references('comida_id')->on('comidas');
-            $table->foreign('paciente_id')->references('paciente_id')->on('pacientes');
+            $table->string('nombre',30);
+            $table->decimal('kcal',18,2);
         });
     }
 

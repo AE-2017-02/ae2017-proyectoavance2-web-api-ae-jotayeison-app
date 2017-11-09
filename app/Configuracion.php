@@ -23,7 +23,7 @@ class Configuracion extends Model
 
     public $primaryKey = "config_id";
     public $timestamps = false;
-
+    public $table = "configuraciones";
     /**
      * The attributes excluded from the model's JSON form.
      *

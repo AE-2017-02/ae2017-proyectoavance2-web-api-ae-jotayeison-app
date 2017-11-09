@@ -28,13 +28,13 @@ $router->get('/', function () use ($router) {
 
 */
 
-$router->get('login','Configuracion@login');
+$router->get('login','ConfiguracionController@login');
 
-$router->post('setConfig','Configuracion@setConfig');
+$router->post('setConfig','ConfiguracionController@setConfig');
 
-$router->get('getConfig','Configuracion@getConfig');
+$router->get('getConfig','ConfiguracionController@getConfig');
 
-$router->post('changePassword','Configuracion@changePassword');
+$router->post('changePassword','ConfiguracionController@changePassword');
 
 /*
  *      PRE-REGISTRO DEL PACIENTE
@@ -46,3 +46,4 @@ $router->get('getPreRegistros','PacienteController@getPreRegistros');
 
 $router->post('setEstadoRegistro','PacienteController@estadoRegistro');
 
+$router->get('loginPaciente','PacienteController@loginPaciente');
