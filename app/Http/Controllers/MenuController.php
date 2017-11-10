@@ -58,11 +58,26 @@ class MenuController extends Controller
 
 
     public function getMenus(){
-        $menus = Menu::find()->get();
+        $m = Menu::all();
+        $menus = $m->toArray();
+        $menu_full  = array();
+        foreach ($menus as $menu){
+            $id = $menu['menu_id'];
+
+            $alimentos = DB::table('menus')
+                ->join('det_ali_men', 'det_ali_men.menu_id', '=', 'menus.menu_id')
+                ->join('alimentos','alimentos.alimento_id','=','det_ali_men.alimento_id')
+                ->select('alimentos.alimento_id','alimentos.descripcion', 'alimentos.um', 'alimentos.kcal','alimentos.tipo')
+                ->where('menus.menu_id',$id)
+                ->get()->toArray();
+
+            $menu['alimentos'] = $alimentos;
+            $menu_full[] = $menu;
+        }
         return response()->json([
             'status' => 'OK',
             'code' => 200,
-            'result' => $menus
+            'result' => $menu_full
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');

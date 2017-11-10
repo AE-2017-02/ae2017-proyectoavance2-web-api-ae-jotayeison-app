@@ -57,3 +57,5 @@ $router->post('setMenu','MenuController@setMenu');
 $router->post('setAlimento','MenuController@insertAlimento');
 
 $router->get('getAlimentos','MenuController@getAlimentos');
+
+$router->get('getMenus','MenuController@getMenus');
