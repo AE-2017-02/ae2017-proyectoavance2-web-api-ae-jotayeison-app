@@ -48,6 +48,15 @@ $router->post('setEstadoRegistro','PacienteController@estadoRegistro');
 
 $router->get('loginPaciente','PacienteController@loginPaciente');
 
+$router->post('setRegistro','PacienteController@registro');
+
+$router->post('updateRegistro','PacienteController@updateRegistro');
+
+$router->get('getPaciente','PacienteController@getPaciente');
+
+$router->get('getPacientes','PacienteController@getPacientes');
+
+
 /*
  *      MENUS
  * */
