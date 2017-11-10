@@ -21,6 +21,61 @@ class PacienteController extends Controller
      * @param  Request  $request
      * @return Response
      */
+
+    public function registro(Request $request){
+
+        $this->validate($request,[
+              'nombre' => 'required',
+              'ape_paterno' => 'required',
+              'ape_materno' => 'required',
+              'email' => 'required|email|unique:pacientes',
+              'fecha_naci' => 'required',
+              'sexo' => 'required|max:1',
+          ]);
+
+        $paciente = new Paciente;
+        $paciente->nombre = mb_strtoupper($request->input('nombre'));
+        $paciente->ape_paterno = mb_strtoupper($request->input('ape_paterno'));
+        $paciente->ape_materno = mb_strtoupper($request->input('ape_materno'));
+        $paciente->email = $request->input('email');
+        $paciente->fecha_naci = $request->input('fecha_naci');
+        $paciente->sexo = $request->input('sexo');
+        $paciente->meta = $request->input('meta')?$request->input('meta'):"";
+        $paciente->patologias = $request->input('patologias')?$request->input('patologias'):"";
+        $paciente->alergias = $request->input('alergias')?$request->input('alergias'):"";
+        $paciente->antibioticos = $request->input('medicamentos')?$request->input('medicamentos') : "";
+        $paciente->telefono = $request->input('telefono')?$request->input('telefono'):"";
+        $paciente->fecha_reg = date('Y-m-d');
+
+        $paciente->peso = $request->input('peso');
+        $paciente->peso_habitual = $request->input('peso_habitual');
+        $paciente->altura = $request->input('altura');
+        $paciente->precion_arteria = $request->input('precion_arteria');
+        $paciente->lugar_naci = $request->input('lugar_naci');
+        $paciente->domicilio = $request->input('domicilio');
+        $paciente->alcohol = $request->input('alcohol');
+        $paciente->obesidad = $request->input('obesidad');
+        $paciente->tabaco = $request->input('tabaco');
+        $paciente->colesterol = $request->input('colesterol');
+        $paciente->diabetes = $request->input('obesidad');
+        $paciente->hipertencion = $request->input('hipertencion');
+        $paciente->hipotencion = $request->input('hipotencion');
+
+
+        $paciente->activo = false;
+        $paciente->pre_registro = true;
+        $paciente->save();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => 'Pre-registro completado'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//registro
+
     public function preRegistro(Request $request){
 
       /*  $this->validate($request,[

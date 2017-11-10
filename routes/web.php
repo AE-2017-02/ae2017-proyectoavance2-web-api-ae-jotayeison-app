@@ -46,7 +46,7 @@ $router->get('getPreRegistros','PacienteController@getPreRegistros');
 
 $router->post('setEstadoRegistro','PacienteController@estadoRegistro');
 
-$router->post('loginPaciente','PacienteController@loginPaciente');
+$router->get('loginPaciente','PacienteController@loginPaciente');
 
 /*
  *      MENUS
@@ -57,3 +57,5 @@ $router->post('setMenu','MenuController@setMenu');
 $router->post('setAlimento','MenuController@insertAlimento');
 
 $router->get('getAlimentos','MenuController@getAlimentos');
+
+$router->get('getMenus','MenuController@getMenus');
