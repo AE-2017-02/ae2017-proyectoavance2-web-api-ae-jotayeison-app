@@ -47,34 +47,118 @@ class PacienteController extends Controller
         $paciente->telefono = $request->input('telefono')?$request->input('telefono'):"";
         $paciente->fecha_reg = date('Y-m-d');
 
-        $paciente->peso = $request->input('peso');
-        $paciente->peso_habitual = $request->input('peso_habitual');
-        $paciente->altura = $request->input('altura');
-        $paciente->precion_arteria = $request->input('precion_arteria');
-        $paciente->lugar_naci = $request->input('lugar_naci');
-        $paciente->domicilio = $request->input('domicilio');
-        $paciente->alcohol = $request->input('alcohol');
-        $paciente->obesidad = $request->input('obesidad');
-        $paciente->tabaco = $request->input('tabaco');
-        $paciente->colesterol = $request->input('colesterol');
-        $paciente->diabetes = $request->input('obesidad');
-        $paciente->hipertencion = $request->input('hipertencion');
-        $paciente->hipotencion = $request->input('hipotencion');
+        $paciente->peso = $request->input('peso')?$request->input('peso'):0;
+        $paciente->peso_habitual = $request->input('peso_habitual')?$request->input('peso_habitual'):0;
+        $paciente->altura = $request->input('altura')?$request->input('altura'):0;
+        $paciente->precion_arteria = $request->input('precion_arteria')?$request->input('precion_arteria'):0;
+        $paciente->lugar_naci = $request->input('lugar_naci')?$request->input('lugar_naci'):"";
+        $paciente->domicilio = $request->input('domicilio')?$request->input('domicilio'):"";
+        $paciente->alcohol = $request->input('alcohol')?$request->input('alcohol'):false;
+        $paciente->obesidad = $request->input('obesidad')?$request->input('obesidad'):false;
+        $paciente->tabaco = $request->input('tabaco')?$request->input('tabaco'):false;
+        $paciente->colesterol = $request->input('colesterol')?$request->input('colesterol'):false;
+        $paciente->diabetes = $request->input('diabetes')?$request->input('diabetes'):false;
+        $paciente->hipertencion = $request->input('hipertencion')?$request->input('hipertencion'):false;
+        $paciente->hipotencion = $request->input('hipotencion')?$request->input('hipotencion'):false;
+        $paciente->alimentos_unlike = $request->input('alimentos_unlike')?$request->input('alimentos_unlike'):'';
 
+        $paciente->pwd = $request->input('pwd')?md5($request->input('pwd')):md5('');
 
-        $paciente->activo = false;
-        $paciente->pre_registro = true;
+        $paciente->activo = $request->input('activo')?$request->input('activo'):true;
+        $paciente->pre_registro = $request->input('pre_registro')?$request->input('pre_registro'):false;
         $paciente->save();
 
         return response()->json([
             'status' => 'OK',
             'code' => 200,
-            'result' => 'Pre-registro completado'
+            'result' => 'Registro completado'
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
 
     }//registro
+
+    public function updateRegistro(Request $request){
+
+        $this->validate($request,[
+            'id' => 'required'
+        ]);
+        $id = $request->input('id');
+        $paciente = Paciente::find($id);
+        $paciente->nombre = mb_strtoupper($request->input('nombre')?$request->input('nombre'):$paciente->nombre);
+        $paciente->ape_paterno = mb_strtoupper($request->input('ape_paterno')?$request->input('ape_paterno'):$paciente->ape_paterno);
+        $paciente->ape_materno = mb_strtoupper($request->input('ape_materno')?$request->input('ape_materno'):$paciente->ape_materno);
+        $paciente->email = $request->input('email')?$request->input('email'):$paciente->email;
+        $paciente->fecha_naci = $request->input('fecha_naci')?$request->input('fecha_naci'):$paciente->fecha_naci;
+        $paciente->sexo = $request->input('sexo')?$request->input('sexo'):$paciente->sexo;
+        $paciente->meta = $request->input('meta')?$request->input('meta'):$paciente->meta;
+        $paciente->patologias = $request->input('patologias')?$request->input('patologias'):$paciente->patologias;
+        $paciente->alergias = $request->input('alergias')?$request->input('alergias'):$paciente->alergias;
+        $paciente->antibioticos = $request->input('medicamentos')?$request->input('medicamentos') : $paciente->antibioticos;
+        $paciente->telefono = $request->input('telefono')?$request->input('telefono'):$paciente->telefono;
+
+        $paciente->peso = $request->input('peso')?$request->input('peso'):$paciente->peso;
+        $paciente->peso_habitual = $request->input('peso_habitual')?$request->input('peso_habitual'):$paciente->peso_habitual;
+        $paciente->altura = $request->input('altura')?$request->input('altura'):$paciente->altura;
+        $paciente->precion_arteria = $request->input('precion_arteria')?$request->input('precion_arteria'):$paciente->precio_arteria;
+        $paciente->lugar_naci = $request->input('lugar_naci')?$request->input('lugar_naci'):$paciente->lugar_naci;
+        $paciente->domicilio = $request->input('domicilio')?$request->input('domicilio'):$paciente->domicilio;
+        $paciente->alcohol = $request->input('alcohol')?$request->input('alcohol'):$paciente->alcohol;
+        $paciente->obesidad = $request->input('obesidad')?$request->input('obesidad'):$paciente->obesidad;
+        $paciente->tabaco = $request->input('tabaco')?$request->input('tabaco'):$paciente->tabaco;
+        $paciente->colesterol = $request->input('colesterol')?$request->input('colesterol'):$paciente->colesterol;
+        $paciente->diabetes = $request->input('diabetes')?$request->input('diabetes'):$paciente->diabetes;
+        $paciente->hipertencion = $request->input('hipertencion')?$request->input('hipertencion'):$paciente->hipertencion;
+        $paciente->hipotencion = $request->input('hipotencion')?$request->input('hipotencion'):$paciente->hipotencion;
+        $paciente->alimentos_unlike = $request->input('alimentos_unlike')?$request->input('alimentos_unlike'):$paciente->alimentos_unlike;
+
+        $paciente->pwd = $request->input('pwd')?md5($request->input('pwd')):$paciente->pwd;
+
+        $paciente->activo = $request->input('activo')?$request->input('activo'):$paciente->activo;
+        $paciente->pre_registro = $request->input('pre_registro')?$request->input('pre_registro'):$paciente->pre_registro;
+        $paciente->save();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => 'Registro Actualizado'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//updateRegistro
+
+    public function getPaciente(Request $request){
+
+        $this->validate($request,[
+            'id' => 'required'
+        ]);
+        $id = $request->input('id');
+        $paciente = Paciente::find($id);
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $paciente
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//getPaciente
+
+    public function getPacientes(Request $request){
+
+        $pacientes = Paciente::all();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $pacientes
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//getPacientes
 
     public function preRegistro(Request $request){
 
