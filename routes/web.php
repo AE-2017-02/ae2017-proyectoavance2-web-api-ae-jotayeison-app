@@ -46,7 +46,7 @@ $router->get('getPreRegistros','PacienteController@getPreRegistros');
 
 $router->post('setEstadoRegistro','PacienteController@estadoRegistro');
 
-$router->post('loginPaciente','PacienteController@loginPaciente');
+$router->get('loginPaciente','PacienteController@loginPaciente');
 
 /*
  *      MENUS
