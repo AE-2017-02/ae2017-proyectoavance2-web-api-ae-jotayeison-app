@@ -25,7 +25,8 @@ class Alimento extends Model
     protected $fillable = [
         'descripcion',
         'um',
-        'kcal'
+        'kcal',
+        'tipo'
     ];
 
     public $primaryKey = "alimento_id";

@@ -18,6 +18,7 @@ class Alimentos extends Migration
             $table->string('descripcion',50)->nullable();
             $table->string('um',100)->nullable();
             $table->decimal('kcal',18,2)->nullable();
+            $table->string('tipo',30)->nullable();
         });
     }
 
