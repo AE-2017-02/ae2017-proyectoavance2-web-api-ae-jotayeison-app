@@ -294,7 +294,7 @@ class PacienteController extends Controller
         ]);
 
         $paciente = $request->input('paciente_id');
-        $menus = $request->input('menu_id');
+        $menus = $request->input('menus');
         foreach ($menus as $menu ){
             DB::table('det_pac_men')->insert(
                 ['menu_id' => $menu, 'paciente_id' => $paciente]
