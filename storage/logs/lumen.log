@@ -3441,6 +3441,7 @@ Stack trace:
 #13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #14 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #15 {main}  
+<<<<<<< HEAD
 [2017-11-10 02:54:31] lumen.ERROR: PDOException: SQLSTATE[2BP01]: Dependent objects still exist: 7 ERROR:  cannot drop table alimentos because other objects depend on it
 DETAIL:  constraint det_ing_ali_alimento_id_foreign on table det_ing_ali depends on table alimentos
 HINT:  Use DROP ... CASCADE to drop the dependent objects too. in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:458
@@ -3510,3 +3511,27 @@ Stack trace:
 #26 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #27 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #28 {main}  
+=======
+[2017-11-10 03:36:59] lumen.ERROR: ErrorException: Missing argument 1 for Illuminate\Database\Eloquent\Builder::find(), called in /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Model.php on line 1417 and defined in /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Builder.php:283
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Builder.php(283): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'Missing argumen...', '/var/www/html/n...', 283, Array)
+#1 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Model.php(1417): Illuminate\Database\Eloquent\Builder->find()
+#2 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Model.php(1434): Illuminate\Database\Eloquent\Model->__call('find', Array)
+#3 /var/www/html/nutriservices/app/Http/Controllers/MenuController.php(100): Illuminate\Database\Eloquent\Model::__callStatic('find', Array)
+#4 [internal function]: App\Http\Controllers\MenuController->getAlimentos()
+#5 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#6 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#7 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#8 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#9 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getAlimentos', Array)
+#12 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#15 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#16 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#18 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#19 {main}  
+>>>>>>> 02e7f1ada46055fa3a6313f3a80b890c5d18e8c8

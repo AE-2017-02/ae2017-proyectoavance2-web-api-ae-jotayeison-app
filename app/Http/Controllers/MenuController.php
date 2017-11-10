@@ -10,7 +10,6 @@ namespace App\Http\Controllers;
 
 use App\Menu;
 use App\Alimento;
-use App\DetAliMen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -64,6 +63,45 @@ class MenuController extends Controller
             'status' => 'OK',
             'code' => 200,
             'result' => $menus
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+    }
+
+
+    /*
+     * ALIMENTOS CRUD
+     * */
+
+    public function insertAlimento(Request $request){
+        $this->validate($request,[
+            'descripcion' => 'required',
+            'um' => 'required',
+            'kcal' => 'required'
+        ]);
+
+        $ali = new Alimento;
+        $ali->descripcion = $request->input('descripcion');
+        $ali->um = $request->input('um');
+        $ali->kcal = $request->input('kcal');
+        $ali->save();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => 'Se creo correctamente'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//insertAlimento
+
+    public function getAlimentos(){
+        $alimentos = Alimento::all  ();
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $alimentos
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
