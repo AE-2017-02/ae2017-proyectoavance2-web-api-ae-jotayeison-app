@@ -122,7 +122,31 @@ class MenuController extends Controller
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
-    }
+    }//get alimentos
+
+    public function getAlimentosByMenu(Request $request){
+        $this->validate($request,[
+           'id' => 'required'
+        ]);
+
+        $id = $request->input('id');
+
+        $alimentos = DB::table('menus')
+            ->join('det_ali_men', 'det_ali_men.menu_id', '=', 'menus.menu_id')
+            ->join('alimentos','alimentos.alimento_id','=','det_ali_men.alimento_id')
+            ->select('alimentos.alimento_id','alimentos.descripcion', 'alimentos.um', 'alimentos.kcal','alimentos.tipo')
+            ->where('menus.menu_id',$id)
+            ->get()->toArray();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $alimentos
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//get alimentos by Menu
 
 
 }//

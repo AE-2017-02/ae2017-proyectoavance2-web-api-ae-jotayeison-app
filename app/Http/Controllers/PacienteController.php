@@ -266,5 +266,88 @@ class PacienteController extends Controller
             ->header('Content-Type', 'application/json');
     }//loginPaciente
 
+    public function eliminarPreRegistro(Request $request){
+        $this->validate($request,['id' => 'required']);
+        $id = $request->input('id');
+        $paciente = Paciente::find($id);
+        $paciente->delete();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => "Se elimino el pre-registro"
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//eliminarPreRegistro , elimina el registro por completo
+
+    /*
+     *  menu
+     * */
+
+    public function setMenus(Request $request){
+
+        $this->validate($request,[
+            'menus' => 'required|array',
+            'paciente_id' => 'required'
+        ]);
+
+        $paciente = $request->input('paciente_id');
+        $menus = $request->input('menu_id');
+        foreach ($menus as $menu ){
+            DB::table('det_pac_men')->insert(
+                ['menu_id' => $menu, 'paciente_id' => $paciente]
+            );
+        }
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => "Se asigno menu"
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//set menu
+
+
+    public function getMenus(Request $request){
+        $this->validate($request,[
+            'id' => 'required'
+        ]);
+
+        $paciente = $request->input('id');
+
+        $menus = DB::table('pacientes')
+            ->join('det_pac_men', 'det_pac_men.paciente_id', '=', 'pacientes.paciente_id')
+            ->join('menus','menus.menu_id','=','det_pac_men.menu_id')
+            ->select('menus.*')
+            ->where('pacientes.paciente_id',$paciente)
+            ->get()->toArray();
+
+        $menu_paciente  = array();
+        foreach ($menus as $menu){
+            $id = $menu['menu_id'];
+
+            $alimentos = DB::table('menus')
+                ->join('det_ali_men', 'det_ali_men.menu_id', '=', 'menus.menu_id')
+                ->join('alimentos','alimentos.alimento_id','=','det_ali_men.alimento_id')
+                ->select('alimentos.alimento_id','alimentos.descripcion', 'alimentos.um', 'alimentos.kcal','alimentos.tipo')
+                ->where('menus.menu_id',$id)
+                ->get()->toArray();
+
+            $menu['alimentos'] = $alimentos;
+            $menu_paciente[] = $menu;
+        }
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $menu_paciente
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//get Menus
 
 }//PacienteController
