@@ -28,7 +28,7 @@ $router->get('/', function () use ($router) {
 
 */
 
-$router->get('login','ConfiguracionController@login');
+$router->post('login','ConfiguracionController@login');
 
 $router->post('setConfig','ConfiguracionController@setConfig');
 
@@ -46,4 +46,10 @@ $router->get('getPreRegistros','PacienteController@getPreRegistros');
 
 $router->post('setEstadoRegistro','PacienteController@estadoRegistro');
 
-$router->get('loginPaciente','PacienteController@loginPaciente');
+$router->post('loginPaciente','PacienteController@loginPaciente');
+
+/*
+ *      MENUS
+ * */
+
+$router->post('setMenu','MenuController@setMenu');

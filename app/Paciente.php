@@ -48,7 +48,8 @@ class Paciente extends Model
         'alimentos_unlike',
         'pwd',
         'fecha_reg',
-        'activo'
+        'activo',
+        'pre_registro'
     ];
 
     public $primaryKey = "paciente_id";

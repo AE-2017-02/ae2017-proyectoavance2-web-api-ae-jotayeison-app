@@ -43,6 +43,7 @@ class Pacientes extends Migration
             $table->string('pwd',500)->nullable();
             $table->date('fecha_reg')->nullable();
             $table->boolean('activo')->nullable();
+            $table->boolean('pre_registro')->nullable();
 
         });
     }

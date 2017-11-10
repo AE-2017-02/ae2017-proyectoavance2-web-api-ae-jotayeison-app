@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use App\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Validator;
 
 class PacienteController extends Controller
 {
@@ -21,6 +22,7 @@ class PacienteController extends Controller
      * @return Response
      */
     public function preRegistro(Request $request){
+
         $this->validate($request,[
             'nombre' => 'required',
             'ape_paterno' => 'required',
@@ -44,6 +46,7 @@ class PacienteController extends Controller
         $paciente->telefono = $request->input('telefono')?$request->input('telefono'):"";
         $paciente->fecha_reg = date('Y-m-d');
         $paciente->activo = false;
+        $paciente->pre_registro = true;
         $paciente->save();
 
         return response()->json([
@@ -58,7 +61,7 @@ class PacienteController extends Controller
 
 
     public function getPreRegistros(){
-        $prereg = Paciente::where('activo',false)->get();
+        $prereg = Paciente::where('pre_registro',true)->get();
         return response()->json([
             'status' => 'OK',
             'code' => 200,
@@ -74,13 +77,21 @@ class PacienteController extends Controller
             'id' => 'required|numeric',
             'estado' => 'required|boolean'
         ]);
+
         $id = $request->input('id');
         $estado = $request->input('estado');
         $paciente = Paciente::find($id);
-        $paciente->activo = $estado;
+        if($estado == 1){
+            $paciente->pre_registro = false;
+            $paciente->activo = true;
+        }else{
+            $paciente->pre_registro = true;
+            $paciente->activo = false;
+        }
 
-        if ($estado == 1){
-            //enviamos correo con contrasela y despues guardamos
+        if($estado == 1 && empty($paciente->pwd)){
+            $pwd = $request->input('pwd')?$request->input('pwd'):"";
+            $paciente->pwd = md5($pwd);
         }
 
         $paciente->save();
@@ -101,9 +112,10 @@ class PacienteController extends Controller
         ]);
         $email = $request->input('email');
         $pwd = $request->input('pwd');
-        $login = DB::table('pacientes')->select('email')->where([
+        $login = DB::table('pacientes')->select('paciente_id','nombre','ape_paterno','ape_materno','email')->where([
             ['email' , '=' , $email] ,
-            ['pwd','=',md5($pwd)]
+            ['pwd','=',md5($pwd)],
+            ['activo','=',true]
         ])->get();
 
         return response()->json([
