@@ -77,13 +77,15 @@ class MenuController extends Controller
         $this->validate($request,[
             'descripcion' => 'required',
             'um' => 'required',
-            'kcal' => 'required'
+            'kcal' => 'required',
+            'tipo' => 'required'
         ]);
 
         $ali = new Alimento;
         $ali->descripcion = $request->input('descripcion');
         $ali->um = $request->input('um');
         $ali->kcal = $request->input('kcal');
+        $ali->tipo = $request->input('tipo');
         $ali->save();
 
         return response()->json([
