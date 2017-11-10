@@ -28,7 +28,7 @@ class PacienteController extends Controller
               'nombre' => 'required',
               'ape_paterno' => 'required',
               'ape_materno' => 'required',
-              'email' => 'required|email|unique:pacientes',
+              'email' => 'required',
               'fecha_naci' => 'required',
               'sexo' => 'required|max:1',
           ]);
