@@ -53,3 +53,7 @@ $router->post('loginPaciente','PacienteController@loginPaciente');
  * */
 
 $router->post('setMenu','MenuController@setMenu');
+
+$router->post('setAlimento','MenuController@insertAlimento');
+
+$router->get('getAlimentos','MenuController@getAlimentos');
