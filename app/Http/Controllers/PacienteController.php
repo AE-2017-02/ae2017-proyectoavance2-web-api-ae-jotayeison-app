@@ -162,14 +162,14 @@ class PacienteController extends Controller
 
     public function preRegistro(Request $request){
 
-      /*  $this->validate($request,[
+      $this->validate($request,[
             'nombre' => 'required',
             'ape_paterno' => 'required',
             'ape_materno' => 'required',
             'email' => 'required|email|unique:pacientes',
             'fecha_naci' => 'required',
             'sexo' => 'required|max:1',
-        ]);*/
+        ]);
 
         $paciente = new Paciente;
         $paciente->nombre = mb_strtoupper($request->input('nombre'));
@@ -282,6 +282,16 @@ class PacienteController extends Controller
 
     }//eliminarPreRegistro , elimina el registro por completo
 
+    public function estadoPaciente(Request $request){
+        $this->validate($request,[
+            'id' => 'required',
+            'estatus' => 'required:boolean'
+        ]);
+        $id = $request->input('id');
+        $estatus = $request->input('estatus');
+        $paciente = Paciente::find($id);
+        $paciente->activo = $estatus;
+    }//estado paciente
     /*
      *  menu
      * */

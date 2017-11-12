@@ -83,6 +83,64 @@ class MenuController extends Controller
             ->header('Content-Type', 'application/json');
     }
 
+    public function actualizarMenu(Request $request){
+        $this->validate($request,[
+            'id' => 'required',
+            'alimentos' => 'array'
+        ]);
+
+        $id = $request->input('id');
+
+        $menu = Menu::find($id);
+        $menu->nombre = $request->input('nombre')?$request->input('nombre'):$menu->nombre;
+        $menu->kcal = $request->input('kcal')?$request->input('kcal'):$menu->nombre;
+        $menu->save();
+
+        if ($request->input('alimentos')){
+            $alimentos = $request->input('alimentos');
+            foreach ($alimentos as $ali){
+                DB::table('det_ali_men')->insert(
+                    ['alimento_id' => $ali, 'menu_id' => $id]
+                );
+            }
+        }
+
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => 'Se actualizo correctamente'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//actualizarMenu
+
+
+    public function eliminarMenu(Request $request){
+        $this->validate($request,[
+            'id' => 'required'
+        ]);
+
+        $id = $request->input('id');
+        DB::table('det_ali_men')->where('menu_id', '=', $id)->delete();
+
+        $menu = Menu::find($id);
+        $menu->delete();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => 'Se elimino correctamente'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+
+    }//eliminar Alimento
+
+
+
 
     /*
      * ALIMENTOS CRUD
@@ -113,6 +171,30 @@ class MenuController extends Controller
 
     }//insertAlimento
 
+    public function actualizarAlimento(Request $request){
+        $this->validate($request,[
+            'id' => 'required'
+        ]);
+
+        $id = $request->input('id');
+
+        $ali = Alimento::find($id);
+        $ali->descripcion = $request->input('descripcion')?$request->input('descripcion'):$ali->descripcion;
+        $ali->um = $request->input('um')?$request->input('um'):$ali->um;
+        $ali->kcal = $request->input('kcal')?$request->input('kcal'):$ali->kcal;
+        $ali->tipo = $request->input('tipo')?$request->input('tipo'):$ali->tipo;
+        $ali->save();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => 'Se actualizo correctamente'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//actualizarAlimento
+
     public function getAlimentos(){
         $alimentos = Alimento::all  ();
         return response()->json([
@@ -124,7 +206,7 @@ class MenuController extends Controller
             ->header('Content-Type', 'application/json');
     }//get alimentos
 
-    public function getAlimentosByMenu(Request $request){
+        public function getAlimentosByMenu(Request $request){
         $this->validate($request,[
            'id' => 'required'
         ]);
@@ -147,6 +229,28 @@ class MenuController extends Controller
             ->header('Content-Type', 'application/json');
 
     }//get alimentos by Menu
+
+    public function eliminarAlimento(Request $request){
+            $this->validate($request,[
+                'id' => 'required'
+            ]);
+
+            $id = $request->input('id');
+            DB::table('det_ali_men')->where('alimento_id', '=', $id)->delete();
+
+            $alimento = Alimento::find($id);
+            $alimento->delete();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => 'Se elimino correctamente'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+
+    }//eliminar Alimento
 
 
 }//
