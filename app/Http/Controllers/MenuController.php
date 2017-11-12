@@ -179,19 +179,32 @@ class MenuController extends Controller
         $id = $request->input('id');
 
         $ali = Alimento::find($id);
-        $ali->descripcion = $request->input('descripcion')?$request->input('descripcion'):$ali->descripcion;
-        $ali->um = $request->input('um')?$request->input('um'):$ali->um;
-        $ali->kcal = $request->input('kcal')?$request->input('kcal'):$ali->kcal;
-        $ali->tipo = $request->input('tipo')?$request->input('tipo'):$ali->tipo;
-        $ali->save();
+        if ($ali){
+            $ali->descripcion = $request->input('descripcion')?$request->input('descripcion'):$ali->descripcion;
+            $ali->um = $request->input('um')?$request->input('um'):$ali->um;
+            $ali->kcal = $request->input('kcal')?$request->input('kcal'):$ali->kcal;
+            $ali->tipo = $request->input('tipo')?$request->input('tipo'):$ali->tipo;
+            $ali->save();
 
-        return response()->json([
-            'status' => 'OK',
-            'code' => 200,
-            'result' => 'Se actualizo correctamente'
-        ],200)
-            ->header('Access-Control-Allow-Origin','*')
-            ->header('Content-Type', 'application/json');
+            return response()->json([
+                'status' => 'OK',
+                'code' => 200,
+                'result' => 'Se actualizo correctamente'
+            ],200)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
+        }else{
+            return response()->json([
+                'status' => 'OK',
+                'code' => 200,
+                'result' => 'No actualizo, no existe el alimento especificado'
+            ],200)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
+        }
+
+
+
 
     }//actualizarAlimento
 

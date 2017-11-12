@@ -291,7 +291,18 @@ class PacienteController extends Controller
         $estatus = $request->input('estatus');
         $paciente = Paciente::find($id);
         $paciente->activo = $estatus;
+        $paciente->save();
+        
+         return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => "Se actualizo el estatus del paciente"
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+        
     }//estado paciente
+    
     /*
      *  menu
      * */

@@ -3649,4 +3649,26 @@ Stack trace:
 #14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
+<<<<<<< HEAD
 >>>>>>> 55ad05e221576708d44ba1726023bb7bbdf587a1
+=======
+[2017-11-12 06:28:04] lumen.ERROR: ErrorException: Creating default object from empty value in /var/www/html/nutriservices/app/Http/Controllers/MenuController.php:182
+Stack trace:
+#0 /var/www/html/nutriservices/app/Http/Controllers/MenuController.php(182): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'Creating defaul...', '/var/www/html/n...', 182, Array)
+#1 [internal function]: App\Http\Controllers\MenuController->actualizarAlimento(Object(Illuminate\Http\Request))
+#2 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'actualizarAlime...', Array)
+#9 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+>>>>>>> 3037bfe76d6a0286e5bd9c23b5b29bbf33b5569d
