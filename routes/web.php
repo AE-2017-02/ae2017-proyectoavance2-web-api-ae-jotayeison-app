@@ -62,6 +62,7 @@ $router->get('getMenusPaciente','PacienteController@getMenus');
 
 $router->post('deletePreRegistro','PacienteController@eliminarPreRegistro');
 
+$router->post('setEstatusPaciente','PacienteController@estadoPaciente');
 /*
  *      MENUS
  * */
@@ -69,6 +70,14 @@ $router->post('deletePreRegistro','PacienteController@eliminarPreRegistro');
 $router->post('setMenu','MenuController@setMenu');
 
 $router->post('setAlimento','MenuController@insertAlimento');
+
+$router->post('deleteMenu','MenuController@eliminarMenu');
+
+$router->post('deleteAlimento','MenuController@eliminarAlimento');
+
+$router->post('updateAlimento','MenuController@actualizarAlimento');
+
+$router->post('updateMenu','MenuController@actualizarMenu');
 
 $router->get('getAlimentos','MenuController@getAlimentos');
 
