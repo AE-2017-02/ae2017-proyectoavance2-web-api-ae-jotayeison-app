@@ -148,7 +148,7 @@ class PacienteController extends Controller
 
     public function getPacientes(Request $request){
 
-        $pacientes = Paciente::orderBy('activo')->get();
+        $pacientes = Paciente::orderBy('activo','desc')->get();
 
         return response()->json([
             'status' => 'OK',
