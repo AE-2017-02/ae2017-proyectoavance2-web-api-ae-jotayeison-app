@@ -17,9 +17,6 @@ class Avisos extends Migration
             $table->increments('aviso_id');
             $table->string('asunto',140);
             $table->string('mensaje',500);
-            $table->integer('tipo')->nullable();;
-            $table->integer('paciente_id')->nullable();;
-            $table->foreign('paciente_id')->references('paciente_id')->on('pacientes');
         });
     }
 

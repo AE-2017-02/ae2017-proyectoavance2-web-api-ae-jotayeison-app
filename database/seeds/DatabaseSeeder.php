@@ -15,5 +15,87 @@ class DatabaseSeeder extends Seeder
             'usuario' => 'admin',
             'pwd' => md5('admin')
         ]);
+
+        DB::table('pacientes')->insert([
+            ['nombre' => 'Alan',
+                'ape_paterno' => 'Ibarra',
+                'ape_materno' => 'Lopez',
+                'fecha_naci' => '1994-09-18',
+                'email'=>'alanibarralop@gmail.com',
+                'sexo' => 'm' ,'meta' => 'bajar peso',
+                'patologias' =>'ninguna',
+                'alergias'=>'ninguna',
+                'antibioticos'=>'ninguna',
+                'telefono'=>'3118472056',
+                'fecha_reg'=>'2017-11-16',
+                'activo'=>false,
+                'pre_registro'=>'true'],
+
+            ['nombre' => 'Luis',
+                'ape_paterno' => 'Luna',
+                'ape_materno' => 'Padilla',
+                'fecha_naci' => '1994-11-18',
+                'email'=>'lunapap@gmail.com',
+                'sexo' => 'm' ,'meta' => 'bajar peso',
+                'patologias' =>'ninguna',
+                'alergias'=>'ninguna',
+                'antibioticos'=>'ninguna',
+                'telefono'=>'31184232056',
+                'fecha_reg'=>'2017-11-16',
+                'activo'=>false,
+                'pre_registro'=>'true'],
+
+            ['nombre' => 'Salvador',
+                'ape_paterno' => 'Gonzalez',
+                'ape_materno' => 'Llamas',
+                'fecha_naci' => '1995-01-01',
+                'email'=>'sagonzalez@gmail.com',
+                'sexo' => 'm' ,'meta' => 'bajar peso',
+                'patologias' =>'ninguna',
+                'alergias'=>'ninguna',
+                'antibioticos'=>'ninguna',
+                'telefono'=>'311232356',
+                'fecha_reg'=>'2017-11-16',
+                'activo'=>false,
+                'pre_registro'=>'true'],
+
+            ['nombre' => 'Citlali',
+                'ape_paterno' => 'Sandoval',
+                'ape_materno' => 'Ledezma',
+                'fecha_naci' => '1995-05-23',
+                'email'=>'cisandovalle@gmail.com',
+                'sexo' => 'm' ,'meta' => 'bajar peso',
+                'patologias' =>'ninguna',
+                'alergias'=>'ninguna',
+                'antibioticos'=>'ninguna',
+                'telefono'=>'311232323',
+                'fecha_reg'=>'2017-11-16',
+                'activo'=>false,
+                'pre_registro'=>'true'],
+
+            ['nombre' => 'Celeste',
+                'ape_paterno' => 'Garcia',
+                'ape_materno' => 'Diaz',
+                'fecha_naci' => '1995-03-01',
+                'email'=>'celeste@gmail.com',
+                'sexo' => 'm' ,'meta' => 'bajar peso',
+                'patologias' =>'ninguna',
+                'alergias'=>'ninguna',
+                'antibioticos'=>'ninguna',
+                'telefono'=>'312332356',
+                'fecha_reg'=>'2017-11-16',
+                'activo'=>false,
+                'pre_registro'=>'true']
+        ]);
+
+        DB::table('alimentos')->insert([
+            ['descripcion'=>'Pescado frito','um'=>'dos filetes','kcal' => 23,'tipo'=>'Desayuno'],
+            ['descripcion'=>'Sopa de verduras','um'=>'medio litro','kcal' =>23,'tipo'=>'Desayuno'],
+            ['descripcion'=>'Carne asada','um'=>'dos filetes','kcal' =>23,'tipo'=>'Comida'],
+            ['descripcion'=>'Cereal','um'=>'una taza de leche','kcal' =>23,'tipo'=>'Cena'],
+            ['descripcion'=>'Yogurth','um'=>'una taza','kcal' =>23, 'tipo'=>'Cena']
+        ]);
+
+
     }
 }
