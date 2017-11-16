@@ -13,13 +13,12 @@ class Consultas extends Migration
      */
     public function up()
     {
-        Schema::create('consultas', function (Blueprint $table) {
-            $table->increments('consulta_id');
-            $table->time('hora')->nullable();;
-            $table->date('date')->nullable();;
-            $table->date('cancelada')->nullable();;
-            $table->string('motivo',150)->nullable();;
-            $table->integer('paciente_id')->nullable();;
+        Schema::create('citas', function (Blueprint $table) {
+            $table->increments('citas_id');
+            $table->timestamp('fec_hor');
+            $table->date('cancelada')->nullable();
+            $table->string('motivo',150)->nullable();
+            $table->integer('paciente_id')->nullable();
             $table->foreign('paciente_id')->references('paciente_id')->on('pacientes');
         });
 
@@ -32,6 +31,6 @@ class Consultas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('consultas');
+        Schema::dropIfExists('citas');
     }
 }
