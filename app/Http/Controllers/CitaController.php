@@ -99,7 +99,7 @@ class CitaController extends Controller
         $cita = Cita::find($id);
         $cita->fec_hor = $request->input('fecha')?$request->input('fecha'):$cita->fec_hor;
         $cita->status = $request->input('status')?$request->input('status'):$cita->status;
-        $cita->motivo = $request->input('motivo')?$request->input('status'):$cita->motivo;
+        $cita->motivo = $request->input('motivo')?$request->input('motivo'):$cita->motivo;
         $cita->save();
 
 
