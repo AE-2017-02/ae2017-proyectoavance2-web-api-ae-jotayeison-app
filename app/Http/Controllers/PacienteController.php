@@ -149,10 +149,10 @@ class PacienteController extends Controller
     public function getPacientes(Request $request){
 
         $pacientes = null;
-        if($request->input('activos')){
-            $pacientes = Paciente::where('activo',true)->get();
+        if($request->input('inactivos')){
+            $pacientes = Paciente::where([['activo',true],['pre_registro',false]])->get();
         }else{
-            $pacientes = Paciente::orderBy('activo','desc')->get();
+            $pacientes = Paciente::where('activo',true)->get();
         }
 
         return response()->json([
