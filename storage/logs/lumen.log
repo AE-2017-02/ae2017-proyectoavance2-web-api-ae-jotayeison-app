@@ -3881,4 +3881,95 @@ Stack trace:
 #26 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #27 /var/www/html/nutriservices/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #28 {main}  
+<<<<<<< HEAD
 >>>>>>> 168646fbcb396a919eeb8d816c61de1d1b2517c3
+=======
+[2017-11-18 20:31:57] lumen.ERROR: PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "cita_id" does not exist
+LINE 1: ...fec_hor", "paciente_id") values ($1, $2) returning "cita_id"
+                                                              ^
+HINT:  Perhaps you meant to reference the column "citas.citas_id". in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('insert into "ci...', Array)
+#2 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('insert into "ci...', Array, Object(Closure))
+#3 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('insert into "ci...', Array, Object(Closure))
+#4 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(304): Illuminate\Database\Connection->select('insert into "ci...', Array, false)
+#5 /var/www/html/nutriservices/vendor/illuminate/database/Query/Processors/PostgresProcessor.php(20): Illuminate\Database\Connection->selectFromWriteConnection('insert into "ci...', Array)
+#6 /var/www/html/nutriservices/vendor/illuminate/database/Query/Builder.php(2135): Illuminate\Database\Query\Processors\PostgresProcessor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into "ci...', Array, 'cita_id')
+#7 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Builder.php(1270): Illuminate\Database\Query\Builder->insertGetId(Array, 'cita_id')
+#8 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Model.php(708): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#9 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Model.php(673): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#10 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Model.php(536): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#11 /var/www/html/nutriservices/app/Http/Controllers/CitaController.php(34): Illuminate\Database\Eloquent\Model->save()
+#12 [internal function]: App\Http\Controllers\CitaController->insert(Object(Illuminate\Http\Request))
+#13 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#14 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#15 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#16 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#18 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#19 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\CitaController), 'insert', Array)
+#20 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#21 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#22 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#23 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#24 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#25 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#26 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#27 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "cita_id" does not exist
+LINE 1: ...fec_hor", "paciente_id") values ($1, $2) returning "cita_id"
+                                                              ^
+HINT:  Perhaps you meant to reference the column "citas.citas_id". (SQL: insert into "citas" ("fec_hor", "paciente_id") values (2017-11-20, 1) returning "cita_id") in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('insert into "ci...', Array, Object(Closure))
+#1 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('insert into "ci...', Array, Object(Closure))
+#2 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(304): Illuminate\Database\Connection->select('insert into "ci...', Array, false)
+#3 /var/www/html/nutriservices/vendor/illuminate/database/Query/Processors/PostgresProcessor.php(20): Illuminate\Database\Connection->selectFromWriteConnection('insert into "ci...', Array)
+#4 /var/www/html/nutriservices/vendor/illuminate/database/Query/Builder.php(2135): Illuminate\Database\Query\Processors\PostgresProcessor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into "ci...', Array, 'cita_id')
+#5 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Builder.php(1270): Illuminate\Database\Query\Builder->insertGetId(Array, 'cita_id')
+#6 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Model.php(708): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#7 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Model.php(673): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#8 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Model.php(536): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#9 /var/www/html/nutriservices/app/Http/Controllers/CitaController.php(34): Illuminate\Database\Eloquent\Model->save()
+#10 [internal function]: App\Http\Controllers\CitaController->insert(Object(Illuminate\Http\Request))
+#11 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#12 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#13 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#14 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#15 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#16 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\CitaController), 'insert', Array)
+#18 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#19 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#20 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#21 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#22 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#23 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#24 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#25 {main}  
+[2017-11-18 20:33:47] lumen.ERROR: BadMethodCallException: Method [validateRequirede] does not exist. in /var/www/html/nutriservices/vendor/illuminate/validation/Validator.php:1140
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/illuminate/validation/Validator.php(359): Illuminate\Validation\Validator->__call('validateRequire...', Array)
+#1 /var/www/html/nutriservices/vendor/illuminate/validation/Validator.php(268): Illuminate\Validation\Validator->validateAttribute('id', 'Requirede')
+#2 /var/www/html/nutriservices/vendor/illuminate/validation/Validator.php(293): Illuminate\Validation\Validator->passes()
+#3 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/ProvidesConvenienceMethods.php(63): Illuminate\Validation\Validator->fails()
+#4 /var/www/html/nutriservices/app/Http/Controllers/CitaController.php(66): Laravel\Lumen\Routing\Controller->validate(Object(Illuminate\Http\Request), Array)
+#5 [internal function]: App\Http\Controllers\CitaController->cancel(Object(Illuminate\Http\Request))
+#6 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\CitaController), 'cancel', Array)
+#13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+>>>>>>> f00192f8d8ba76082b4c1d8c05a53a650850d12e
