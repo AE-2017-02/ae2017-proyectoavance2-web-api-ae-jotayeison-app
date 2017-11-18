@@ -14,9 +14,9 @@ class Consultas extends Migration
     public function up()
     {
         Schema::create('citas', function (Blueprint $table) {
-            $table->increments('citas_id');
+            $table->increments('cita_id');
             $table->timestamp('fec_hor');
-            $table->date('cancelada')->nullable();
+            $table->smallInteger('status')->nullable();
             $table->string('motivo',150)->nullable();
             $table->integer('paciente_id')->nullable();
             $table->foreign('paciente_id')->references('paciente_id')->on('pacientes');
