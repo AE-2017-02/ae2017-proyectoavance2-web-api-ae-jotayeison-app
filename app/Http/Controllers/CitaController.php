@@ -51,12 +51,15 @@ class CitaController extends Controller
         if($request->input('status')){
             $status = $request->input('status');
             $citas = DB::table('citas')
+                ->join('pacientes','citas.paciente_id','=','pacientes.paciente_id')
                 ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
-                ->join('pacientes','citas.paciente_id','=','citas.paciente_id')
                 ->where('status',$status)
                 ->orderBy('fec_hor','desc')->get();
         }else{
-            $citas = Cita::all();
+            $citas = DB::table('citas')
+                ->join('pacientes','citas.paciente_id','=','pacientes.paciente_id')
+                ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
+                ->get();
         }
 
         return response()->json([
@@ -135,7 +138,7 @@ class CitaController extends Controller
         //$citas = Cita::whereBetween('fec_hor',[$f1,$f2])->get();
         $citas = DB::table('citas')
             ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
-            ->join('pacientes','citas.paciente_id','=','citas.paciente_id')
+            ->join('pacientes','citas.paciente_id','=','pacientes.paciente_id')
             ->whereBetween('fec_hor',[$f1,$f2])->get();
         return response()->json([
             'status' => 'OK',
