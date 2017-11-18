@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Cita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CitaController extends Controller
 {
@@ -46,8 +47,12 @@ class CitaController extends Controller
     public function getCitas(Request $request){
         $this->validate($request,['status'=>'required']);
         $status = $request->input('status');
-        $citas = Cita::where('status',$status)->orderBy('fec_hor','desc')->get();
-
+        //$citas = Cita::join()->where('status',$status)->orderBy('fec_hor','desc')->get();
+        $citas = DB::table('citas')
+            ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
+            ->join('pacientes','citas.paciente_id','=','citas.paciente_id')
+            ->where('status',$status)
+            ->orderBy('fec_hor','desc')->get();
         return response()->json([
             'status' => 'OK',
             'code' => 200,
@@ -121,7 +126,11 @@ class CitaController extends Controller
         $request->validate($request,['fecha1'=>'required','fecha2'=>'required']);
         $f1 = $request->input('fecha1');
         $f2 = $request->input('fecha2');
-        $citas = Cita::whereBetween('fec_hor',[$f1,$f2])->get();
+        //$citas = Cita::whereBetween('fec_hor',[$f1,$f2])->get();
+        $citas = DB::table('citas')
+            ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
+            ->join('pacientes','citas.paciente_id','=','citas.paciente_id')
+            ->whereBetween('fec_hor',[$f1,$f2])->get();
         return response()->json([
             'status' => 'OK',
             'code' => 200,
