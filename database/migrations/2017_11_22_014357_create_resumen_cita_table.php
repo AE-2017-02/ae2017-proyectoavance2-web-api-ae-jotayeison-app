@@ -13,7 +13,7 @@ class CreateResumenCitaTable extends Migration
      */
     public function up()
     {
-        Schema::create('resumen_cita', function (Blueprint $table) {
+        Schema::create('resumen_citas', function (Blueprint $table) {
             $table->increments('resumen_cita_id');
             $table->decimal('braso',18,2)->nullable();
             $table->decimal('bcontraido',18,2)->nullable();
@@ -46,6 +46,6 @@ class CreateResumenCitaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resumen_cita');
+        Schema::dropIfExists('resumen_citas');
     }
 }

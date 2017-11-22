@@ -4609,3 +4609,66 @@ Stack trace:
 #26 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Console\Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #27 C:\Users\jorge\lumen\AE2017-BACKEND\artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #28 {main}  
+[2017-11-22 02:00:06] lumen.ERROR: PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  no existe la relación «resumen_citas»
+LINE 1: insert into "resumen_citas" ("braso", "bcontraido", "cintura...
+                    ^ in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:330
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(330): PDOStatement->execute()
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('insert into "re...', Array)
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('insert into "re...', Array, Object(Closure))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('insert into "re...', Array, Object(Closure))
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(304): Illuminate\Database\Connection->select('insert into "re...', Array, false)
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Processors\PostgresProcessor.php(20): Illuminate\Database\Connection->selectFromWriteConnection('insert into "re...', Array)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(2135): Illuminate\Database\Query\Processors\PostgresProcessor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into "re...', Array, 'resumen_cita_id')
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Eloquent\Builder.php(1270): Illuminate\Database\Query\Builder->insertGetId(Array, 'resumen_cita_id')
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Eloquent\Model.php(708): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Eloquent\Model.php(673): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Eloquent\Model.php(536): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ResumenCitaController.php(91): Illuminate\Database\Eloquent\Model->save()
+#12 [internal function]: App\Http\Controllers\ResumenCitaController->insert(Object(Illuminate\Http\Request))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#19 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\ResumenCitaController), 'insert', Array)
+#20 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#21 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#22 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#23 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#24 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#25 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#26 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#27 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  no existe la relación «resumen_citas»
+LINE 1: insert into "resumen_citas" ("braso", "bcontraido", "cintura...
+                    ^ (SQL: insert into "resumen_citas" ("braso", "bcontraido", "cintura", "muslo", "cadera", "pantorrilla", "muneca", "tricipal", "sespinale", "sescapular", "abdominal", "bicipital", "pmuslo", "sliaco", "pliegues4", "pliegues8", "tipodieta", "observacion", "ppantorrillas", "paciente_id", "cita_id") values (16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 1, 0, 1, nada, 2, 1, 3) returning "resumen_cita_id") in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:664
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('insert into "re...', Array, Object(Closure))
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('insert into "re...', Array, Object(Closure))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(304): Illuminate\Database\Connection->select('insert into "re...', Array, false)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Processors\PostgresProcessor.php(20): Illuminate\Database\Connection->selectFromWriteConnection('insert into "re...', Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(2135): Illuminate\Database\Query\Processors\PostgresProcessor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into "re...', Array, 'resumen_cita_id')
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Eloquent\Builder.php(1270): Illuminate\Database\Query\Builder->insertGetId(Array, 'resumen_cita_id')
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Eloquent\Model.php(708): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Eloquent\Model.php(673): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Eloquent\Model.php(536): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ResumenCitaController.php(91): Illuminate\Database\Eloquent\Model->save()
+#10 [internal function]: App\Http\Controllers\ResumenCitaController->insert(Object(Illuminate\Http\Request))
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\ResumenCitaController), 'insert', Array)
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#19 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#20 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#21 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#22 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#23 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#24 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#25 {main}  
