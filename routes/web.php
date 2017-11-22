@@ -68,3 +68,9 @@ $router->post('insertCita','CitaController@insert');
 $router->post('cancelCita','CitaController@cancel');
 $router->post('updateCita','CitaController@update');
 $router->post('deleteCita','CitaController@delete');
+
+/**
+ * RESUMEN CITAS
+ */
+$router->get('getResumenCitas','ResumenCitaController@getResumenCitas');
+$router->post('insertResumenCita','ResumenCitaController@insert');
