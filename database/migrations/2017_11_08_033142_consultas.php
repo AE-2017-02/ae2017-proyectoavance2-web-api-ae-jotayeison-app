@@ -15,7 +15,8 @@ class Consultas extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->increments('cita_id');
-            $table->timestamp('fec_hor');
+            $table->date('fecha');
+            $table->time('hora');
             $table->smallInteger('status')->nullable();
             $table->string('motivo',150)->nullable();
             $table->integer('paciente_id')->nullable();

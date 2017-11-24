@@ -34,8 +34,10 @@ class CreateResumenCitaTable extends Migration
             $table->decimal('pliegues8',18,2)->nullable();
             $table->decimal('tipodieta',18,2)->nullable();
             $table->string('observacion',30)->nullable();
-            $table->decimal('paciente_id',18,2)->nullable();
-            $table->decimal('cita_id',18,2)->nullable();
+            $table->integer('paciente_id')->nullable();
+            $table->integer('cita_id')->nullable();
+            $table->foreign('paciente_id')->references('paciente_id')->on('pacientes');
+            $table->foreign('cita_id')->references('cita_id')->on('citas');
         });
     }
 

@@ -63,7 +63,7 @@ $router->get('getAlimentosByMenu','MenuController@getAlimentosByMenu');
  * CITAS
  */
 $router->get('getCitas','CitaController@getCitas');
-$router->get('getCitasEntre','CitasController@getCitasBetween');
+$router->get('getCitasEntre','CitaController@getCitasBetween');
 $router->post('insertCita','CitaController@insert');
 $router->post('cancelCita','CitaController@cancel');
 $router->post('updateCita','CitaController@update');

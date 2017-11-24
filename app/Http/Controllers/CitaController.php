@@ -24,12 +24,15 @@ class CitaController extends Controller
     public function insert(Request $request){
         $this->validate($request,[
             'fecha' => 'required',
+            'hora'  => 'required',
             'paciente' => 'required'
         ]);
         $fecha = $request->input('fecha');
+        $hora = $request->input('hora');
         $id = $request->input('paciente');
         $cita = new Cita();
-        $cita->fec_hor = $fecha;
+        $cita->fecha = $fecha;
+        $cita->hora =$hora;
         $cita->status = 0;
         $cita->paciente_id = $id;
         $cita->save();
@@ -54,7 +57,8 @@ class CitaController extends Controller
                 ->join('pacientes','citas.paciente_id','=','pacientes.paciente_id')
                 ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
                 ->where('status',$status)
-                ->orderBy('fec_hor','desc')->get();
+                ->orderBy('fecha','desc')
+                ->orderBy('hora','desc')->get();
         }else{
             $citas = DB::table('citas')
                 ->join('pacientes','citas.paciente_id','=','pacientes.paciente_id')
@@ -97,7 +101,8 @@ class CitaController extends Controller
 
         $id = $request->input('id');
         $cita = Cita::find($id);
-        $cita->fec_hor = $request->input('fecha')?$request->input('fecha'):$cita->fec_hor;
+        $cita->fecha = $request->input('fecha')?$request->input('fecha'):$cita->fecha;
+        $cita->hora = $request->input('hora')?$request->input('hora'):$cita->hora;
         $cita->status = $request->input('status')?$request->input('status'):$cita->status;
         $cita->motivo = $request->input('motivo')?$request->input('motivo'):$cita->motivo;
         $cita->save();
@@ -132,14 +137,22 @@ class CitaController extends Controller
     }//eliminar
 
     public function getCitasBetween(Request $request){
-        $request->validate($request,['fecha1'=>'required','fecha2'=>'required']);
+        $this->validate($request,[
+            'fecha1'=>'required',
+            'fecha2'=>'required',
+            'hora1'=>'required',
+            'hora2'=>'required'
+        ]);
         $f1 = $request->input('fecha1');
         $f2 = $request->input('fecha2');
+        $h1 = $request->input('hora1');
+        $h2 = $request->input('hora2');
         //$citas = Cita::whereBetween('fec_hor',[$f1,$f2])->get();
         $citas = DB::table('citas')
             ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
             ->join('pacientes','citas.paciente_id','=','pacientes.paciente_id')
-            ->whereBetween('fec_hor',[$f1,$f2])->get();
+            ->whereBetween('fecha',[$f1,$f2])
+            ->whereBetween('hora',[$h1,$h2])->get();
         return response()->json([
             'status' => 'OK',
             'code' => 200,

@@ -23,7 +23,8 @@ class Cita extends Model
      */
 
     protected $fillable = [
-        'fec_hor',
+        'fecha',
+        'hora',
         'status', // 0. Pendiente 1. Confirmada 2. Cancelada 3. Completada
         'motivo',
         'paciente_id'

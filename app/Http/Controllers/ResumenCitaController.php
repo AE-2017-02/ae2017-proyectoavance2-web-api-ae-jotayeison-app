@@ -106,9 +106,10 @@ class ResumenCitaController extends Controller {
         $resumencitas = DB::table('resumen_citas')
             ->join('pacientes','resumen_citas.paciente_id','=','pacientes.paciente_id')
             ->join('citas','resumen_citas.cita_id','=','citas.cita_id')
-            ->select('citas.fec_hor','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno','resumen_citas.*')
+            ->select('citas.fecha','citas.hora','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno','resumen_citas.*')
             ->where('pacientes.paciente_id',$paciente_id)
-            ->orderBy('fec_hor','desc')->get();
+            ->orderBy('fecha','desc')
+            ->orderBy('hora','desc')->get();
 
         return response()->json([
             'status' => 'OK',
