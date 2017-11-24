@@ -128,15 +128,6 @@ class ResumenCitaController extends Controller {
             'id' => 'required'
         ]);
         $id = $request->input('id');
-
-        $ppantorrillas = ;
-
-        $tipodieta = ;
-        $observacion = ;
-
-        $paciente_id = $request->input('paciente_id');
-        $cita_id = $request->input('cita_id');
-
         $resumencita = Resumen_cita::find($id);
         $resumencita->braso = $request->input('braso')?$request->input('braso'):$resumencita->braso;
         $resumencita->bcontraido = $request->input('bcontraido')?$request->input('bcontraido'):$resumencita->bcontraido ;
