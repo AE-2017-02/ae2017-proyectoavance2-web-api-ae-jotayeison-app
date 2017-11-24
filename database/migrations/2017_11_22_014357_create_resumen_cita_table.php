@@ -22,6 +22,7 @@ class CreateResumenCitaTable extends Migration
             $table->decimal('cadera',18,2)->nullable();
             $table->decimal('pantorrilla',18,2)->nullable();
             $table->decimal('muneca',18,2)->nullable();
+
             $table->decimal('tricipal',18,2)->nullable();
             $table->decimal('sespinale',18,2)->nullable();
             $table->decimal('sescapular',18,2)->nullable();
@@ -32,8 +33,10 @@ class CreateResumenCitaTable extends Migration
             $table->decimal('ppantorrillas',18,2)->nullable();
             $table->decimal('pliegues4',18,2)->nullable();
             $table->decimal('pliegues8',18,2)->nullable();
+
             $table->decimal('tipodieta',18,2)->nullable();
             $table->string('observacion',30)->nullable();
+
             $table->integer('paciente_id')->nullable();
             $table->integer('cita_id')->nullable();
             $table->foreign('paciente_id')->references('paciente_id')->on('pacientes');
