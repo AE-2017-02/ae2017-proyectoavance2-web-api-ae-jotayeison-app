@@ -76,3 +76,11 @@ $router->get('getResumenCitas','ResumenCitaController@getResumenCitas');
 $router->post('insertResumenCita','ResumenCitaController@insert');
 $router->post('deleteResumenCita','ResumenCitaController@delete');
 $router->post('updateResumenCita','ResumenCitaController@update');
+
+/**
+ * GRUPOS ALIMENTICIOS
+ */
+$router->get('getGrupos','GrupoController@get');
+$router->post('insertGrupo','GrupoController@insert');
+$router->post('deleteGrupo','GrupoController@delete');
+$router->post('updateGrupo','GrupoController@update');
