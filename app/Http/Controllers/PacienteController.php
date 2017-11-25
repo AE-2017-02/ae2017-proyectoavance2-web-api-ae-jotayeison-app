@@ -150,7 +150,7 @@ class PacienteController extends Controller
 
         $pacientes = null;
         if($request->input('inactivos')){
-            $pacientes = Paciente::where([['activo',true],['pre_registro',false]])->get();
+            $pacientes = Paciente::where([['activo',false],['pre_registro',false]])->get();
         }else{
             $pacientes = Paciente::where('activo',true)->get();
         }
