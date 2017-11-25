@@ -140,9 +140,6 @@ class MenuController extends Controller
 
     }//eliminar Alimento
 
-
-
-
     /*
      * ALIMENTOS CRUD
      * */
@@ -291,6 +288,36 @@ class MenuController extends Controller
 
 
     }//eliminar Alimento
+
+
+    public function getMenu(Request $request){
+        $this->validate($request,['id' => 'required']);
+        $id = $request->input('id');
+        $menus_id =  DB::table('det_pac_men')->select('menu_id')->where('paciente_id',$id)->groupBy('menu_id')->get();
+
+        $menus = array();
+        foreach ($menus_id as $m){
+            $menu_info = Menu::find($m->menu_id)->toArray();
+            $alimentos_id = DB::table('det_pac_men')->select('alimento_id')->where('menu_id',$m->menu_id)->groupBy('alimento_id')->get();
+            $alimentos = array();
+            foreach ($alimentos_id as $a){
+             $alimento = Alimento::find($a->alimento_id)->toArray();
+             $alimentos[] = $alimento;
+            }
+            $menu_info['alimentos'] = $alimentos;
+            $menus[] = $menu_info;
+        }
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $menus
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+    }//
+
+
 
 
 }//
