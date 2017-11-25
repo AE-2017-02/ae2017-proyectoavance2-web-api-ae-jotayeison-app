@@ -2,20 +2,22 @@
 /**
  * Created by PhpStorm.
  * User: ibalop
- * Date: 9/11/17
- * Time: 08:22 AM
+ * Date: 24/11/17
+ * Time: 10:58 PM
  */
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 
-class Alimento extends Model
+class Grupo extends Model
 {
 
     use Authenticatable, Authorizable;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,19 +25,19 @@ class Alimento extends Model
      */
 
     protected $fillable = [
-        'descripcion',
-        'um',
-        'kcal',
-        'tipo',
-        'grupo_id'
+        'grupo',
+        'proteinas',
+        'grasas',
+        'energia',
+        'carbohidratos'
     ];
 
-    public $primaryKey = "alimento_id";
+    public $primaryKey = "grupo_id";
     public $timestamps = false;
+
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-
 }

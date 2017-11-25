@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Grupo;
 use App\Menu;
 use App\Alimento;
 use Illuminate\Http\Request;
@@ -159,6 +160,7 @@ class MenuController extends Controller
         $ali->um = $request->input('um');
         $ali->kcal = $request->input('kcal');
         $ali->tipo = $request->input('tipo');
+        $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):null;
         $ali->save();
 
         return response()->json([
@@ -184,6 +186,7 @@ class MenuController extends Controller
             $ali->um = $request->input('um')?$request->input('um'):$ali->um;
             $ali->kcal = $request->input('kcal')?$request->input('kcal'):$ali->kcal;
             $ali->tipo = $request->input('tipo')?$request->input('tipo'):$ali->tipo;
+            $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):$ali->grupo_id;
             $ali->save();
 
             return response()->json([
@@ -209,11 +212,23 @@ class MenuController extends Controller
     }//actualizarAlimento
 
     public function getAlimentos(){
-        $alimentos = Alimento::all  ();
+        $alimentos = Alimento::all()->toArray();
+        $aux = array();
+        foreach ($alimentos as $ali){
+            $id_grupo  = $ali['grupo_id'];
+            if($id_grupo != null){
+                $grupo = Grupo::find($id_grupo)->toArray();
+                $ali['grupo'] = $grupo;
+            }else{
+                $ali['grupo'] = array();
+            }
+            unset($ali['grupo_id']);
+            $aux[] = $ali;
+        }
         return response()->json([
             'status' => 'OK',
             'code' => 200,
-            'result' => $alimentos
+            'result' => $aux
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
@@ -229,14 +244,26 @@ class MenuController extends Controller
         $alimentos = DB::table('menus')
             ->join('det_ali_men', 'det_ali_men.menu_id', '=', 'menus.menu_id')
             ->join('alimentos','alimentos.alimento_id','=','det_ali_men.alimento_id')
-            ->select('alimentos.alimento_id','alimentos.descripcion', 'alimentos.um', 'alimentos.kcal','alimentos.tipo')
+            ->select('alimentos.alimento_id','alimentos.descripcion', 'alimentos.um', 'alimentos.kcal','alimentos.tipo','alimentos.grupo_id')
             ->where('menus.menu_id',$id)
             ->get()->toArray();
 
+        $aux  = array();
+        foreach ($alimentos as $ali){
+            $id_grupo  = $ali['grupo_id'];
+            if($id_grupo != null){
+                $grupo = Grupo::find($id_grupo)->toArray();
+                $ali['grupo'] = $grupo;
+            }else{
+                $ali['grupo'] = array();
+            }
+            unset($ali['grupo_id']);
+            $aux[] = $ali;
+        }
         return response()->json([
             'status' => 'OK',
             'code' => 200,
-            'result' => $alimentos
+            'result' => $aux
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
