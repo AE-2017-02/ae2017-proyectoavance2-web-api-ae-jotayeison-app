@@ -262,6 +262,8 @@ class PacienteController extends Controller
             ['activo','=',true]
         ])->get();
 
+	
+
         return response()->json([
             'status' => 'OK',
             'code' => 200,
