@@ -92,3 +92,8 @@ $router->post('insertGrupo','GrupoController@insert');
 $router->post('deleteGrupo','GrupoController@delete');
 $router->post('updateGrupo','GrupoController@update');
 
+/*
+ *AVISOS 
+ */
+$router->post('insertAvisos','AvisosController@insertAvisos');
+$router->get('getAvisos','AvisosController@getAvisos');
