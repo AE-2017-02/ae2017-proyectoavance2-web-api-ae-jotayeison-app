@@ -6104,3 +6104,19 @@ Stack trace:
 #24 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
 #25 {main}  
 >>>>>>> 675ad3ac8d586abf488585c3fd1d39802d060bd9
+[2017-11-26 02:50:29] lumen.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "migrate:rollack" is not defined.
+
+Did you mean one of these?
+    migrate
+    migrate:install
+    migrate:refresh
+    migrate:reset
+    migrate:rollback
+    migrate:status in /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php:596
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(205): Symfony\Component\Console\Application->find('migrate:rollack')
+#1 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(125): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main}  
