@@ -59,6 +59,8 @@ $router->post('updateMenu','MenuController@actualizarMenu');
 $router->get('getAlimentos','MenuController@getAlimentos');
 $router->get('getMenus','MenuController@getMenus');
 $router->get('getAlimentosByMenu','MenuController@getAlimentosByMenu');
+
+$router->get('getMenusByPaciente','MenuController@getMenu');
 /**
  * CITAS
  */
@@ -69,13 +71,28 @@ $router->post('cancelCita','CitaController@cancel');
 $router->post('updateCita','CitaController@update');
 $router->post('deleteCita','CitaController@delete');
 
+    $router->get('getHorariosByFecha','CitaController@getHorarios');
+
 /**
  * RESUMEN CITAS
  */
 $router->get('getResumenCitas','ResumenCitaController@getResumenCitas');
 $router->post('insertResumenCita','ResumenCitaController@insert');
+<<<<<<< HEAD
 
 /**
  * EXPEDIENTE
  */
 $router->get('getExpediente','ExpedienteController@getExpediente');
+=======
+$router->post('deleteResumenCita','ResumenCitaController@delete');
+$router->post('updateResumenCita','ResumenCitaController@update');
+
+/**
+ * GRUPOS ALIMENTICIOS
+ */
+$router->get('getGrupos','GrupoController@get');
+$router->post('insertGrupo','GrupoController@insert');
+$router->post('deleteGrupo','GrupoController@delete');
+$router->post('updateGrupo','GrupoController@update');
+>>>>>>> 2fd150b5769851703f95bbedc11f9b7719d1d9a5

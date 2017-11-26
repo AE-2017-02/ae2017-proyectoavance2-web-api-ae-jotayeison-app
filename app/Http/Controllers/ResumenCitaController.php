@@ -20,6 +20,20 @@ class ResumenCitaController extends Controller {
      * @param  Request  $request
      * @return Response
      */
+    public function delete(Request $request){
+        $this->validate($request,['id'=>'required']);
+        $id = $request->input('id');
+        $rc = Resumen_cita::find($id);
+        $rc->delete();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => 'Se elimino el resumen de la cita correctamente'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+    }//
     public function insert(Request $request){
         $this->validate($request,[
             'brazo' => 'required',
@@ -29,6 +43,7 @@ class ResumenCitaController extends Controller {
             'cadera' => 'required',
             'pantorrilla' => 'required',
             'muneca' => 'required',
+
             'tricipal' => 'required',
             'sespinale' => 'required',
             'sescapular' => 'required',
@@ -39,8 +54,10 @@ class ResumenCitaController extends Controller {
             'ppantorrillas' => 'required',
             'pliegues4' => 'required',
             'pliegues8' => 'required',
+
             'tipodieta' => 'required',
             'observacion' => 'required',
+
             'paciente_id' => 'required',
             'cita_id' => 'required'
         ]);
@@ -51,7 +68,12 @@ class ResumenCitaController extends Controller {
         $cadera = $request->input('cadera');
         $pantorrilla = $request->input('pantorrilla');
         $muneca = $request->input('muneca');
+<<<<<<< HEAD
         $tricipital = $request->input('tricipital');
+=======
+
+        $tricipal = $request->input('tricipal');
+>>>>>>> 2fd150b5769851703f95bbedc11f9b7719d1d9a5
         $sespinale = $request->input('sespinale');
         $sescapular = $request->input('sescapular');
         $abdominal = $request->input('abdominal');
@@ -61,8 +83,10 @@ class ResumenCitaController extends Controller {
         $ppantorrillas = $request->input('ppantorrillas');
         $pliegues4 = $request->input('pliegues4');
         $pliegues8 = $request->input('pliegues8');
+
         $tipodieta = $request->input('tipodieta');
         $observacion = $request->input('observacion');
+
         $paciente_id = $request->input('paciente_id');
         $cita_id = $request->input('cita_id');
 
@@ -74,7 +98,12 @@ class ResumenCitaController extends Controller {
         $resumencita->cadera = $cadera;
         $resumencita->pantorrilla = $pantorrilla;
         $resumencita->muneca = $muneca;
+<<<<<<< HEAD
         $resumencita->tricipital = $tricipital;
+=======
+
+        $resumencita->tricipal = $tricipal;
+>>>>>>> 2fd150b5769851703f95bbedc11f9b7719d1d9a5
         $resumencita->sespinale = $sespinale;
         $resumencita->sescapular = $sescapular;
         $resumencita->abdominal = $abdominal;
@@ -83,9 +112,11 @@ class ResumenCitaController extends Controller {
         $resumencita->sliaco = $sliaco;
         $resumencita->pliegues4 = $pliegues4;
         $resumencita->pliegues8 = $pliegues8;
+        $resumencita->ppantorrillas = $ppantorrillas;
+
         $resumencita->tipodieta = $tipodieta;
         $resumencita->observacion = $observacion;
-        $resumencita->ppantorrillas = $ppantorrillas;
+
         $resumencita->paciente_id = $paciente_id;
         $resumencita->cita_id = $cita_id;
         $resumencita->save();
@@ -100,6 +131,45 @@ class ResumenCitaController extends Controller {
 
     }//insertar resumen citas
 
+    public function update(Request $request){
+        $this->validate($request,[
+            'id' => 'required'
+        ]);
+        $id = $request->input('id');
+        $resumencita = Resumen_cita::find($id);
+        $resumencita->braso = $request->input('braso')?$request->input('braso'):$resumencita->braso;
+        $resumencita->bcontraido = $request->input('bcontraido')?$request->input('bcontraido'):$resumencita->bcontraido ;
+        $resumencita->cintura =  $request->input('cintura')? $request->input('cintura'):$resumencita->cintura;
+        $resumencita->muslo = $request->input('muslo')?$request->input('muslo'):$resumencita->muslo ;
+        $resumencita->cadera =$request->input('cadera')?$request->input('cadera'):$resumencita->cadera ;
+        $resumencita->pantorrilla = $request->input('pantorrilla')?$request->input('pantorrilla'):$resumencita->pantorrilla;
+        $resumencita->muneca = $request->input('muneca')?$request->input('muneca'):$resumencita->muneca;
+
+        $resumencita->tricipal = $request->input('tricipal')?$request->input('tricipal'):$resumencita->tricipal;
+        $resumencita->sespinale = $request->input('sespinale')?$request->input('sespinale'):$resumencita->sespinale;
+        $resumencita->sescapular = $request->input('sescapular')?$request->input('sescapular'):$resumencita->sescapular;
+        $resumencita->abdominal =  $request->input('abdominal')? $request->input('abdominal'):$resumencita->abdominal;
+        $resumencita->bicipital =$request->input('bicipital')?$request->input('bicipital'):$resumencita->bicipital ;
+        $resumencita->pmuslo =  $request->input('pmuslo')? $request->input('pmuslo'):$resumencita->pmuslo;
+        $resumencita->sliaco = $request->input('sliaco')?$request->input('sliaco'):$resumencita->sliaco;
+        $resumencita->pliegues4 =  $request->input('pliegues4')? $request->input('pliegues4'):$resumencita->pliegues4;
+        $resumencita->pliegues8 =  $request->input('pliegues8')? $request->input('pliegues8'):$resumencita->pliegues8;
+        $resumencita->ppantorrillas = $request->input('ppantorrillas')?$request->input('ppantorrillas'): $resumencita->ppantorrillas;
+
+        $resumencita->tipodieta = $request->input('tipodieta')?$request->input('tipodieta'):$resumencita->tipodieta;
+        $resumencita->observacion = $request->input('observacion')?$request->input('observacion'):$resumencita->observacion;
+
+        $resumencita->save();
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => 'Se actualizo el resumen de la cita correctamente'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//actualiza datos de un resumen de citas
     public function getResumenCitas(Request $request){
         $resumencitas = null;
         $paciente_id = $request->input('paciente_id');
