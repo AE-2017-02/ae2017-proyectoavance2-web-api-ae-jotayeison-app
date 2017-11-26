@@ -22,7 +22,7 @@ class CreateResumenCitaTable extends Migration
             $table->decimal('cadera',18,2)->nullable();
             $table->decimal('pantorrilla',18,2)->nullable();
             $table->decimal('muneca',18,2)->nullable();
-            $table->decimal('tricipal',18,2)->nullable();
+            $table->decimal('tricipital',18,2)->nullable();
             $table->decimal('sespinale',18,2)->nullable();
             $table->decimal('sescapular',18,2)->nullable();
             $table->decimal('abdominal',18,2)->nullable();

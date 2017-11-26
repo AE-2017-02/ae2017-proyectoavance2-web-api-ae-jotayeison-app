@@ -23,14 +23,14 @@ class Resumen_cita extends Model
      */
 
     protected $fillable = [
-        'braso',
+        'brazo',
         'bcontraido',
         'cintura',
         'muslo',
         'cadera',
         'pantorrilla',
         'muneca',
-        'tricipal',
+        'tricipital',
         'sespinale',
         'sescapular',
         'abdominal',

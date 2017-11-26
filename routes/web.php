@@ -74,3 +74,8 @@ $router->post('deleteCita','CitaController@delete');
  */
 $router->get('getResumenCitas','ResumenCitaController@getResumenCitas');
 $router->post('insertResumenCita','ResumenCitaController@insert');
+
+/**
+ * EXPEDIENTE
+ */
+$router->get('getExpediente','ExpedienteController@getExpediente');
