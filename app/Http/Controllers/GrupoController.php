@@ -65,7 +65,7 @@ class GrupoController extends Controller
             'id' => 'required',
         ]);
         $id = $request->input('id');
-        $grupo = Grupo::find($id);
+         $grupo = Grupo::find($id);
         $grupo->grupo = $request->input('grupo')?$request->input('grupo'):$grupo->grupo;
         $grupo->proteinas = $request->input('proteinas')?$request->input('proteinas'):$grupo->proteinas;
         $grupo->energia =$request->input('energia')?$request->input('energia'):$grupo->energia;
