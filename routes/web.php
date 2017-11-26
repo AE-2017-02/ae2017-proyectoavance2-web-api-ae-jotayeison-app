@@ -59,6 +59,8 @@ $router->post('updateMenu','MenuController@actualizarMenu');
 $router->get('getAlimentos','MenuController@getAlimentos');
 $router->get('getMenus','MenuController@getMenus');
 $router->get('getAlimentosByMenu','MenuController@getAlimentosByMenu');
+
+$router->get('getMenusBySocio','MenuController@getMenu');
 /**
  * CITAS
  */
