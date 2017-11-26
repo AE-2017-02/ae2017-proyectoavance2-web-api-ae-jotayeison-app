@@ -44,7 +44,7 @@ class ResumenCitaController extends Controller {
             'pantorrilla' => 'required',
             'muneca' => 'required',
 
-            'tricipal' => 'required',
+            'tricipital' => 'required',
             'sespinale' => 'required',
             'sescapular' => 'required',
             'abdominal' => 'required',
@@ -93,12 +93,8 @@ class ResumenCitaController extends Controller {
         $resumencita->cadera = $cadera;
         $resumencita->pantorrilla = $pantorrilla;
         $resumencita->muneca = $muneca;
-<<<<<<< HEAD
-        $resumencita->tricipital = $tricipital;
-=======
 
-        $resumencita->tricipal = $tricipal;
->>>>>>> 2fd150b5769851703f95bbedc11f9b7719d1d9a5
+        $resumencita->tricipital = $tricipital;
         $resumencita->sespinale = $sespinale;
         $resumencita->sescapular = $sescapular;
         $resumencita->abdominal = $abdominal;
@@ -132,7 +128,7 @@ class ResumenCitaController extends Controller {
         ]);
         $id = $request->input('id');
         $resumencita = Resumen_cita::find($id);
-        $resumencita->braso = $request->input('braso')?$request->input('braso'):$resumencita->braso;
+        $resumencita->brazo = $request->input('brazo')?$request->input('brazo'):$resumencita->braso;
         $resumencita->bcontraido = $request->input('bcontraido')?$request->input('bcontraido'):$resumencita->bcontraido ;
         $resumencita->cintura =  $request->input('cintura')? $request->input('cintura'):$resumencita->cintura;
         $resumencita->muslo = $request->input('muslo')?$request->input('muslo'):$resumencita->muslo ;
@@ -140,7 +136,7 @@ class ResumenCitaController extends Controller {
         $resumencita->pantorrilla = $request->input('pantorrilla')?$request->input('pantorrilla'):$resumencita->pantorrilla;
         $resumencita->muneca = $request->input('muneca')?$request->input('muneca'):$resumencita->muneca;
 
-        $resumencita->tricipal = $request->input('tricipal')?$request->input('tricipal'):$resumencita->tricipal;
+        $resumencita->tricipital = $request->input('tricipital')?$request->input('tricipital'):$resumencita->tricipital;
         $resumencita->sespinale = $request->input('sespinale')?$request->input('sespinale'):$resumencita->sespinale;
         $resumencita->sescapular = $request->input('sescapular')?$request->input('sescapular'):$resumencita->sescapular;
         $resumencita->abdominal =  $request->input('abdominal')? $request->input('abdominal'):$resumencita->abdominal;
