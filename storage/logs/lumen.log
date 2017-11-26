@@ -4926,6 +4926,7 @@ Stack trace:
 #15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 3c8ff69c87b648a6ff9b6226b1db6cf8a491d8a5
 [2017-11-24 08:27:02] lumen.ERROR: PDOException: SQLSTATE[42P07]: Duplicate table: 7 ERROR:  relation "resumen_citas" already exists in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:458
 Stack trace:
@@ -4992,6 +4993,713 @@ Stack trace:
 #26 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #27 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #28 {main}  
+=======
+[2017-11-26 00:26:09] lumen.ERROR: PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  falta una entrada para la tabla «resumen_cita» en la cláusula FROM
+LINE 1: ...lect "resumen_citas".* from "resumen_citas" where "resumen_c...
+                                                             ^ in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:330
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(330): PDOStatement->execute()
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "resumen...', Array)
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "resumen...', Array, Object(Closure))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('select "resumen...', Array, Object(Closure))
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select "resumen...', Array, true)
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(27): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#19 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#20 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#21 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  falta una entrada para la tabla «resumen_cita» en la cláusula FROM
+LINE 1: ...lect "resumen_citas".* from "resumen_citas" where "resumen_c...
+                                                             ^ (SQL: select "resumen_citas".* from "resumen_citas" where "resumen_cita"."paciente_id" = 1) in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:664
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "resumen...', Array, Object(Closure))
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('select "resumen...', Array, Object(Closure))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select "resumen...', Array, true)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(27): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#19 {main}  
+[2017-11-26 00:27:48] lumen.ERROR: ErrorException: Use of undefined constant altura - assumed 'altura' in C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php:29
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(29): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Use of undefine...', 'C:\\Users\\jorge\\...', 29, Array)
+#1 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-11-26 00:29:17] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined function App\Http\Controllers\json() in C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php:20
+Stack trace:
+#0 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#14 {main}  
+[2017-11-26 00:30:17] lumen.ERROR: ErrorException: Undefined index: altura in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined index...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(29): Illuminate\Support\Collection->offsetGet('altura')
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:32:15] lumen.ERROR: ErrorException: Undefined index: altura in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined index...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(30): Illuminate\Support\Collection->offsetGet('altura')
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:34:39] lumen.ERROR: Exception: Property [altura] does not exist on this collection instance. in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1764
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(30): Illuminate\Support\Collection->__get('altura')
+#1 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-11-26 00:35:18] lumen.ERROR: Exception: Property [altura] does not exist on this collection instance. in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1764
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(30): Illuminate\Support\Collection->__get('altura')
+#1 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-11-26 00:35:20] lumen.ERROR: Exception: Property [altura] does not exist on this collection instance. in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1764
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(30): Illuminate\Support\Collection->__get('altura')
+#1 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-11-26 00:35:20] lumen.ERROR: Exception: Property [altura] does not exist on this collection instance. in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1764
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(30): Illuminate\Support\Collection->__get('altura')
+#1 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-11-26 00:35:20] lumen.ERROR: Exception: Property [altura] does not exist on this collection instance. in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1764
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(30): Illuminate\Support\Collection->__get('altura')
+#1 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-11-26 00:47:08] lumen.ERROR: ErrorException: Undefined property: stdClass::$cintura in C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php:32
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined prope...', 'C:\\Users\\jorge\\...', 32, Array)
+#1 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-11-26 00:49:40] lumen.ERROR: PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  falta una entrada para la tabla «resumen_cita» en la cláusula FROM
+LINE 1: ...lect "resumen_citas".* from "resumen_citas" where "resumen_c...
+                                                             ^ in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:330
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(330): PDOStatement->execute()
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "resumen...', Array)
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "resumen...', Array, Object(Closure))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('select "resumen...', Array, Object(Closure))
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select "resumen...', Array, true)
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(27): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#19 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#20 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#21 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  falta una entrada para la tabla «resumen_cita» en la cláusula FROM
+LINE 1: ...lect "resumen_citas".* from "resumen_citas" where "resumen_c...
+                                                             ^ (SQL: select "resumen_citas".* from "resumen_citas" where "resumen_cita"."paciente_id" = 1) in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:664
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "resumen...', Array, Object(Closure))
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('select "resumen...', Array, Object(Closure))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select "resumen...', Array, true)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(27): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#19 {main}  
+[2017-11-26 00:50:31] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:52:38] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:52:42] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:52:42] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:52:42] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:52:43] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:52:43] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:52:43] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:52:43] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:52:43] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:53:17] lumen.ERROR: ErrorException: Undefined offset: 0 in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1677
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', 'C:\\Users\\jorge\\...', 1677, Array)
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-11-26 00:55:42] lumen.ERROR: ErrorException: Undefined property: stdClass::$cadera in C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php:32
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(32): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined prope...', 'C:\\Users\\jorge\\...', 32, Array)
+#1 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-11-26 00:56:20] lumen.ERROR: ErrorException: Undefined property: stdClass::$muneca in C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php:33
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(33): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined prope...', 'C:\\Users\\jorge\\...', 33, Array)
+#1 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-11-26 01:27:36] lumen.ERROR: PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna resumen_citas.brazo
+LINE 1: select "resumen_citas"."brazo", "resumen_citas"."bcontraido"...
+               ^
+HINT:  Probablemente quiera hacer referencia a la columna «resumen_citas.braso». in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:330
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(330): PDOStatement->execute()
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "resumen...', Array)
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "resumen...', Array, Object(Closure))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('select "resumen...', Array, Object(Closure))
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select "resumen...', Array, true)
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(63): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\ExpedienteController->getCircunferencias(Object(Illuminate\Http\Request))
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#19 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#20 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#21 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna resumen_citas.brazo
+LINE 1: select "resumen_citas"."brazo", "resumen_citas"."bcontraido"...
+               ^
+HINT:  Probablemente quiera hacer referencia a la columna «resumen_citas.braso». (SQL: select "resumen_citas"."brazo", "resumen_citas"."bcontraido", "resumen_citas"."cintura", "resumen_citas"."muslo", "resumen_citas"."cadera", "resumen_citas"."pantorrilla", "resumen_citas"."muneca" from "resumen_citas" where "resumen_citas"."paciente_id" = 1) in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:664
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "resumen...', Array, Object(Closure))
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('select "resumen...', Array, Object(Closure))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select "resumen...', Array, true)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(63): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\ExpedienteController->getCircunferencias(Object(Illuminate\Http\Request))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#19 {main}  
+[2017-11-26 01:44:34] lumen.ERROR: Exception: Property [sexo] does not exist on this collection instance. in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Collection.php:1764
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(39): Illuminate\Support\Collection->__get('sexo')
+#1 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-11-26 01:45:28] lumen.ERROR: PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna resumen_citas.tripical
+LINE 1: select "resumen_citas"."tripical", "resumen_citas"."sespinal...
+               ^
+HINT:  Probablemente quiera hacer referencia a la columna «resumen_citas.tricipal». in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:330
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(330): PDOStatement->execute()
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "resumen...', Array)
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "resumen...', Array, Object(Closure))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('select "resumen...', Array, Object(Closure))
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select "resumen...', Array, true)
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(56): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#19 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#20 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#21 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna resumen_citas.tripical
+LINE 1: select "resumen_citas"."tripical", "resumen_citas"."sespinal...
+               ^
+HINT:  Probablemente quiera hacer referencia a la columna «resumen_citas.tricipal». (SQL: select "resumen_citas"."tripical", "resumen_citas"."sespinale", "resumen_citas"."bcipital", "resumen_citas"."sescapular", "resumen_citas"."abdominal", "resumen_citas"."bicipital", "resumen_citas"."pmuslo", "resumen_citas"."sliaco", "resumen_citas"."ppantorrillas" from "resumen_citas" where "resumen_citas"."paciente_id" = 1) in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:664
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "resumen...', Array, Object(Closure))
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('select "resumen...', Array, Object(Closure))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select "resumen...', Array, true)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(56): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#19 {main}  
+[2017-11-26 01:49:49] lumen.ERROR: PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna resumen_citas.bcipital
+LINE 1: ...citas"."tricipital", "resumen_citas"."sespinale", "resumen_c...
+                                                             ^
+HINT:  Probablemente quiera hacer referencia a la columna «resumen_citas.bicipital». in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:330
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(330): PDOStatement->execute()
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "resumen...', Array)
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "resumen...', Array, Object(Closure))
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('select "resumen...', Array, Object(Closure))
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select "resumen...', Array, true)
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(56): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#19 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#20 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#21 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna resumen_citas.bcipital
+LINE 1: ...citas"."tricipital", "resumen_citas"."sespinale", "resumen_c...
+                                                             ^
+HINT:  Probablemente quiera hacer referencia a la columna «resumen_citas.bicipital». (SQL: select "resumen_citas"."tricipital", "resumen_citas"."sespinale", "resumen_citas"."bcipital", "resumen_citas"."sescapular", "resumen_citas"."abdominal", "resumen_citas"."bicipital", "resumen_citas"."pmuslo", "resumen_citas"."sliaco", "resumen_citas"."ppantorrillas" from "resumen_citas" where "resumen_citas"."paciente_id" = 1) in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:664
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "resumen...', Array, Object(Closure))
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php(333): Illuminate\Database\Connection->run('select "resumen...', Array, Object(Closure))
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select "resumen...', Array, true)
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ExpedienteController.php(56): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#19 {main}  
+>>>>>>> 0b771d77e3c95652b5b0c83eef63989b71f11846
 =======
 [2017-11-25 05:09:13] lumen.ERROR: ErrorException: include(/var/www/html/nutriservices/vendor/composer/../../database/migrations/2017_11_25_050818_Grupos.php): failed to open stream: No such file or directory in /var/www/html/nutriservices/vendor/composer/ClassLoader.php:444
 Stack trace:
@@ -5309,4 +6017,8 @@ Stack trace:
 #14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
+<<<<<<< HEAD
 >>>>>>> e248e76a875170ae7fe31afd7c1e854e553488e8
+=======
+>>>>>>> 2fd150b5769851703f95bbedc11f9b7719d1d9a5
+>>>>>>> 0b771d77e3c95652b5b0c83eef63989b71f11846
