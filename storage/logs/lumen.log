@@ -5234,4 +5234,79 @@ Stack trace:
 #23 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #24 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #25 {main}  
+<<<<<<< HEAD
 >>>>>>> d2912ab711272ca914b8bbabf70f1fe5cb348d25
+=======
+[2017-11-26 00:24:53] lumen.ERROR: PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "alimento_id" does not exist
+LINE 1: select "alimento_id" from "det_pac_men" where "menu_id" = $1...
+               ^ in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/nutriservices/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/nutriservices/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/nutriservices/app/Http/Controllers/MenuController.php(301): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenu(Object(Illuminate\Http\Request))
+#8 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenu', Array)
+#15 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "alimento_id" does not exist
+LINE 1: select "alimento_id" from "det_pac_men" where "menu_id" = $1...
+               ^ (SQL: select "alimento_id" from "det_pac_men" where "menu_id" = 1 group by "alimento_id") in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/nutriservices/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/nutriservices/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/nutriservices/app/Http/Controllers/MenuController.php(301): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenu(Object(Illuminate\Http\Request))
+#6 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenu', Array)
+#13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-11-26 00:52:40] lumen.ERROR: ErrorException: Undefined property: stdClass::$grupo_id in /var/www/html/nutriservices/app/Http/Controllers/MenuController.php:305
+Stack trace:
+#0 /var/www/html/nutriservices/app/Http/Controllers/MenuController.php(305): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined prope...', '/var/www/html/n...', 305, Array)
+#1 [internal function]: App\Http\Controllers\MenuController->getMenu(Object(Illuminate\Http\Request))
+#2 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenu', Array)
+#9 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+>>>>>>> e248e76a875170ae7fe31afd7c1e854e553488e8

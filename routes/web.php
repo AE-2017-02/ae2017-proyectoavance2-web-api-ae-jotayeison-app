@@ -60,7 +60,7 @@ $router->get('getAlimentos','MenuController@getAlimentos');
 $router->get('getMenus','MenuController@getMenus');
 $router->get('getAlimentosByMenu','MenuController@getAlimentosByMenu');
 
-$router->get('getMenusBySocio','MenuController@getMenu');
+$router->get('getMenusByPaciente','MenuController@getMenu');
 /**
  * CITAS
  */
@@ -70,6 +70,8 @@ $router->post('insertCita','CitaController@insert');
 $router->post('cancelCita','CitaController@cancel');
 $router->post('updateCita','CitaController@update');
 $router->post('deleteCita','CitaController@delete');
+
+    $router->get('getHorariosByFecha','CitaController@getHorarios');
 
 /**
  * RESUMEN CITAS

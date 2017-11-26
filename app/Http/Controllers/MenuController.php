@@ -294,16 +294,24 @@ class MenuController extends Controller
         $this->validate($request,['id' => 'required']);
         $id = $request->input('id');
         $menus_id =  DB::table('det_pac_men')->select('menu_id')->where('paciente_id',$id)->groupBy('menu_id')->get();
-
         $menus = array();
+
         foreach ($menus_id as $m){
             $menu_info = Menu::find($m->menu_id)->toArray();
-            $alimentos_id = DB::table('det_pac_men')->select('alimento_id')->where('menu_id',$m->menu_id)->groupBy('alimento_id')->get();
+            $alimentos_id = DB::table('det_ali_men')->select('alimento_id')->where('menu_id',$m->menu_id)->groupBy('alimento_id')->get();
             $alimentos = array();
             foreach ($alimentos_id as $a){
              $alimento = Alimento::find($a->alimento_id)->toArray();
-             $alimentos[] = $alimento;
+                $id_grupo  = $alimento['grupo_id'];
+                if($id_grupo != null){
+                    $grupo = Grupo::find($id_grupo)->toArray();
+                    $alimento['grupo'] = $grupo;
+                }else{
+                    $alimento['grupo'] = array();
+                }
+                unset($alimento['grupo_id']);
             }
+            $alimentos[] = $alimento;
             $menu_info['alimentos'] = $alimentos;
             $menus[] = $menu_info;
         }
