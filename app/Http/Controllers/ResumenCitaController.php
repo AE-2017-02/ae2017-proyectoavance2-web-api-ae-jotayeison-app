@@ -68,12 +68,7 @@ class ResumenCitaController extends Controller {
         $cadera = $request->input('cadera');
         $pantorrilla = $request->input('pantorrilla');
         $muneca = $request->input('muneca');
-<<<<<<< HEAD
         $tricipital = $request->input('tricipital');
-=======
-
-        $tricipal = $request->input('tricipal');
->>>>>>> 2fd150b5769851703f95bbedc11f9b7719d1d9a5
         $sespinale = $request->input('sespinale');
         $sescapular = $request->input('sescapular');
         $abdominal = $request->input('abdominal');
