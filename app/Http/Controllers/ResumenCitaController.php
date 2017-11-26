@@ -36,7 +36,7 @@ class ResumenCitaController extends Controller {
     }//
     public function insert(Request $request){
         $this->validate($request,[
-            'braso' => 'required',
+            'brazo' => 'required',
             'bcontraido' => 'required',
             'cintura' => 'required',
             'muslo' => 'required',
@@ -61,15 +61,14 @@ class ResumenCitaController extends Controller {
             'paciente_id' => 'required',
             'cita_id' => 'required'
         ]);
-        $braso = $request->input('braso');
+        $brazo = $request->input('brazo');
         $bcontraido = $request->input('bcontraido');
         $cintura = $request->input('cintura');
         $muslo = $request->input('muslo');
         $cadera = $request->input('cadera');
         $pantorrilla = $request->input('pantorrilla');
         $muneca = $request->input('muneca');
-
-        $tricipal = $request->input('tricipal');
+        $tricipital = $request->input('tricipital');
         $sespinale = $request->input('sespinale');
         $sescapular = $request->input('sescapular');
         $abdominal = $request->input('abdominal');
@@ -87,15 +86,19 @@ class ResumenCitaController extends Controller {
         $cita_id = $request->input('cita_id');
 
         $resumencita = new Resumen_cita();
-        $resumencita->braso = $braso;
+        $resumencita->brazo = $brazo;
         $resumencita->bcontraido = $bcontraido ;
         $resumencita->cintura = $cintura;
         $resumencita->muslo = $muslo;
         $resumencita->cadera = $cadera;
         $resumencita->pantorrilla = $pantorrilla;
         $resumencita->muneca = $muneca;
+<<<<<<< HEAD
+        $resumencita->tricipital = $tricipital;
+=======
 
         $resumencita->tricipal = $tricipal;
+>>>>>>> 2fd150b5769851703f95bbedc11f9b7719d1d9a5
         $resumencita->sespinale = $sespinale;
         $resumencita->sescapular = $sescapular;
         $resumencita->abdominal = $abdominal;

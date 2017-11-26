@@ -164,5 +164,35 @@ class CitaController extends Controller
 
 
 
+    ##
+    ## Movil
+    ##
+
+    public function getHorarios(Request $request){
+        $this->validate($request,['fecha'=>'required']);
+        $fecha = $request->input('fecha');
+
+
+        $horarios = [
+            '8:00',
+            '8:15',
+            '8:30',
+            '8:45',
+            '9:00',
+            '10:00',
+            '11:00'
+        ];
+
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $horarios
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+    }// get citas
+
+
 
 }//controller
