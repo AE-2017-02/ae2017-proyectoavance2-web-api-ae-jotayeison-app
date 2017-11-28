@@ -68,7 +68,7 @@ class MenuController extends Controller
             $alimentos = DB::table('menus')
                 ->join('det_ali_men', 'det_ali_men.menu_id', '=', 'menus.menu_id')
                 ->join('alimentos','alimentos.alimento_id','=','det_ali_men.alimento_id')
-                ->select('alimentos.alimento_id','alimentos.descripcion', 'alimentos.um', 'alimentos.kcal','alimentos.tipo')
+                ->select('alimentos.*')
                 ->where('menus.menu_id',$id)
                 ->get()->toArray();
 
@@ -94,7 +94,10 @@ class MenuController extends Controller
 
         $menu = Menu::find($id);
         $menu->nombre = $request->input('nombre')?$request->input('nombre'):$menu->nombre;
-        $menu->kcal = $request->input('kcal')?$request->input('kcal'):$menu->nombre;
+        $menu->energia = $request->input('energia')?$request->input('energia'):$menu->energia;
+        $menu->grasas = $request->input('grasas')?$request->input('grasas'):$menu->grasas;
+        $menu->proteinas = $request->input('proteinas')?$request->input('proteinas'):$menu->proteinas;
+        $menu->carbohidratos = $request->input('carbohidratos')?$request->input('carbohidratos'):$menu->carbohidratos;;
         $menu->save();
 
         if ($request->input('alimentos')){
@@ -147,16 +150,12 @@ class MenuController extends Controller
     public function insertAlimento(Request $request){
         $this->validate($request,[
             'descripcion' => 'required',
-            'um' => 'required',
-            'kcal' => 'required',
-            'tipo' => 'required'
+            'um' => 'required'
         ]);
 
         $ali = new Alimento;
         $ali->descripcion = $request->input('descripcion');
         $ali->um = $request->input('um');
-        $ali->kcal = $request->input('kcal');
-        $ali->tipo = $request->input('tipo');
         $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):null;
         $ali->save();
 
@@ -181,8 +180,6 @@ class MenuController extends Controller
         if ($ali){
             $ali->descripcion = $request->input('descripcion')?$request->input('descripcion'):$ali->descripcion;
             $ali->um = $request->input('um')?$request->input('um'):$ali->um;
-            $ali->kcal = $request->input('kcal')?$request->input('kcal'):$ali->kcal;
-            $ali->tipo = $request->input('tipo')?$request->input('tipo'):$ali->tipo;
             $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):$ali->grupo_id;
             $ali->save();
 
@@ -241,7 +238,7 @@ class MenuController extends Controller
         $alimentos = DB::table('menus')
             ->join('det_ali_men', 'det_ali_men.menu_id', '=', 'menus.menu_id')
             ->join('alimentos','alimentos.alimento_id','=','det_ali_men.alimento_id')
-            ->select('alimentos.alimento_id','alimentos.descripcion', 'alimentos.um', 'alimentos.kcal','alimentos.tipo','alimentos.grupo_id')
+            ->select('alimentos.*')
             ->where('menus.menu_id',$id)
             ->get()->toArray();
 
