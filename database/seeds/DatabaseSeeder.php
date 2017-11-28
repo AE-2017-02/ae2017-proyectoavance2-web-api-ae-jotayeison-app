@@ -93,7 +93,7 @@ class DatabaseSeeder extends Seeder
             ['descripcion'=>'Sopa de verduras','um'=>'medio litro'],
             ['descripcion'=>'Carne asada','um'=>'dos filetes'],
             ['descripcion'=>'Cereal','um'=>'una taza de leche'],
-            ['descripcion'=>'Yogurth','um'=>'una taza']
+            ['descripcion'=>'Yogurth','um'=>'una taza'  ]
         ]);
 
 

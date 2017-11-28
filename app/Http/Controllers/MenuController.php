@@ -28,16 +28,25 @@ class MenuController extends Controller
     public function setMenu(Request $request){
         $this->validate($request,[
             'nombre' => 'required',
-            'kcal' => 'required',
+            'energia' => 'required',
+            'grasas' => 'required',
+            'proteinas' => 'required',
+            'carbohidratos' => 'required',
             'alimentos' => 'required|array'
         ]);
         $nombre = $request->input('nombre');
-        $kcal = $request->input('kcal');
+        $energia = $request->input('energia');
+        $grasas = $request->input('grasas');
+        $proteinas = $request->input('proteinas');
+        $carbo = $request->input('carbohidratos');
         $alimentos = $request->input('alimentos');
 
         $menu = new Menu;
         $menu->nombre = $nombre;
-        $menu->kcal = $kcal;
+        $menu->energia = $energia;
+        $menu->grasas = $grasas;
+        $menu->proteinas = $proteinas;
+        $menu->carbohidratos = $carbo;
         $menu->save();
 
         $id = DB::table('menus')->max('menu_id');
