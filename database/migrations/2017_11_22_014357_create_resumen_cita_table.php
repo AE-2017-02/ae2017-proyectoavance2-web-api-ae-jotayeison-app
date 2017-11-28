@@ -15,7 +15,7 @@ class CreateResumenCitaTable extends Migration
     {
         Schema::create('resumen_citas', function (Blueprint $table) {
             $table->increments('resumen_cita_id');
-            $table->decimal('braso',18,2)->nullable();
+            $table->decimal('brazo',18,2)->nullable();
             $table->decimal('bcontraido',18,2)->nullable();
             $table->decimal('cintura',18,2)->nullable();
             $table->decimal('muslo',18,2)->nullable();
