@@ -143,6 +143,9 @@ class DatabaseSeeder extends Seeder
             ['alimento_id' => 3 , 'menu_id' => 1],
         ]);
 
+        DB::table('det_pac_men')->insert([
+            ['paciente_id' => 1 , 'menu_id' => 1]
+        ]);
 
     }//
 

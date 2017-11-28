@@ -306,6 +306,7 @@ class MenuController extends Controller
             $menu_info = Menu::find($m->menu_id)->toArray();
             $alimentos_id = DB::table('det_ali_men')->select('alimento_id')->where('menu_id',$m->menu_id)->groupBy('alimento_id')->get();
             $alimentos = array();
+
             foreach ($alimentos_id as $a){
              $alimento = Alimento::find($a->alimento_id)->toArray();
                 $id_grupo  = $alimento['grupo_id'];
@@ -316,8 +317,9 @@ class MenuController extends Controller
                     $alimento['grupo'] = array();
                 }
                 unset($alimento['grupo_id']);
+                $alimentos[] = $alimento;
+
             }
-            $alimentos[] = $alimento;
             $menu_info['alimentos'] = $alimentos;
             $menus[] = $menu_info;
         }
