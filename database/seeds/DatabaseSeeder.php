@@ -89,11 +89,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('alimentos')->insert([
-            ['descripcion'=>'Pescado frito','um'=>'dos filetes','kcal' => 23,'tipo'=>'Desayuno'],
-            ['descripcion'=>'Sopa de verduras','um'=>'medio litro','kcal' =>23,'tipo'=>'Desayuno'],
-            ['descripcion'=>'Carne asada','um'=>'dos filetes','kcal' =>23,'tipo'=>'Comida'],
-            ['descripcion'=>'Cereal','um'=>'una taza de leche','kcal' =>23,'tipo'=>'Cena'],
-            ['descripcion'=>'Yogurth','um'=>'una taza','kcal' =>23, 'tipo'=>'Cena']
+            ['descripcion'=>'Pescado frito','um'=>'dos filetes'],
+            ['descripcion'=>'Sopa de verduras','um'=>'medio litro'],
+            ['descripcion'=>'Carne asada','um'=>'dos filetes'],
+            ['descripcion'=>'Cereal','um'=>'una taza de leche'],
+            ['descripcion'=>'Yogurth','um'=>'una taza']
         ]);
 
 
