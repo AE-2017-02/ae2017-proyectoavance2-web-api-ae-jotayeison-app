@@ -71,7 +71,7 @@ $router->post('cancelCita','CitaController@cancel');
 $router->post('updateCita','CitaController@update');
 $router->post('deleteCita','CitaController@delete');
 
-    $router->get('getHorariosByFecha','CitaController@getHorarios');
+$router->get('getHorariosByFecha','CitaController@getHorarios');
 
 /**
  * RESUMEN CITAS

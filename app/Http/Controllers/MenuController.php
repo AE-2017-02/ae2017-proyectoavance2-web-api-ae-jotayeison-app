@@ -237,20 +237,17 @@ class MenuController extends Controller
             ->header('Content-Type', 'application/json');
     }//get alimentos
 
-        public function getAlimentosByMenu(Request $request){
+    public function getAlimentosByMenu(Request $request){
         $this->validate($request,[
-           'id' => 'required'
+            'id' => 'required'
         ]);
-
         $id = $request->input('id');
-
         $alimentos = DB::table('menus')
             ->join('det_ali_men', 'det_ali_men.menu_id', '=', 'menus.menu_id')
             ->join('alimentos','alimentos.alimento_id','=','det_ali_men.alimento_id')
             ->select('alimentos.*')
             ->where('menus.menu_id',$id)
             ->get()->toArray();
-
         $aux  = array();
         foreach ($alimentos as $ali){
             $id_grupo  = $ali['grupo_id'];
@@ -270,7 +267,6 @@ class MenuController extends Controller
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
-
     }//get alimentos by Menu
 
     public function eliminarAlimento(Request $request){
