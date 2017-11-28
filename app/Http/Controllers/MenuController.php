@@ -248,17 +248,17 @@ class MenuController extends Controller
             ->select('alimentos.*')
             ->where('menus.menu_id',$id)
             ->get()->toArray();
-        $aux  = array();
+        $aux  = [];
         foreach ($alimentos as $ali){
-            $id_grupo  = $ali['grupo_id'];
+            $id_grupo  = $ali->grupo_id;
             if($id_grupo != null){
                 $grupo = Grupo::find($id_grupo)->toArray();
-                $ali['grupo'] = $grupo;
+                $ali->grupo = $grupo;
             }else{
-                $ali['grupo'] = array();
+                $ali->grupo = "";
             }
-            unset($ali['grupo_id']);
-            $aux[] = $ali;
+            unset($ali->grupo_id);
+            array_push($aux,$ali);
         }
         return response()->json([
             'status' => 'OK',
