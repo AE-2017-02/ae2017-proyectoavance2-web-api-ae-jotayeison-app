@@ -75,6 +75,43 @@ class CitaController extends Controller
             ->header('Content-Type', 'application/json');
     }// get citas
 
+    public function getCitasByPaciente(Request $request){
+        $this->validate($request,['id'=>'required']);
+        $id = $request->input('id');
+        $citas = null;
+        if($request->input('status')){
+            $status = $request->input('status');
+            $citas = DB::table('citas')
+                ->join('pacientes','citas.paciente_id','=','pacientes.paciente_id')
+                ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
+                ->where('status',$status)
+                ->orderBy('fecha','desc')
+                ->orderBy('hora','desc')->get();
+        }else{
+            $citas = DB::table('citas')
+                ->join('pacientes','citas.paciente_id','=',$id)
+                ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
+                ->get();
+        }
+
+        if(sizeof($citas)==0 ){
+            return response()->json([
+                'status' => 'fail',
+                'code' => 400,
+                'result' => ['error' => 'No hay citas para el paciente '.$id]
+            ],400)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
+        }
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $citas
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+    }// get citas by id
+
     public function cancel(Request $request){
         $this->validate($request,[
             'id' => "required"
