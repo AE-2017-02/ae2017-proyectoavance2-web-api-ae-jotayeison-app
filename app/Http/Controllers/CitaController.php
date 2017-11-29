@@ -89,8 +89,9 @@ class CitaController extends Controller
                 ->orderBy('hora','desc')->get();
         }else{
             $citas = DB::table('citas')
-                ->join('pacientes','citas.paciente_id','=',$id)
+                ->join('pacientes','citas.paciente_id','=','pacientes.paciente_id')
                 ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
+                ->where('pacientes.paciente_id',$id)
                 ->get();
         }
 
