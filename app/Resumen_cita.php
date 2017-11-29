@@ -43,7 +43,9 @@ class Resumen_cita extends Model
         'tipodieta',
         'observacion',
         'paciente_id',
-        'cita_id'
+        'cita_id',
+        'peso',
+        'altura'
     ];
 
     public $primaryKey = "resumen_cita_id";
