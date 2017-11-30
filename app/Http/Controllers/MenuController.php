@@ -337,6 +337,8 @@ class MenuController extends Controller
         $id = $request->input('id'); //id de paciente
         $ultimaCita = Cita::where('paciente_id',$id)->max('cita_id');//obtenemos id de ultima cita
         $menusResumen = Resumen_cita::where('cita_id',$ultimaCita)->first();
+        //print($ultimaCita);
+        //print_r($menusResumen);
         if ($menusResumen && $ultimaCita){
 
             $tipodieta = $menusResumen->tipodieta; //obtenemos el json de los menus asignados en la dieta
@@ -399,6 +401,7 @@ class MenuController extends Controller
         }
 
     }//
+
 
 
 

@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Cita;
+use App\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -231,6 +232,32 @@ class CitaController extends Controller
             ->header('Content-Type', 'application/json');
     }// get citas
 
+
+    public function getLastDates(){
+        $pacientes = Paciente::where('activo',true)->get();
+        $datos = array();
+        foreach ($pacientes as $paciente){
+            $d  = array();
+            $idcita = Cita::where("paciente_id",$paciente->paciente_id)->max("cita_id");
+            if ($idcita){
+                $cita = Cita::where("cita_id",$idcita)->first();
+                $d['paciente_id'] = $paciente->paciente_id;
+                $d['cita_id'] = $idcita;
+                $d['paciente'] = $paciente->nombre." ".$paciente->ape_paterno." ".$paciente->ape_materno;
+                $d['fecha'] = $cita->fecha;
+                $datos[] = $d;
+            }
+
+        }
+
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $datos
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+    }
 
 
 }//controller
