@@ -8,9 +8,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Cita;
 use App\Grupo;
 use App\Menu;
 use App\Alimento;
+use App\Resumen_cita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -327,6 +329,75 @@ class MenuController extends Controller
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
+    }//
+
+    public function getMenusUltimaCita(Request $request){
+        $this->validate($request,['id' => 'required']);
+
+        $id = $request->input('id'); //id de paciente
+        $ultimaCita = Cita::where('paciente_id',$id)->max('cita_id');//obtenemos id de ultima cita
+        $menusResumen = Resumen_cita::where('cita_id',$ultimaCita)->first();
+        if ($menusResumen && $ultimaCita){
+
+            $tipodieta = $menusResumen->tipodieta; //obtenemos el json de los menus asignados en la dieta
+            $dieta  = json_decode($tipodieta); //decodificamos para obtner un array de objetos, cada objeto equivale a un json de un menu
+            $menus = array();
+
+            foreach ($dieta as $d){
+                $menu_info = Menu::find($d->menu_id)->toArray();
+                $alimentos_id = DB::table('det_ali_men')->select('alimento_id')->where('menu_id',$d->menu_id)->groupBy('alimento_id')->get();
+                $alimentos = array();
+
+                foreach ($alimentos_id as $a){
+                    $alimento = Alimento::find($a->alimento_id)->toArray();
+                    $id_grupo  = $alimento['grupo_id'];
+                    if($id_grupo != null){
+                        $grupo = Grupo::find($id_grupo)->toArray();
+                        $alimento['grupo'] = $grupo;
+                    }else{
+                        $alimento['grupo'] = array();
+                    }
+                    unset($alimento['grupo_id']);
+                    $alimentos[] = $alimento;
+
+                }
+                $menu_info['tipo'] = $d->tipo;
+                $menu_info['alimentos'] = $alimentos;
+                $menus[] = $menu_info;
+
+            }
+
+            if (sizeof($menus) == 0){
+                return response()->json([
+                    'status' => 'fail',
+                    'code' => 400,
+                    'result' => ['error' => 'No se encontraron resultados']
+                ],200)
+                    ->header('Access-Control-Allow-Origin','*')
+                    ->header('Content-Type', 'application/json');
+
+            }
+
+
+            return response()->json([
+                'status' => 'OK',
+                'code' => 200,
+                'result' => $menus
+            ],200)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
+
+
+        }else{
+            return response()->json([
+                'status' => 'fail',
+                'code' => 400,
+                'result' => ['error' => 'No se encontraron resultados']
+            ],200)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
+        }
+
     }//
 
 
