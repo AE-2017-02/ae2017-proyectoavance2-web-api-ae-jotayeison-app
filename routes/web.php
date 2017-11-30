@@ -78,6 +78,8 @@ $router->post('deleteCita','CitaController@delete');
 $router->get('getCitasByPaciente','CitaController@getCitasByPaciente');
 
 $router->get('getHorariosByFecha','CitaController@getHorarios');
+$router->get('getUltimasCitas','CitaController@getLastDates');
+
 
 /**
  * RESUMEN CITAS
