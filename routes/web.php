@@ -61,6 +61,10 @@ $router->get('getMenus','MenuController@getMenus');
 $router->get('getAlimentosByMenu','MenuController@getAlimentosByMenu');
 
 $router->get('getMenusByPaciente','MenuController@getMenu');
+
+$router->get('getMenusActivosPaciente','MenuController@getMenusUltimaCita');
+
+
 /**
  * CITAS
  */

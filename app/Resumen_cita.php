@@ -50,6 +50,7 @@ class Resumen_cita extends Model
 
     public $primaryKey = "resumen_cita_id";
     public $timestamps = false;
+    protected $jsonColumns = ['tipodieta'];
 
     /**
      * The attributes excluded from the model's JSON form.
