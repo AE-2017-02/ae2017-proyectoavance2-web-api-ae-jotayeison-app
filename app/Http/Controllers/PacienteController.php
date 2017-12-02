@@ -136,7 +136,8 @@ class PacienteController extends Controller
         ]);
         $id = $request->input('id');
         $paciente = Paciente::find($id);
-
+        $foto =(string) Image::make(storage_path('recursos/'.$paciente->foto))->encode("data-url");
+        $paciente->foto = $foto;
         return response()->json([
             'status' => 'OK',
             'code' => 200,
@@ -156,10 +157,17 @@ class PacienteController extends Controller
             $pacientes = Paciente::where('activo',true)->get();
         }
 
+        $pac = array();
+        foreach($pacientes as $paciente){
+            $foto =(string) Image::make(storage_path('recursos/'.$paciente->foto))->encode("data-url");
+            $paciente->foto = $foto;
+            $pac[]  = $paciente;
+        }
+
         return response()->json([
             'status' => 'OK',
             'code' => 200,
-            'result' => $pacientes
+            'result' => $pac
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
@@ -183,7 +191,7 @@ class PacienteController extends Controller
         $paciente->ape_materno = mb_strtoupper($request->input('ape_materno'));
         $paciente->email = $request->input('email');
         $paciente->fecha_naci = $request->input('fecha_naci');
-        $paciente->sexo = $request->input('sexo');
+        $paciente->sexo = strtoupper($request->input('sexo'));
         $paciente->meta = $request->input('meta')?$request->input('meta'):"";
         $paciente->patologias = $request->input('patologias')?$request->input('patologias'):"";
         $paciente->alergias = $request->input('alergias')?$request->input('alergias'):"";
@@ -192,6 +200,11 @@ class PacienteController extends Controller
         $paciente->fecha_reg = date('Y-m-d');
         $paciente->activo = false;
         $paciente->pre_registro = true;
+        if ($request->input('sexo') == 'M'){
+            $paciente->foto = "mujer.jpg";
+        }else{
+            $paciente->foto = "hombre.jpg";
+        }
         $paciente->save();
 
         return response()->json([
