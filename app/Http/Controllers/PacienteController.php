@@ -12,6 +12,7 @@ use App\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
+use Intervention\Image\Facades\Image;
 
 class PacienteController extends Controller
 {
@@ -385,5 +386,49 @@ class PacienteController extends Controller
             ->header('Content-Type', 'application/json');
 
     }//get Menus
+
+    public function setPicture(Request $request){
+        $this->validate($request,['id' => 'required']);
+        if ($request->file('foto')){
+            if ($request->file('foto')->isValid()){
+                ##visualizar la imagen
+                /*$img  = Image::make($file)->resize(200,260)->encode('jpg');
+                return response()->make($img)->header("Content-Type", "image/jpg");*/
+                ##get imagen en base64
+                //$img  = (string)Image::make($file)->resize(200,260)->encode('data-url');
+                //echo strlen($img);
+                $id = $request->input('id');
+                $paciente = Paciente::find($id);
+                $filename = "paciente".$id.".jpg";
+                $paciente->foto = $filename;
+                $file = $request->file('foto');
+                $img  = Image::make($file)->resize(200,260)->encode('jpg');
+                $img->save(storage_path('recursos/'.$filename));
+                $paciente->save();
+
+                return response()->json([
+                    'status' => 'OK',
+                    'code' => 200,
+                    'result' => "Imagen guardada"
+                ],200)
+                    ->header('Access-Control-Allow-Origin','*')
+                    ->header('Content-Type', 'application/json');
+            }
+        }
+
+
+        return response()->json([
+            'status' => 'Fail',
+            'code' => 400,
+            'result' => "Error al subir la imagen"
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+
+    }//guardar una imagen de paciente
+
+
+
 
 }//PacienteController
