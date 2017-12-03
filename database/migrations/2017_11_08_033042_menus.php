@@ -20,6 +20,7 @@ class Menus extends Migration
             $table->decimal('grasas',18,2);
             $table->decimal('proteinas',18,2);
             $table->decimal('carbohidratos',18,2);
+            $table->smallInteger('orden');
 
         });
     }

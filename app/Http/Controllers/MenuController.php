@@ -34,7 +34,9 @@ class MenuController extends Controller
             'grasas' => 'required',
             'proteinas' => 'required',
             'carbohidratos' => 'required',
-            'alimentos' => 'required|array'
+            'alimentos' => 'required|array',
+
+
         ]);
         $nombre = strtoupper($request->input('nombre'));
         $energia = $request->input('energia');
@@ -42,6 +44,7 @@ class MenuController extends Controller
         $proteinas = $request->input('proteinas');
         $carbo = $request->input('carbohidratos');
         $alimentos = $request->input('alimentos');
+        $orden = $request->input('orden')?$request->input('orden'):1;
 
         $menu = new Menu;
         $menu->nombre = $nombre;
@@ -49,6 +52,7 @@ class MenuController extends Controller
         $menu->grasas = $grasas;
         $menu->proteinas = $proteinas;
         $menu->carbohidratos = $carbo;
+        $menu->orden = $orden;
         $menu->save();
 
         $id = DB::table('menus')->max('menu_id');
@@ -109,6 +113,7 @@ class MenuController extends Controller
         $menu->grasas = $request->input('grasas')?$request->input('grasas'):$menu->grasas;
         $menu->proteinas = $request->input('proteinas')?$request->input('proteinas'):$menu->proteinas;
         $menu->carbohidratos = $request->input('carbohidratos')?$request->input('carbohidratos'):$menu->carbohidratos;;
+        $menu->orden = $request->input('orden')?$request->input('orden'):$menu->orden;
         $menu->save();
 
         if ($request->input('alimentos')){
