@@ -15,6 +15,9 @@ class ExampleMiddleware
      */
     public function handle($request, Closure $next)
     {
+        if ($request->input('year') ){
+
+        }
         return $next($request);
     }
 }

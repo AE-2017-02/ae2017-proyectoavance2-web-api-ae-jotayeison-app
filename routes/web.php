@@ -47,6 +47,9 @@ $router->post('setMenusPaciente','PacienteController@setMenus');
 $router->get('getMenusPaciente','PacienteController@getMenus');
 $router->post('deletePreRegistro','PacienteController@eliminarPreRegistro');
 $router->post('setEstatusPaciente','PacienteController@estadoPaciente');
+
+$router->post('setPicture','PacienteController@setPicture');
+
 /*
  *      MENUS
  * */

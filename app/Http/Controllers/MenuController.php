@@ -36,7 +36,7 @@ class MenuController extends Controller
             'carbohidratos' => 'required',
             'alimentos' => 'required|array'
         ]);
-        $nombre = $request->input('nombre');
+        $nombre = strtoupper($request->input('nombre'));
         $energia = $request->input('energia');
         $grasas = $request->input('grasas');
         $proteinas = $request->input('proteinas');
@@ -104,7 +104,7 @@ class MenuController extends Controller
         $id = $request->input('id');
 
         $menu = Menu::find($id);
-        $menu->nombre = $request->input('nombre')?$request->input('nombre'):$menu->nombre;
+        $menu->nombre = $request->input('nombre')?strtoupper($request->input('nombre')):$menu->nombre;
         $menu->energia = $request->input('energia')?$request->input('energia'):$menu->energia;
         $menu->grasas = $request->input('grasas')?$request->input('grasas'):$menu->grasas;
         $menu->proteinas = $request->input('proteinas')?$request->input('proteinas'):$menu->proteinas;
@@ -165,7 +165,7 @@ class MenuController extends Controller
         ]);
 
         $ali = new Alimento;
-        $ali->descripcion = $request->input('descripcion');
+        $ali->descripcion = strtoupper($request->input('descripcion'));
         $ali->um = $request->input('um');
         $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):null;
         $ali->save();
@@ -189,7 +189,7 @@ class MenuController extends Controller
 
         $ali = Alimento::find($id);
         if ($ali){
-            $ali->descripcion = $request->input('descripcion')?$request->input('descripcion'):$ali->descripcion;
+            $ali->descripcion = $request->input('descripcion')?strtoupper($request->input('descripcion')):$ali->descripcion;
             $ali->um = $request->input('um')?$request->input('um'):$ali->um;
             $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):$ali->grupo_id;
             $ali->save();

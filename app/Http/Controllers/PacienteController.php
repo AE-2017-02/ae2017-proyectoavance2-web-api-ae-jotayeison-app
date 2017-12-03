@@ -12,6 +12,7 @@ use App\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
+use Intervention\Image\Facades\Image;
 
 class PacienteController extends Controller
 {
@@ -135,7 +136,8 @@ class PacienteController extends Controller
         ]);
         $id = $request->input('id');
         $paciente = Paciente::find($id);
-
+        $foto =(string) Image::make(storage_path('recursos/'.$paciente->foto))->encode("data-url");
+        $paciente->foto = $foto;
         return response()->json([
             'status' => 'OK',
             'code' => 200,
@@ -148,11 +150,23 @@ class PacienteController extends Controller
 
     public function getPacientes(Request $request){
 
+
         $pacientes = null;
         if($request->input('inactivos')){
             $pacientes = Paciente::where([['activo',false],['pre_registro',false]])->get();
-        }else{
+        }else if($request->input('pre')){
+            $pacientes = Paciente::where('pre_registro',true)->get();
+        }else if($request->input('activos')){
             $pacientes = Paciente::where('activo',true)->get();
+        }else{
+            $pacientes = Paciente::all();
+        }
+
+        $pac = array();
+        foreach($pacientes as $paciente){
+            $foto =(string) Image::make(storage_path('recursos/'.$paciente->foto))->encode("data-url");
+            $paciente->foto = $foto;
+            $pac[]  = $paciente;
         }
 
         return response()->json([
@@ -182,7 +196,7 @@ class PacienteController extends Controller
         $paciente->ape_materno = mb_strtoupper($request->input('ape_materno'));
         $paciente->email = $request->input('email');
         $paciente->fecha_naci = $request->input('fecha_naci');
-        $paciente->sexo = $request->input('sexo');
+        $paciente->sexo = strtoupper($request->input('sexo'));
         $paciente->meta = $request->input('meta')?$request->input('meta'):"";
         $paciente->patologias = $request->input('patologias')?$request->input('patologias'):"";
         $paciente->alergias = $request->input('alergias')?$request->input('alergias'):"";
@@ -191,6 +205,11 @@ class PacienteController extends Controller
         $paciente->fecha_reg = date('Y-m-d');
         $paciente->activo = false;
         $paciente->pre_registro = true;
+        if ($request->input('sexo') == 'M'){
+            $paciente->foto = "mujer.jpg";
+        }else{
+            $paciente->foto = "hombre.jpg";
+        }
         $paciente->save();
 
         return response()->json([
@@ -385,5 +404,49 @@ class PacienteController extends Controller
             ->header('Content-Type', 'application/json');
 
     }//get Menus
+
+    public function setPicture(Request $request){
+        $this->validate($request,['id' => 'required']);
+        if ($request->file('foto')){
+            if ($request->file('foto')->isValid()){
+                ##visualizar la imagen
+                /*$img  = Image::make($file)->resize(200,260)->encode('jpg');
+                return response()->make($img)->header("Content-Type", "image/jpg");*/
+                ##get imagen en base64
+                //$img  = (string)Image::make($file)->resize(200,260)->encode('data-url');
+                //echo strlen($img);
+                $id = $request->input('id');
+                $paciente = Paciente::find($id);
+                $filename = "paciente".$id.".jpg";
+                $paciente->foto = $filename;
+                $file = $request->file('foto');
+                $img  = Image::make($file)->resize(200,260)->encode('jpg');
+                $img->save(storage_path('recursos/'.$filename));
+                $paciente->save();
+
+                return response()->json([
+                    'status' => 'OK',
+                    'code' => 200,
+                    'result' => "Imagen guardada"
+                ],200)
+                    ->header('Access-Control-Allow-Origin','*')
+                    ->header('Content-Type', 'application/json');
+            }
+        }
+
+
+        return response()->json([
+            'status' => 'Fail',
+            'code' => 400,
+            'result' => "Error al subir la imagen"
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+
+    }//guardar una imagen de paciente
+
+
+
 
 }//PacienteController
