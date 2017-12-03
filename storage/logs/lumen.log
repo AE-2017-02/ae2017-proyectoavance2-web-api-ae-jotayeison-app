@@ -9351,3 +9351,47 @@ Stack trace:
 #7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #8 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #9 {main}  
+[2017-12-03 05:08:46] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function user() on null in /var/www/html/nutriservices/app/Http/Middleware/ExampleMiddleware.php:29
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(149): App\Http\Middleware\ExampleMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#1 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#2 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#3 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(102): Laravel\Lumen\Routing\Pipeline->Laravel\Lumen\Routing\{closure}(Object(Illuminate\Http\Request))
+#4 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(410): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#7 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#8 {main}  
+[2017-12-03 05:08:54] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function user() on null in /var/www/html/nutriservices/app/Http/Middleware/ExampleMiddleware.php:29
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(149): App\Http\Middleware\ExampleMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#1 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#2 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#3 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(102): Laravel\Lumen\Routing\Pipeline->Laravel\Lumen\Routing\{closure}(Object(Illuminate\Http\Request))
+#4 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(410): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#7 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#8 {main}  
+[2017-12-03 05:09:04] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function user() on null in /var/www/html/nutriservices/app/Http/Middleware/ExampleMiddleware.php:29
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(149): App\Http\Middleware\ExampleMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#1 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#2 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#3 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(102): Laravel\Lumen\Routing\Pipeline->Laravel\Lumen\Routing\{closure}(Object(Illuminate\Http\Request))
+#4 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(410): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#7 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#8 {main}  
+[2017-12-03 05:09:09] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function user() on null in /var/www/html/nutriservices/app/Http/Middleware/ExampleMiddleware.php:29
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(149): App\Http\Middleware\ExampleMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#1 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#2 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#3 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(102): Laravel\Lumen\Routing\Pipeline->Laravel\Lumen\Routing\{closure}(Object(Illuminate\Http\Request))
+#4 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(410): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#7 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#8 {main}  
