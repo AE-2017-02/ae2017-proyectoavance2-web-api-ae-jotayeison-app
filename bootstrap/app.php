@@ -67,6 +67,9 @@ $app->singleton(
 //'auth' => App\Http\Middleware\Authenticate::class,
 //]);
 
+/*$app->middleware([
+    'login' => \App\Http\Middleware\LoginMiddleware::class
+]);*/
 
 
 /*
