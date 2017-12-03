@@ -9516,3 +9516,8 @@ Stack trace:
 #27 /var/www/html/nutriservices/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #28 {main}  
 >>>>>>> f0b117bc6f8aa2da34d9dd5fe93552a0778cf36a
+[2017-12-03 00:06:44] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Class 'Intervention\Image\ImageServiceProvider' not found in /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Application.php:183
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/bootstrap/app.php(87): Laravel\Lumen\Application->register('Intervention\\Im...')
+#1 /var/www/html/AE2017-BACKEND/artisan(18): require('/var/www/html/A...')
+#2 {main}  
