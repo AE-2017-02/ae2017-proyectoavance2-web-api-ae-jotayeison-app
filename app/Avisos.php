@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 
-class Cita extends Model
+class Avisos extends Model
 {
     use Authenticatable, Authorizable;
 

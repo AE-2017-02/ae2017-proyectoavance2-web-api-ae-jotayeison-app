@@ -9515,9 +9515,190 @@ Stack trace:
 #26 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #27 /var/www/html/nutriservices/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #28 {main}  
+<<<<<<< HEAD
 >>>>>>> f0b117bc6f8aa2da34d9dd5fe93552a0778cf36a
 [2017-12-03 00:06:44] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Class 'Intervention\Image\ImageServiceProvider' not found in /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Application.php:183
 Stack trace:
 #0 /var/www/html/AE2017-BACKEND/bootstrap/app.php(87): Laravel\Lumen\Application->register('Intervention\\Im...')
 #1 /var/www/html/AE2017-BACKEND/artisan(18): require('/var/www/html/A...')
 #2 {main}  
+=======
+[2017-12-03 01:05:24] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected 'if' (T_IF) in /var/www/html/nutriservices/app/Http/Controllers/MenuController.php:344
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/var/www/html/n...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Http\\Contro...')
+#2 [internal function]: spl_autoload_call('App\\Http\\Contro...')
+#3 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(752): ReflectionClass->__construct('App\\Http\\Contro...')
+#4 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(631): Illuminate\Container\Container->build('App\\Http\\Contro...')
+#5 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(586): Illuminate\Container\Container->resolve('App\\Http\\Contro...', Array)
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Application.php(230): Illuminate\Container\Container->make('App\\Http\\Contro...', Array)
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(308): Laravel\Lumen\Application->make('App\\Http\\Contro...')
+#8 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-12-03 04:23:20] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Class 'App\Avisos' not found in /var/www/html/nutriservices/app/Http/Controllers/AvisosController.php:50
+Stack trace:
+#0 [internal function]: App\Http\Controllers\AvisosController->getAvisos(Object(Illuminate\Http\Request))
+#1 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#2 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#3 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#4 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\AvisosController), 'getAvisos', Array)
+#8 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+[2017-12-03 04:33:36] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined function session() in /var/www/html/nutriservices/routes/web.php:115
+Stack trace:
+#0 [internal function]: Closure->{closure}()
+#1 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Object(Closure), Array)
+#2 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(75): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#3 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Object(Closure), Object(Closure))
+#4 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Object(Closure), Array, NULL)
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(286): Illuminate\Container\Container->call(Object(Closure), Array)
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#8 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#9 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#11 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#12 {main}  
+[2017-12-03 04:34:25] lumen.ERROR: RuntimeException: Session store not set on request. in /var/www/html/nutriservices/vendor/illuminate/http/Request.php:414
+Stack trace:
+#0 /var/www/html/nutriservices/routes/web.php(115): Illuminate\Http\Request->session()
+#1 [internal function]: Closure->{closure}(Object(Illuminate\Http\Request))
+#2 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Object(Closure), Array)
+#3 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(75): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Object(Closure), Object(Closure))
+#5 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Object(Closure), Array, NULL)
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(286): Illuminate\Container\Container->call(Object(Closure), Array)
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#8 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#9 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#12 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#13 {main}  
+[2017-12-03 04:34:25] lumen.ERROR: RuntimeException: Session store not set on request. in /var/www/html/nutriservices/vendor/illuminate/http/Request.php:414
+Stack trace:
+#0 /var/www/html/nutriservices/routes/web.php(115): Illuminate\Http\Request->session()
+#1 [internal function]: Closure->{closure}(Object(Illuminate\Http\Request))
+#2 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Object(Closure), Array)
+#3 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(75): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Object(Closure), Object(Closure))
+#5 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Object(Closure), Array, NULL)
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(286): Illuminate\Container\Container->call(Object(Closure), Array)
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#8 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#9 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#12 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#13 {main}  
+[2017-12-03 04:34:54] lumen.ERROR: RuntimeException: Session store not set on request. in /var/www/html/nutriservices/vendor/illuminate/http/Request.php:414
+Stack trace:
+#0 /var/www/html/nutriservices/app/Http/Controllers/ConfiguracionController.php(36): Illuminate\Http\Request->session()
+#1 [internal function]: App\Http\Controllers\ConfiguracionController->login(Object(Illuminate\Http\Request))
+#2 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#8 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\ConfiguracionController), 'login', Array)
+#9 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-12-03 04:51:22] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined method Laravel\Lumen\Routing\Router::middleware() in /var/www/html/nutriservices/routes/web.php:30
+Stack trace:
+#0 /var/www/html/nutriservices/bootstrap/app.php(106): require()
+#1 [internal function]: {closure}(Object(Laravel\Lumen\Routing\Router))
+#2 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Router.php(62): call_user_func(Object(Closure), Object(Laravel\Lumen\Routing\Router))
+#3 /var/www/html/nutriservices/bootstrap/app.php(107): Laravel\Lumen\Routing\Router->group(Array, Object(Closure))
+#4 /var/www/html/nutriservices/public/index.php(14): require('/var/www/html/n...')
+#5 {main}  
+[2017-12-03 04:52:06] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined method Laravel\Lumen\Routing\Router::middleware() in /var/www/html/nutriservices/routes/web.php:30
+Stack trace:
+#0 /var/www/html/nutriservices/bootstrap/app.php(106): require()
+#1 [internal function]: {closure}(Object(Laravel\Lumen\Routing\Router))
+#2 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Router.php(62): call_user_func(Object(Closure), Object(Laravel\Lumen\Routing\Router))
+#3 /var/www/html/nutriservices/bootstrap/app.php(107): Laravel\Lumen\Routing\Router->group(Array, Object(Closure))
+#4 /var/www/html/nutriservices/public/index.php(14): require('/var/www/html/n...')
+#5 {main}  
+[2017-12-03 04:53:57] lumen.ERROR: RuntimeException: Session store not set on request. in /var/www/html/nutriservices/vendor/illuminate/http/Request.php:414
+Stack trace:
+#0 /var/www/html/nutriservices/app/Http/Middleware/LoginMiddleware.php(36): Illuminate\Http\Request->session()
+#1 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(149): App\Http\Middleware\LoginMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#2 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#3 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#4 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(102): Laravel\Lumen\Routing\Pipeline->Laravel\Lumen\Routing\{closure}(Object(Illuminate\Http\Request))
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(410): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#8 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#9 {main}  
+[2017-12-03 04:54:17] lumen.ERROR: RuntimeException: Session store not set on request. in /var/www/html/nutriservices/vendor/illuminate/http/Request.php:414
+Stack trace:
+#0 /var/www/html/nutriservices/app/Http/Middleware/LoginMiddleware.php(36): Illuminate\Http\Request->session()
+#1 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(149): App\Http\Middleware\LoginMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#2 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#3 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#4 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(102): Laravel\Lumen\Routing\Pipeline->Laravel\Lumen\Routing\{closure}(Object(Illuminate\Http\Request))
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(410): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#8 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#9 {main}  
+[2017-12-03 04:54:19] lumen.ERROR: RuntimeException: Session store not set on request. in /var/www/html/nutriservices/vendor/illuminate/http/Request.php:414
+Stack trace:
+#0 /var/www/html/nutriservices/app/Http/Middleware/LoginMiddleware.php(36): Illuminate\Http\Request->session()
+#1 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(149): App\Http\Middleware\LoginMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#2 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#3 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#4 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(102): Laravel\Lumen\Routing\Pipeline->Laravel\Lumen\Routing\{closure}(Object(Illuminate\Http\Request))
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(410): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#8 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#9 {main}  
+[2017-12-03 04:54:49] lumen.ERROR: RuntimeException: Session store not set on request. in /var/www/html/nutriservices/vendor/illuminate/http/Request.php:414
+Stack trace:
+#0 /var/www/html/nutriservices/app/Http/Middleware/LoginMiddleware.php(36): Illuminate\Http\Request->session()
+#1 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(149): App\Http\Middleware\LoginMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#2 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#3 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#4 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(102): Laravel\Lumen\Routing\Pipeline->Laravel\Lumen\Routing\{closure}(Object(Illuminate\Http\Request))
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(410): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#8 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#9 {main}  
+[2017-12-03 04:54:50] lumen.ERROR: RuntimeException: Session store not set on request. in /var/www/html/nutriservices/vendor/illuminate/http/Request.php:414
+Stack trace:
+#0 /var/www/html/nutriservices/app/Http/Middleware/LoginMiddleware.php(36): Illuminate\Http\Request->session()
+#1 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(149): App\Http\Middleware\LoginMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
+#2 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#3 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Routing/Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#4 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(102): Laravel\Lumen\Routing\Pipeline->Laravel\Lumen\Routing\{closure}(Object(Illuminate\Http\Request))
+#5 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(410): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#8 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#9 {main}  
+>>>>>>> 1f5ece94cbf057e385d93c260e63d861db60bb35

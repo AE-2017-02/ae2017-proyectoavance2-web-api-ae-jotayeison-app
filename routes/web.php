@@ -49,6 +49,7 @@ $router->post('deletePreRegistro','PacienteController@eliminarPreRegistro');
 $router->post('setEstatusPaciente','PacienteController@estadoPaciente');
 
 $router->post('setPicture','PacienteController@setPicture');
+$router->get('getPicture','PacienteController@getPicture');
 
 /*
  *      MENUS
@@ -108,3 +109,4 @@ $router->post('updateGrupo','GrupoController@update');
  */
 $router->post('insertAvisos','AvisosController@insertAvisos');
 $router->get('getAvisos','AvisosController@getAvisos');
+

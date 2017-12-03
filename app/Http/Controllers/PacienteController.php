@@ -447,6 +447,22 @@ class PacienteController extends Controller
     }//guardar una imagen de paciente
 
 
+    public function getPicture(Request $request){
+        $this->validate($request,['id' => 'required']);
+        $id = $request->input('id');
+        $paciente = Paciente::find($id);
+        $foto =(string) Image::make(storage_path('recursos/'.$paciente->foto))->encode("data-url");
+
+        return response()->json([
+            'status' => 'ok',
+            'code' => 200,
+            'result' => ['foto' => $foto]
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//getPhoto
+
 
 
 }//PacienteController
