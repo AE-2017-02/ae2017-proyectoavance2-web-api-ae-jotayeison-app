@@ -150,11 +150,16 @@ class PacienteController extends Controller
 
     public function getPacientes(Request $request){
 
+
         $pacientes = null;
         if($request->input('inactivos')){
             $pacientes = Paciente::where([['activo',false],['pre_registro',false]])->get();
-        }else{
+        }else if($request->input('pre')){
+            $pacientes = Paciente::where('pre_registro',true)->get();
+        }else if($request->input('activos')){
             $pacientes = Paciente::where('activo',true)->get();
+        }else{
+            $pacientes = Paciente::all();
         }
 
         $pac = array();
@@ -167,7 +172,7 @@ class PacienteController extends Controller
         return response()->json([
             'status' => 'OK',
             'code' => 200,
-            'result' => $pac
+            'result' => $pacientes
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');

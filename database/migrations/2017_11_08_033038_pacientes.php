@@ -44,7 +44,7 @@ class Pacientes extends Migration
             $table->date('fecha_reg')->nullable();
             $table->boolean('activo')->nullable();
             $table->boolean('pre_registro')->nullable();
-            $table->string('imagen',3000)->nullable();
+            $table->string('foto',30)->nullable()->default('hombre.jpg');
 
         });
     }

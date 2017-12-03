@@ -25,7 +25,7 @@ class GrupoController extends Controller
         $this->validate($request,[
             'grupo' => 'required',
         ]);
-        $grupo_name = $request->input('grupo');
+        $grupo_name = strtoupper($request->input('grupo'));
         $proteias = $request->input('proteinas');
         $energia = $request->input('energia');
         $grasas = $request->input('grasas');
@@ -66,7 +66,7 @@ class GrupoController extends Controller
         ]);
         $id = $request->input('id');
          $grupo = Grupo::find($id);
-        $grupo->grupo = $request->input('grupo')?$request->input('grupo'):$grupo->grupo;
+        $grupo->grupo = $request->input('grupo')?strtoupper($request->input('grupo')):$grupo->grupo;
         $grupo->proteinas = $request->input('proteinas')?$request->input('proteinas'):$grupo->proteinas;
         $grupo->energia =$request->input('energia')?$request->input('energia'):$grupo->energia;
         $grupo->grasas =$request->input('grasas')?$request->input('grasas'):$grupo->grasas;
