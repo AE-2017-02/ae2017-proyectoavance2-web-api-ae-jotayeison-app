@@ -325,6 +325,7 @@ class PacienteController extends Controller
         $estatus = $request->input('estatus');
         $paciente = Paciente::find($id);
         $paciente->activo = $estatus;
+        $paciente->pre_registro = false;
         $paciente->save();
         
          return response()->json([
