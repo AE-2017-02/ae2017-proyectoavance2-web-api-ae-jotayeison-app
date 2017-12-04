@@ -321,7 +321,6 @@ class MenuController extends Controller
                 }
                 unset($alimento['grupo_id']);
                 $alimentos[] = $alimento;
-
             }
             $menu_info['alimentos'] = $alimentos;
             $menus[] = $menu_info;
@@ -342,13 +341,14 @@ class MenuController extends Controller
         $id = $request->input('id'); //id de paciente
         $ultimaCita = Cita::where('paciente_id',$id)->max('cita_id');//obtenemos id de ultima cita
         $menusResumen = Resumen_cita::where('cita_id',$ultimaCita)->first();
-        //print($ultimaCita);
-       // print_r($menusResumen);
+        print($ultimaCita);
+        print_r($menusResumen);
        // die();
         if ($menusResumen && $ultimaCita){
 
             $tipodieta = $menusResumen->tipodieta; //obtenemos el json de los menus asignados en la dieta
             $dieta  = json_decode($tipodieta); //decodificamos para obtner un array de objetos, cada objeto equivale a un json de un menu
+            print $dieta;
             $menus = array();
 
             foreach ($dieta as $d){
