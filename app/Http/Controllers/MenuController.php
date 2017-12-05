@@ -44,7 +44,6 @@ class MenuController extends Controller
         $proteinas = $request->input('proteinas');
         $carbo = $request->input('carbohidratos');
         $alimentos = $request->input('alimentos');
-        $orden = $request->input('orden')?$request->input('orden'):1;
 
         $menu = new Menu;
         $menu->nombre = $nombre;
@@ -52,7 +51,6 @@ class MenuController extends Controller
         $menu->grasas = $grasas;
         $menu->proteinas = $proteinas;
         $menu->carbohidratos = $carbo;
-        $menu->orden = $orden;
         $menu->save();
 
         $id = DB::table('menus')->max('menu_id');
@@ -113,7 +111,6 @@ class MenuController extends Controller
         $menu->grasas = $request->input('grasas')?$request->input('grasas'):$menu->grasas;
         $menu->proteinas = $request->input('proteinas')?$request->input('proteinas'):$menu->proteinas;
         $menu->carbohidratos = $request->input('carbohidratos')?$request->input('carbohidratos'):$menu->carbohidratos;;
-        $menu->orden = $request->input('orden')?$request->input('orden'):$menu->orden;
         $menu->save();
 
         if ($request->input('alimentos')){
@@ -166,12 +163,14 @@ class MenuController extends Controller
     public function insertAlimento(Request $request){
         $this->validate($request,[
             'descripcion' => 'required',
-            'um' => 'required'
+            'um' => 'required',
+            'porciones' => 'required'
         ]);
 
         $ali = new Alimento;
         $ali->descripcion = strtoupper($request->input('descripcion'));
         $ali->um = $request->input('um');
+        $ali->porciones = $request->input('porciones');
         $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):null;
         $ali->save();
 
@@ -197,6 +196,7 @@ class MenuController extends Controller
             $ali->descripcion = $request->input('descripcion')?strtoupper($request->input('descripcion')):$ali->descripcion;
             $ali->um = $request->input('um')?$request->input('um'):$ali->um;
             $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):$ali->grupo_id;
+            $ali->porciones = $request->input('porciones')?$request->input('porciones'):$ali->porciones;
             $ali->save();
 
             return response()->json([
@@ -340,16 +340,12 @@ class MenuController extends Controller
 
         $id = $request->input('id'); //id de paciente
         $ultimaCita = Cita::where('paciente_id',$id)->max('cita_id');//obtenemos id de ultima cita
-        $ultimaCita = 5;
         $menusResumen = Resumen_cita::where('cita_id',$ultimaCita)->first();
-       // print($ultimaCita);
-        //print_r($menusResumen);
-       // die();
+
         if ($menusResumen && $ultimaCita){
 
             $tipodieta = $menusResumen->tipodieta; //obtenemos el json de los menus asignados en la dieta
             $dieta  = json_decode($tipodieta); //decodificamos para obtner un array de objetos, cada objeto equivale a un json de un menu
-          //  print $dieta;
             $menus = array();
 
             foreach ($dieta as $d){

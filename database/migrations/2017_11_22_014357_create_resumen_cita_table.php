@@ -34,6 +34,7 @@ class CreateResumenCitaTable extends Migration
             $table->decimal('pliegues8',18,2)->nullable();
 
             $table->json('tipodieta')->nullable();
+            $table->json('antropometria')->nullable();
             $table->decimal('peso',18,2)->nullable();
             $table->decimal('altura ',18,2)->nullable();
             $table->string('observacion',30)->nullable();
