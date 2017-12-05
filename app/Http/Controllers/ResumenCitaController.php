@@ -80,6 +80,7 @@ class ResumenCitaController extends Controller {
         $pliegues8 = $request->input('pliegues8');
 
         $tipodieta = $request->input('tipodieta');
+        $antro = $request->input('antro');
         $observacion = $request->input('observacion');
 
         $paciente_id = $request->input('paciente_id');
@@ -109,6 +110,8 @@ class ResumenCitaController extends Controller {
         $resumencita->ppantorrillas = $ppantorrillas;
 
         $resumencita->tipodieta = $tipodieta;
+        $resumencita->antropometria = $antro;
+
         $resumencita->observacion = $observacion;
 
         $resumencita->paciente_id = $paciente_id;
@@ -152,6 +155,7 @@ class ResumenCitaController extends Controller {
         $resumencita->ppantorrillas = $request->input('ppantorrillas')?$request->input('ppantorrillas'): $resumencita->ppantorrillas;
 
         $resumencita->tipodieta = $request->input('tipodieta')?$request->input('tipodieta'):$resumencita->tipodieta;
+        $resumencita->antropometria = $request->input('antro')?$request->input('antro'):$resumencita->antropometria;
         $resumencita->observacion = $request->input('observacion')?$request->input('observacion'):$resumencita->observacion;
 
         $resumencita->save();

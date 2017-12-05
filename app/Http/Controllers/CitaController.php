@@ -240,14 +240,11 @@ class CitaController extends Controller
         $datos = array();
         foreach ($pacientes as $paciente){
             $d  = array();
-            $idcita = Cita::where("paciente_id",$paciente->paciente_id)->max("cita_id");
-            if ($idcita){
-                $cita = Cita::where("cita_id",$idcita)->first();
+            $citas = Cita::where([["paciente_id",$paciente->paciente_id],['fecha','>=',date('Y-m-d')]])->get()->toArray();
+            if (sizeof($citas)>0){
                 $d['paciente_id'] = $paciente->paciente_id;
-                $d['cita_id'] = $idcita;
                 $d['paciente'] = $paciente->nombre." ".$paciente->ape_paterno." ".$paciente->ape_materno;
-                $d['fecha'] = $cita->fecha;
-                $d['hora'] = $cita->hora;
+                $d['citas'] = $citas;
                 $datos[] = $d;
             }
 
@@ -269,9 +266,10 @@ class CitaController extends Controller
             $idcita = Cita::where("paciente_id",$paciente->paciente_id)->max("cita_id");
             if ($idcita){
                 $cita = Cita::where("cita_id",$idcita)->first();
-                $d['paciente_id'] = $paciente->paciente_id;
+                //$d['paciente_id'] = $paciente->paciente_id;
+                $d['paciente'] = $paciente;
                 $d['cita_id'] = $idcita;
-                $d['paciente'] = $paciente->nombre." ".$paciente->ape_paterno." ".$paciente->ape_materno;
+                //$d['paciente'] = $paciente->nombre." ".$paciente->ape_paterno." ".$paciente->ape_materno;
                 $d['fecha'] = $cita->fecha;
                 $d['hora'] = $cita->hora;
                 $datos[] = $d;
