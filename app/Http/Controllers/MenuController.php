@@ -35,15 +35,13 @@ class MenuController extends Controller
             'proteinas' => 'required',
             'carbohidratos' => 'required',
             'alimentos' => 'required|array',
-
-
         ]);
         $nombre = strtoupper($request->input('nombre'));
         $energia = $request->input('energia');
         $grasas = $request->input('grasas');
         $proteinas = $request->input('proteinas');
         $carbo = $request->input('carbohidratos');
-        $alimentos = $request->input('alimentos');
+        $alimentos = json_decode($request->input('alimentos'));
 
         $menu = new Menu;
         $menu->nombre = $nombre;
@@ -57,7 +55,7 @@ class MenuController extends Controller
 
         foreach ($alimentos as $ali){
                DB::table('det_ali_men')->insert(
-                   ['alimento_id' => $ali, 'menu_id' => $id]
+                   ['alimento_id' => $ali->alimento_id,'porciones' >= $ali->porciones, 'menu_id' => $id]
                );
         }
 
@@ -81,7 +79,7 @@ class MenuController extends Controller
             $alimentos = DB::table('menus')
                 ->join('det_ali_men', 'det_ali_men.menu_id', '=', 'menus.menu_id')
                 ->join('alimentos','alimentos.alimento_id','=','det_ali_men.alimento_id')
-                ->select('alimentos.*')
+                ->select('alimentos.*','det_ali_men.porciones')
                 ->where('menus.menu_id',$id)
                 ->get()->toArray();
 
@@ -114,10 +112,10 @@ class MenuController extends Controller
         $menu->save();
 
         if ($request->input('alimentos')){
-            $alimentos = $request->input('alimentos');
+            $alimentos = json_decode($request->input('alimentos'));
             foreach ($alimentos as $ali){
                 DB::table('det_ali_men')->insert(
-                    ['alimento_id' => $ali, 'menu_id' => $id]
+                    ['alimento_id' => $ali->alimento_id,'porciones' >= $ali->porciones, 'menu_id' => $id]
                 );
             }
         }
@@ -163,14 +161,12 @@ class MenuController extends Controller
     public function insertAlimento(Request $request){
         $this->validate($request,[
             'descripcion' => 'required',
-            'um' => 'required',
-            'porciones' => 'required'
+            'um' => 'required'
         ]);
 
         $ali = new Alimento;
         $ali->descripcion = strtoupper($request->input('descripcion'));
         $ali->um = $request->input('um');
-        $ali->porciones = $request->input('porciones');
         $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):null;
         $ali->save();
 
@@ -196,7 +192,6 @@ class MenuController extends Controller
             $ali->descripcion = $request->input('descripcion')?strtoupper($request->input('descripcion')):$ali->descripcion;
             $ali->um = $request->input('um')?$request->input('um'):$ali->um;
             $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):$ali->grupo_id;
-            $ali->porciones = $request->input('porciones')?$request->input('porciones'):$ali->porciones;
             $ali->save();
 
             return response()->json([
@@ -307,7 +302,7 @@ class MenuController extends Controller
 
         foreach ($menus_id as $m){
             $menu_info = Menu::find($m->menu_id)->toArray();
-            $alimentos_id = DB::table('det_ali_men')->select('alimento_id')->where('menu_id',$m->menu_id)->groupBy('alimento_id')->get();
+            $alimentos_id = DB::table('det_ali_men')->select('alimento_id','porciones')->where('menu_id',$m->menu_id)->groupBy('alimento_id')->get();
             $alimentos = array();
 
             foreach ($alimentos_id as $a){
@@ -320,6 +315,7 @@ class MenuController extends Controller
                     $alimento['grupo'] = array();
                 }
                 unset($alimento['grupo_id']);
+                $alimento['porciones'] = $a->porciones;
                 $alimentos[] = $alimento;
             }
             $menu_info['alimentos'] = $alimentos;
@@ -350,7 +346,7 @@ class MenuController extends Controller
 
             foreach ($dieta as $d){
                 $menu_info = Menu::find($d->menu_id)->toArray();
-                $alimentos_id = DB::table('det_ali_men')->select('alimento_id')->where('menu_id',$d->menu_id)->groupBy('alimento_id')->get();
+                $alimentos_id = DB::table('det_ali_men')->select('alimento_id','porciones')->where('menu_id',$d->menu_id)->groupBy('alimento_id')->get();
                 $alimentos = array();
 
                 foreach ($alimentos_id as $a){
@@ -362,6 +358,7 @@ class MenuController extends Controller
                     }else{
                         $alimento['grupo'] = array();
                     }
+                    $alimento['porciones'] = $a->porciones;
                     unset($alimento['grupo_id']);
                     $alimentos[] = $alimento;
 
