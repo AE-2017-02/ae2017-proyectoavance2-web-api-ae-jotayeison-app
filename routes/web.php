@@ -83,6 +83,7 @@ $router->get('getCitasByPaciente','CitaController@getCitasByPaciente');
 
 $router->get('getHorariosByFecha','CitaController@getHorarios');
 $router->get('getUltimasCitas','CitaController@getLastDates');
+$router->get('getSinSeguimiento','CitaController@getSinSeguimiento');
 
 
 /**
