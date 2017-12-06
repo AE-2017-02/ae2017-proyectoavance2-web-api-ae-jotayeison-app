@@ -34,7 +34,7 @@ class MenuController extends Controller
             'grasas' => 'required',
             'proteinas' => 'required',
             'carbohidratos' => 'required',
-            'alimentos' => 'required|array',
+            'alimentos' => 'required',
         ]);
         $nombre = strtoupper($request->input('nombre'));
         $energia = $request->input('energia');
@@ -98,7 +98,7 @@ class MenuController extends Controller
     public function actualizarMenu(Request $request){
         $this->validate($request,[
             'id' => 'required',
-            'alimentos' => 'array'
+            'alimentos' => 'required'
         ]);
 
         $id = $request->input('id');
