@@ -408,8 +408,8 @@ class PacienteController extends Controller
 
     public function setPicture(Request $request){
         $this->validate($request,['id' => 'required']);
-        if ($request->file('foto')){
-            if ($request->file('foto')->isValid()){
+        if ($request->input('foto')){
+            //if ($request->file('foto')->isValid()){
                 ##visualizar la imagen
                 /*$img  = Image::make($file)->resize(200,260)->encode('jpg');
                 return response()->make($img)->header("Content-Type", "image/jpg");*/
@@ -432,7 +432,7 @@ class PacienteController extends Controller
                 ],200)
                     ->header('Access-Control-Allow-Origin','*')
                     ->header('Content-Type', 'application/json');
-            }
+            //}
         }
 
 
