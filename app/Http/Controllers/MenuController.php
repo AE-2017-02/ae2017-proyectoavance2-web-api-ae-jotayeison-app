@@ -173,7 +173,7 @@ class MenuController extends Controller
         $ali->descripcion = strtoupper($request->input('descripcion'));
         $ali->um = $request->input('um');
         $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):null;
-        $ali->can_recomendada=$request->input('can_recomendada');
+        $ali->can_recomendada=$request->input('can_recomendada')?$request->input('can_recomendada'):$ali->can_recomendada;
         $ali->save();
 
         return response()->json([
@@ -198,7 +198,7 @@ class MenuController extends Controller
             $ali->descripcion = $request->input('descripcion')?strtoupper($request->input('descripcion')):$ali->descripcion;
             $ali->um = $request->input('um')?$request->input('um'):$ali->um;
             $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):$ali->grupo_id;
-            $ali->can_recomendada=$request->input('can_recomendada');
+            $ali->can_recomendada=$request->input('can_recomendada')?$request->input('can_recomendada'):$ali->can_recomendada;
             $ali->save();
 
             return response()->json([

@@ -29,7 +29,8 @@ class AvisosController extends Controller
         ]);
         $mensaje = $request->input('mensaje');
         $asunto = $request->input('asunto');
-        
+        date_default_timezone_set('america/mazatlan');
+        $fecha = date('Y-m-d');
         $avisos = new Avisos();
         $avisos->mensaje = $mensaje;
         $avisos->asunto =$asunto;
@@ -40,7 +41,7 @@ class AvisosController extends Controller
         return response()->json([
             'status' => 'OK',
             'code' => 200,
-            'result' => 'Se envió el aviso correctamente'
+            'result' => 'Se envio el aviso correctamente'
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');

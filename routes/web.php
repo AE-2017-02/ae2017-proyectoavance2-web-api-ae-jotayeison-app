@@ -50,7 +50,7 @@ $router->post('setEstatusPaciente','PacienteController@estadoPaciente');
 
 $router->post('setPicture','PacienteController@setPicture');
 $router->get('getPicture','PacienteController@getPicture');
-$router->get('getPictureSeg','PacienteController@getPicturesSeguimiento');
+$router->get('getPicturesSeg','PacienteController@getPicturesSeguimiento');
 $router->post('setPicturesSeg','PacienteController@setPictureSeguimiento');
 
 

@@ -17,7 +17,7 @@ class Avisos extends Migration
             $table->increments('aviso_id');
             $table->string('asunto',140);
             $table->string('mensaje',500);
-            $table-date();
+            $table->date('fecha');
         });
     }
 

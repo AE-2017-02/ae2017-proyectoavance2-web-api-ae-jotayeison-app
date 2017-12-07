@@ -484,7 +484,7 @@ class PacienteController extends Controller
             $seguimiento->paciente_id = $id;
             $file = $request->input('foto');
             $img  = Image::make($file)->resize(400,460)->encode('jpg');
-            $img->save(storage_path('recursos/seguimiento/'.$filename));
+            $img->save(storage_path('recursos/seguimientos/'.$filename));
             $seguimiento->save();
 
             return response()->json([
@@ -512,10 +512,10 @@ class PacienteController extends Controller
     public function getPicturesSeguimiento(Request $request){
         $this->validate($request,['id' => 'required']);
         $id = $request->input('id');
-        $seguimiento = Seguimiento::where('paciente_id',$id)->get()->toArray();
+        $seguimiento = Seguimiento::where('paciente_id',$id)->get();
         $result = array();
         foreach ($seguimiento as $seg){
-            $foto =(string) Image::make(storage_path('recursos/seguimiento/'.$seg->foto))->encode("data-url");
+            $foto =(string) Image::make(storage_path('recursos/seguimientos/'.$seg->foto))->encode("data-url");
             $seg->foto = $foto;
             $result[] = $seg;
         }
@@ -536,7 +536,7 @@ class PacienteController extends Controller
         $id = $request->input('id');
         $seguimiento = Seguimiento::where('paciente_id',$id)->get()->toArray();
         foreach($seguimiento as $seg){
-            $file = storage_path('recursos/seguimiento/'.$seg['foto']);
+            $file = storage_path('recursos/seguimientos/'.$seg['foto']);
             unlink($file);
         }
 
