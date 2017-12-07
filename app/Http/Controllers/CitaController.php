@@ -54,7 +54,7 @@ class CitaController extends Controller
         //$citas = Cita::join()->where('status',$status)->orderBy('fec_hor','desc')->get();
         $citas = null;
         //die($request->input('status'));
-        if($request->input('status')){
+        if($request->input('status')!=null){
             $status = $request->input('status');
                 $citas = DB::table('citas')
                 ->join('pacientes','citas.paciente_id','=','pacientes.paciente_id')
