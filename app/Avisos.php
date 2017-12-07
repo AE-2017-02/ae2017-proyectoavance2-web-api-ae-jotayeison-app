@@ -24,7 +24,8 @@ class Cita extends Model
 
     protected $fillable = [
         'asunto',
-        'mensaje'    
+        'mensaje',
+        'fecha'    
     ];
 
     public $primaryKey = "aviso_id";

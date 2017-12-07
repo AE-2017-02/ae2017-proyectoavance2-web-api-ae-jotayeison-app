@@ -33,6 +33,7 @@ class CitaController extends Controller
         $avisos = new Avisos();
         $avisos->mensaje = $mensaje;
         $avisos->asunto =$asunto;
+        $avisos->fecha=$fecha;
         
         $avisos->save();
 

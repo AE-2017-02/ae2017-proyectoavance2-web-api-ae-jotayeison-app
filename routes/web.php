@@ -108,3 +108,8 @@ $router->post('updateGrupo','GrupoController@update');
  */
 $router->post('insertAvisos','AvisosController@insertAvisos');
 $router->get('getAvisos','AvisosController@getAvisos');
+
+/*
+Rutas para los Middlewares
+*/ 
+//Route::get('/home','HomeController@index');
