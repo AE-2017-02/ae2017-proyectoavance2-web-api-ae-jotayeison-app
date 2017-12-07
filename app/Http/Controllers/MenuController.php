@@ -302,7 +302,7 @@ class MenuController extends Controller
 
         foreach ($menus_id as $m){
             $menu_info = Menu::find($m->menu_id)->toArray();
-            $alimentos_id = DB::table('det_ali_men')->select('alimento_id','porciones')->where('menu_id',$m->menu_id)->groupBy('alimento_id')->get();
+            $alimentos_id = DB::table('det_ali_men')->select('alimento_id','porciones')->where('menu_id',$m->menu_id)->groupBy('alimento_id','porciones')->get();
             $alimentos = array();
 
             foreach ($alimentos_id as $a){
@@ -346,7 +346,7 @@ class MenuController extends Controller
 
             foreach ($dieta as $d){
                 $menu_info = Menu::find($d->menu_id)->toArray();
-                $alimentos_id = DB::table('det_ali_men')->select('alimento_id','porciones')->where('menu_id',$d->menu_id)->groupBy('alimento_id')->get();
+                $alimentos_id = DB::table('det_ali_men')->select('alimento_id','porciones')->where('menu_id',$d->menu_id)->groupBy('alimento_id','porciones')->get();
                 $alimentos = array();
 
                 foreach ($alimentos_id as $a){
