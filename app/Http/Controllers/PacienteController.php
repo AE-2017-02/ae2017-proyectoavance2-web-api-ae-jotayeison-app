@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Paciente;
+use App\Seguimiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
@@ -422,7 +423,10 @@ class PacienteController extends Controller
                 $paciente->foto = $filename;
                 $file = $request->input('foto');
                 $img  = Image::make($file)->resize(200,260)->encode('jpg');
-                $img->save(storage_path('recursos/'.$filename));
+                $img->save(storage_path('recursos/perfiles/'.$filename));
+
+                $paciente->domicilio = $request->input('domicilio')?$request->input('domicilio'):$paciente->domicilio;
+                $paciente->telefono = $request->input('telefono')?$request->input('telefono'):$paciente->telefono;
                 $paciente->save();
 
                 return response()->json([
@@ -452,18 +456,101 @@ class PacienteController extends Controller
         $this->validate($request,['id' => 'required']);
         $id = $request->input('id');
         $paciente = Paciente::find($id);
-        $foto =(string) Image::make(storage_path('recursos/'.$paciente->foto))->encode("data-url");
+        $foto =(string) Image::make(storage_path('recursos/perfiles/'.$paciente->foto))->encode("data-url");
 
         return response()->json([
             'status' => 'ok',
             'code' => 200,
-            'result' => ['foto' => $foto]
+            'result' => ['foto' => $foto,'domicilio' => $paciente->domicilio,'telefono' => $paciente->telefono]
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
 
     }//getPhoto
 
+
+    public function setPictureSeguimiento(Request $request){
+
+        $this->validate($request,['id' => 'required']);
+        date_default_timezone_set('america/mazatlan');
+        $fecha = date('Y-m-d');
+        if ($request->input('foto')){
+            $id = $request->input('id');
+
+            $filename = "paciente".$id."-".$fecha.".jpg";
+            $seguimiento = new Seguimiento();
+            $seguimiento->fecha = $fecha;
+            $seguimiento->foto = $filename;
+            $seguimiento->paciente_id = $id;
+            $file = $request->input('foto');
+            $img  = Image::make($file)->resize(400,460)->encode('jpg');
+            $img->save(storage_path('recursos/seguimiento/'.$filename));
+            $seguimiento->save();
+
+            return response()->json([
+                'status' => 'ok',
+                'code' => 200,
+                'result' => 'Imagen guardada'
+            ],200)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
+
+        }else{
+            return response()->json([
+                'status' => 'fail',
+                'code' => 400,
+                'result' => 'Error al subir la foto'
+            ],200)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
+
+        }
+
+    }//enviar foto del seguimiento
+
+
+    public function getPicturesSeguimiento(Request $request){
+        $this->validate($request,['id' => 'required']);
+        $id = $request->input('id');
+        $seguimiento = Seguimiento::where('paciente_id',$id)->get()->toArray();
+        $result = array();
+        foreach ($seguimiento as $seg){
+            $foto =(string) Image::make(storage_path('recursos/seguimiento/'.$seg->foto))->encode("data-url");
+            $seg->foto = $foto;
+            $result[] = $seg;
+        }
+
+        return response()->json([
+            'status' => 'ok',
+            'code' => 200,
+            'result' => $result
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//obtener imagenes de seguimiento de un paciente
+
+
+    public function deleteSeguimiento(Request $request){
+        $this->validate($request,['id' => 'required']);
+        $id = $request->input('id');
+        $seguimiento = Seguimiento::where('paciente_id',$id)->get()->toArray();
+        foreach($seguimiento as $seg){
+            $file = storage_path('recursos/seguimiento/'.$seg['foto']);
+            unlink($file);
+        }
+
+        DB::table('seguimiento')->where('paciente_id',$id)->delete();
+
+        return response()->json([
+            'status' => 'ok',
+            'code' => 200,
+            'result' => 'Se elimino el seguimiento'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//eleminar el seguimiento de fotos de un paciente
 
 
 }//PacienteController
