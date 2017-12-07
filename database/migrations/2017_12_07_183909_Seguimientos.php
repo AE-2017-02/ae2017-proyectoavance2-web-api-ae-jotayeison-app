@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Avisos extends Migration
+class Seguimientos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class Avisos extends Migration
      */
     public function up()
     {
-        Schema::create('avisos', function (Blueprint $table) {
-            $table->increments('aviso_id');
-            $table->string('asunto',140);
-            $table->string('mensaje',500);
+        Schema::create('seguimientos', function (Blueprint $table) {
+            $table->increments('seguimiento_id');
+            $table->string('foto',50);
             $table->date('fecha');
+            $table->integer('paciente_id')->nullable();
+            $table->foreign('paciente_id')->references('paciente_id')->on('pacientes');
         });
     }
 
@@ -28,6 +29,6 @@ class Avisos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avisos');
+        Schema::dropIfExists('seguimientos');
     }
 }

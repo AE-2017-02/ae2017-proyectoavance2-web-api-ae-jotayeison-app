@@ -2,18 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: ibalop
- * Date: 18/11/17
- * Time: 01:05 PM
+ * Date: 7/12/17
+ * Time: 11:54 AM
  */
 
 namespace App;
+
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 
-class Avisos extends Model
+class Seguimiento extends Model
 {
+
     use Authenticatable, Authorizable;
 
     /**
@@ -23,19 +25,17 @@ class Avisos extends Model
      */
 
     protected $fillable = [
-        'asunto',
-        'mensaje',
-        'fecha'    
+        'fecha',
+        'paciente_id',
+        'foto'
     ];
 
-    public $primaryKey = "aviso_id";
+    public $primaryKey = "seguimiento_id";
     public $timestamps = false;
-
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-
 
 }
