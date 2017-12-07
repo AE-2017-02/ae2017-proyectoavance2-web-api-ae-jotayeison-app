@@ -280,9 +280,9 @@ class CitaController extends Controller
         }
         $lpaciente=array();
         foreach($datos as $dato){
-            $elMesPasado = date('Y-m-d', strtotime('-1 month')) ;;
+            $ayer = date('Y-m-d', strtotime('-1 day')) ;;
             $fecha = date('Y-m-d',strtotime($dato['fecha']));
-            if($fecha < $elMesPasado){
+            if($fecha <= $ayer){
                 array_push($lpaciente,$dato);
             }
         }
