@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Cita;
+use App\DetAliMen;
 use App\Grupo;
 use App\Menu;
 use App\Alimento;
@@ -41,8 +42,9 @@ class MenuController extends Controller
         $grasas = $request->input('grasas');
         $proteinas = $request->input('proteinas');
         $carbo = $request->input('carbohidratos');
-        $alimentos = json_decode($request->input('alimentos'));
 
+        $alimentos = json_decode($request->input('alimentos'));
+        //print_r($alimentos);
         $menu = new Menu;
         $menu->nombre = $nombre;
         $menu->energia = $energia;
@@ -54,9 +56,12 @@ class MenuController extends Controller
         $id = DB::table('menus')->max('menu_id');
 
         foreach ($alimentos as $ali){
-               DB::table('det_ali_men')->insert(
-                   ['alimento_id' => $ali->alimento_id,'porciones' >= $ali->porciones, 'menu_id' => $id]
-               );
+
+             $det = new DetAliMen();
+             $det->alimento_id = $ali->alimento_id;
+             $det->menu_id = $id;
+             $det->porciones = $ali->porciones;
+             $det->save();
         }
 
         return response()->json([
