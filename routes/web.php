@@ -49,6 +49,7 @@ $router->post('deletePreRegistro','PacienteController@eliminarPreRegistro');
 $router->post('setEstatusPaciente','PacienteController@estadoPaciente');
 
 $router->post('setPicture','PacienteController@setPicture');
+$router->get('getPicture','PacienteController@getPicture');
 
 /*
  *      MENUS
@@ -81,7 +82,8 @@ $router->post('deleteCita','CitaController@delete');
 $router->get('getCitasByPaciente','CitaController@getCitasByPaciente');
 
 $router->get('getHorariosByFecha','CitaController@getHorarios');
-$router->get('getUltimasCitas','CitaController@getLastDates');
+$router->get('getUltimaCita','CitaController@getLastDates');
+$router->get('getSinSeguimiento','CitaController@getSinSeguimiento');
 
 
 /**
@@ -109,7 +111,10 @@ $router->post('updateGrupo','GrupoController@update');
 $router->post('insertAvisos','AvisosController@insertAvisos');
 $router->get('getAvisos','AvisosController@getAvisos');
 
+<<<<<<< HEAD
 /*
 Rutas para los Middlewares
 */ 
 //Route::get('/home','HomeController@index');
+=======
+>>>>>>> 5f6ebd3c9d7bfa0400c7a8c6a9440dc2aea521f9

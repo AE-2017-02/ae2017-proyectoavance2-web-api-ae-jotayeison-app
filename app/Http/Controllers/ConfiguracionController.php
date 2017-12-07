@@ -31,6 +31,7 @@ class ConfiguracionController extends Controller
             ['pwd','=',md5($pwd)]
         ])->get();
 
+
         return response()->json([
             'status' => 'OK',
             'code' => 200,

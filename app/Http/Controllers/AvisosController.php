@@ -13,7 +13,7 @@ use App\Avisos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CitaController extends Controller
+class AvisosController extends Controller
 {
     /**
      * Store a new user.
@@ -23,11 +23,11 @@ class CitaController extends Controller
      */
     public function insertAvisos(Request $request){
         $this->validate($request,[
-            'mensajes' => 'required',
+            'mensaje' => 'required',
             'asunto'  => 'required',
             
         ]);
-        $mensaje = $request->input('mensajes');
+        $mensaje = $request->input('mensaje');
         $asunto = $request->input('asunto');
         
         $avisos = new Avisos();

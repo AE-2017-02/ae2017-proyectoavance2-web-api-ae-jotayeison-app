@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Cita;
 use App\Paciente;
+use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -52,9 +53,10 @@ class CitaController extends Controller
         //$this->validate($request,['status'=>'required']);
         //$citas = Cita::join()->where('status',$status)->orderBy('fec_hor','desc')->get();
         $citas = null;
-        if($request->input('status')){
+        //die($request->input('status'));
+        if($request->input('status')!=null){
             $status = $request->input('status');
-            $citas = DB::table('citas')
+                $citas = DB::table('citas')
                 ->join('pacientes','citas.paciente_id','=','pacientes.paciente_id')
                 ->select('citas.*','pacientes.nombre','pacientes.ape_paterno','pacientes.ape_materno')
                 ->where('status',$status)
@@ -238,13 +240,14 @@ class CitaController extends Controller
         $datos = array();
         foreach ($pacientes as $paciente){
             $d  = array();
-            $idcita = Cita::where("paciente_id",$paciente->paciente_id)->max("cita_id");
-            if ($idcita){
-                $cita = Cita::where("cita_id",$idcita)->first();
+            date_default_timezone_set('america/mazatlan');
+            $fecha = date('Y-m-d');
+            //die($fecha);
+            $citas = Cita::where([["paciente_id",$paciente->paciente_id],['fecha','>=',$fecha]])->get()->toArray();
+            if (sizeof($citas)>0){
                 $d['paciente_id'] = $paciente->paciente_id;
-                $d['cita_id'] = $idcita;
                 $d['paciente'] = $paciente->nombre." ".$paciente->ape_paterno." ".$paciente->ape_materno;
-                $d['fecha'] = $cita->fecha;
+                $d['citas'] = $citas;
                 $datos[] = $d;
             }
 
@@ -258,6 +261,39 @@ class CitaController extends Controller
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
     }
+    public function getSinSeguimiento(){
+        $pacientes = Paciente::where('activo',true)->get();
+        $datos = array();
+        foreach ($pacientes as $paciente){
+            $d  = array();
+            $idcita = Cita::where("paciente_id",$paciente->paciente_id)->max("cita_id");
+            if ($idcita){
+                $cita = Cita::where("cita_id",$idcita)->first();
+                //$d['paciente_id'] = $paciente->paciente_id;
+                $d['paciente'] = $paciente;
+                $d['cita_id'] = $idcita;
+                //$d['paciente'] = $paciente->nombre." ".$paciente->ape_paterno." ".$paciente->ape_materno;
+                $d['fecha'] = $cita->fecha;
+                $d['hora'] = $cita->hora;
+                $datos[] = $d;
+            }
+        }
+        $lpaciente=array();
+        foreach($datos as $dato){
+            $ayer = date('Y-m-d', strtotime('-1 day')) ;;
+            $fecha = date('Y-m-d',strtotime($dato['fecha']));
+            if($fecha <= $ayer){
+                array_push($lpaciente,$dato);
+            }
+        }
 
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $lpaciente
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+    }
 
 }//controller

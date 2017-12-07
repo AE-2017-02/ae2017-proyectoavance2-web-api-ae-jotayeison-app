@@ -325,6 +325,7 @@ class PacienteController extends Controller
         $estatus = $request->input('estatus');
         $paciente = Paciente::find($id);
         $paciente->activo = $estatus;
+        $paciente->pre_registro = false;
         $paciente->save();
         
          return response()->json([
@@ -407,8 +408,8 @@ class PacienteController extends Controller
 
     public function setPicture(Request $request){
         $this->validate($request,['id' => 'required']);
-        if ($request->file('foto')){
-            if ($request->file('foto')->isValid()){
+        if ($request->input('foto')){
+            //if ($request->file('foto')->isValid()){
                 ##visualizar la imagen
                 /*$img  = Image::make($file)->resize(200,260)->encode('jpg');
                 return response()->make($img)->header("Content-Type", "image/jpg");*/
@@ -419,7 +420,7 @@ class PacienteController extends Controller
                 $paciente = Paciente::find($id);
                 $filename = "paciente".$id.".jpg";
                 $paciente->foto = $filename;
-                $file = $request->file('foto');
+                $file = $request->input('foto');
                 $img  = Image::make($file)->resize(200,260)->encode('jpg');
                 $img->save(storage_path('recursos/'.$filename));
                 $paciente->save();
@@ -431,7 +432,7 @@ class PacienteController extends Controller
                 ],200)
                     ->header('Access-Control-Allow-Origin','*')
                     ->header('Content-Type', 'application/json');
-            }
+            //}
         }
 
 
@@ -446,6 +447,22 @@ class PacienteController extends Controller
 
     }//guardar una imagen de paciente
 
+
+    public function getPicture(Request $request){
+        $this->validate($request,['id' => 'required']);
+        $id = $request->input('id');
+        $paciente = Paciente::find($id);
+        $foto =(string) Image::make(storage_path('recursos/'.$paciente->foto))->encode("data-url");
+
+        return response()->json([
+            'status' => 'ok',
+            'code' => 200,
+            'result' => ['foto' => $foto]
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//getPhoto
 
 
 
