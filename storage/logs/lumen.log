@@ -11012,3 +11012,15 @@ Stack trace:
 #20 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #21 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #22 {main}  
+[2017-12-07 04:35:12] lumen.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Uncaught ErrorException: Undefined variable: status in /var/www/html/nutriservices/app/Http/Controllers/CitaController.php:57
+Stack trace:
+#0 /var/www/html/nutriservices/app/Http/Controllers/CitaController.php(57): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined varia...', '/var/www/html/n...', 57, Array)
+#1 [internal function]: App\Http\Controllers\CitaController->getCitas(Object(Illuminate\Http\Request))
+#2 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#5 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lume in /var/www/html/nutriservices/app/Http/Controllers/CitaController.php:57
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\Lumen\Application->handleShutdown()
+#1 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#2 {main}  
