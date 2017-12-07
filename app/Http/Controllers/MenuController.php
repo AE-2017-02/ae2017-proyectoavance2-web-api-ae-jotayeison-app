@@ -173,6 +173,7 @@ class MenuController extends Controller
         $ali->descripcion = strtoupper($request->input('descripcion'));
         $ali->um = $request->input('um');
         $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):null;
+        $ali->can_recomendada=$request->input('can_recomendada');
         $ali->save();
 
         return response()->json([
@@ -197,6 +198,7 @@ class MenuController extends Controller
             $ali->descripcion = $request->input('descripcion')?strtoupper($request->input('descripcion')):$ali->descripcion;
             $ali->um = $request->input('um')?$request->input('um'):$ali->um;
             $ali->grupo_id = $request->input('grupo')?$request->input('grupo'):$ali->grupo_id;
+            $ali->can_recomendada=$request->input('can_recomendada');
             $ali->save();
 
             return response()->json([
@@ -350,7 +352,7 @@ class MenuController extends Controller
             $menus = array();
 
             foreach ($dieta as $d){
-                $menu_info = Menu::find($d->menu_id)->toArray();
+                $menu_info = Menu::find($d->menu_id);//->toArray();
                 $alimentos_id = DB::table('det_ali_men')->select('alimento_id','porciones')->where('menu_id',$d->menu_id)->groupBy('alimento_id','porciones')->get();
                 $alimentos = array();
 
