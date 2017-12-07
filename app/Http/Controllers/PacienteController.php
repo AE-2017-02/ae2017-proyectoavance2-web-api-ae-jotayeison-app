@@ -420,7 +420,7 @@ class PacienteController extends Controller
                 $paciente = Paciente::find($id);
                 $filename = "paciente".$id.".jpg";
                 $paciente->foto = $filename;
-                $file = $request->file('foto');
+                $file = $request->input('foto');
                 $img  = Image::make($file)->resize(200,260)->encode('jpg');
                 $img->save(storage_path('recursos/'.$filename));
                 $paciente->save();

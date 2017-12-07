@@ -252,7 +252,7 @@ class MenuController extends Controller
         $alimentos = DB::table('menus')
             ->join('det_ali_men', 'det_ali_men.menu_id', '=', 'menus.menu_id')
             ->join('alimentos','alimentos.alimento_id','=','det_ali_men.alimento_id')
-            ->select('alimentos.*')
+            ->select('alimentos.*','det_ali_men.porciones')
             ->where('menus.menu_id',$id)
             ->get()->toArray();
         $aux  = [];

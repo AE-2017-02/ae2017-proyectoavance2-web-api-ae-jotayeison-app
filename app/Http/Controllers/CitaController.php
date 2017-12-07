@@ -240,7 +240,10 @@ class CitaController extends Controller
         $datos = array();
         foreach ($pacientes as $paciente){
             $d  = array();
-            $citas = Cita::where([["paciente_id",$paciente->paciente_id],['fecha','>=',date('Y-m-d')]])->get()->toArray();
+            date_default_timezone_set('america/mazatlan');
+            $fecha = date('Y-m-d');
+            //die($fecha);
+            $citas = Cita::where([["paciente_id",$paciente->paciente_id],['fecha','>=',$fecha]])->get()->toArray();
             if (sizeof($citas)>0){
                 $d['paciente_id'] = $paciente->paciente_id;
                 $d['paciente'] = $paciente->nombre." ".$paciente->ape_paterno." ".$paciente->ape_materno;
