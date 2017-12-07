@@ -12184,4 +12184,25 @@ Stack trace:
 #0 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\Lumen\Application->handleShutdown()
 #1 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
 #2 {main}  
+<<<<<<< HEAD
 >>>>>>> fdb5e1cb18a521b071faff4c5c6f4d5465f38d96
+=======
+[2017-12-07 05:41:59] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function toArray() on null in C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\MenuController.php:353
+Stack trace:
+#0 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#15 {main}  
+>>>>>>> 34437fdc278e3a91b47d9519116dc198b98821f6
