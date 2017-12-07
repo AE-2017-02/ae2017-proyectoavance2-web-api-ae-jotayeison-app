@@ -137,7 +137,7 @@ class PacienteController extends Controller
         ]);
         $id = $request->input('id');
         $paciente = Paciente::find($id);
-        $foto =(string) Image::make(storage_path('recursos/'.$paciente->foto))->encode("data-url");
+        $foto =(string) Image::make(storage_path('recursos/perfiles/'.$paciente->foto))->encode("data-url");
         $paciente->foto = $foto;
         return response()->json([
             'status' => 'OK',
@@ -150,7 +150,6 @@ class PacienteController extends Controller
     }//getPaciente
 
     public function getPacientes(Request $request){
-
 
         $pacientes = null;
         if($request->input('inactivos')){
@@ -165,7 +164,7 @@ class PacienteController extends Controller
 
         $pac = array();
         foreach($pacientes as $paciente){
-            $foto =(string) Image::make(storage_path('recursos/'.$paciente->foto))->encode("data-url");
+            $foto =(string) Image::make(storage_path('recursos/perfiles/'.$paciente->foto))->encode("data-url");
             $paciente->foto = $foto;
             $pac[]  = $paciente;
         }

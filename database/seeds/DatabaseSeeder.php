@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('configuraciones')->insert([
             'usuario' => 'admin',
-            'pwd' => strtoupper('admin')
+            'pwd' => md5('admin')
         ]);
 
         DB::table('pacientes')->insert([
