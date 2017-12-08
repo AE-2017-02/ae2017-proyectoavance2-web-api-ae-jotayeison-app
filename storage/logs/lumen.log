@@ -12557,4 +12557,52 @@ Stack trace:
 #17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #18 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #19 {main}  
+<<<<<<< HEAD
 >>>>>>> df473d8de691a947bef981d2109f9258f99606b7
+=======
+[2017-12-08 21:41:02] lumen.ERROR: Intervention\Image\Exception\NotReadableException: Unable to init from given binary data. in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\intervention\image\src\Intervention\Image\Gd\Decoder.php:113
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\intervention\image\src\Intervention\Image\AbstractDecoder.php(342): Intervention\Image\Gd\Decoder->initFromBinary('\xA5\xA7"z{^')
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\intervention\image\src\Intervention\Image\AbstractDriver.php(64): Intervention\Image\AbstractDecoder->init('paciente')
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\intervention\image\src\Intervention\Image\ImageManager.php(50): Intervention\Image\AbstractDriver->init('paciente')
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Facades\Facade.php(221): Intervention\Image\ImageManager->make('paciente')
+#4 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\PacienteController.php(424): Illuminate\Support\Facades\Facade::__callStatic('make', Array)
+#5 [internal function]: App\Http\Controllers\PacienteController->setPicture(Object(Illuminate\Http\Request))
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\PacienteController), 'setPicture', Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-08 21:42:53] lumen.ERROR: Intervention\Image\Exception\NotReadableException: Image source not readable in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\intervention\image\src\Intervention\Image\AbstractDecoder.php:345
+Stack trace:
+#0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\intervention\image\src\Intervention\Image\AbstractDriver.php(64): Intervention\Image\AbstractDecoder->init('C:\\Users\\jorge\\...')
+#1 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\intervention\image\src\Intervention\Image\ImageManager.php(50): Intervention\Image\AbstractDriver->init('C:\\Users\\jorge\\...')
+#2 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\support\Facades\Facade.php(221): Intervention\Image\ImageManager->make('C:\\Users\\jorge\\...')
+#3 C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\PacienteController.php(458): Illuminate\Support\Facades\Facade::__callStatic('make', Array)
+#4 [internal function]: App\Http\Controllers\PacienteController->getPicture(Object(Illuminate\Http\Request))
+#5 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(29): call_user_func_array(Array, Array)
+#6 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#7 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#8 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\container\Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#9 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#10 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#11 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\PacienteController), 'getPicture', Array)
+#12 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#15 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#16 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#18 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
+#19 {main}  
+>>>>>>> 5efe25b91c3fc024db2d0de0cebf1d3aa9d7dadc
