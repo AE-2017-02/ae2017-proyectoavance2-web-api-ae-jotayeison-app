@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DetPacMen extends Migration
+class Programacion extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class DetPacMen extends Migration
      */
     public function up()
     {
-        Schema::create('det_pac_men', function (Blueprint $table) {
-            $table->integer('paciente_id');
-            $table->integer('menu_id');
-            $table->primary(['paciente_id' , 'menu_id']);
-            $table->foreign('paciente_id')->references('paciente_id')->on('pacientes');
+
+        Schema::create('programacion', function (Blueprint $table) {
+            $table->increments('progra_id');
+            $table->string('dia',10);
+            $table->integer('menu_id')->nullable();;
             $table->foreign('menu_id')->references('menu_id')->on('menus');
         });
+
     }
 
     /**
@@ -29,6 +30,6 @@ class DetPacMen extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('det_pac_men');
+        Schema::dropIfExists('programacion');
     }
 }

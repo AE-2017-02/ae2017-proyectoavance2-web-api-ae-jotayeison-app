@@ -3441,6 +3441,77 @@ Stack trace:
 #13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #14 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #15 {main}  
+<<<<<<< HEAD
+[2017-11-10 02:54:31] lumen.ERROR: PDOException: SQLSTATE[2BP01]: Dependent objects still exist: 7 ERROR:  cannot drop table alimentos because other objects depend on it
+DETAIL:  constraint det_ing_ali_alimento_id_foreign on table det_ing_ali depends on table alimentos
+HINT:  Use DROP ... CASCADE to drop the dependent objects too. in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:458
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(458): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('drop table if e...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('drop table if e...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(459): Illuminate\Database\Connection->run('drop table if e...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Blueprint.php(86): Illuminate\Database\Connection->statement('drop table if e...')
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Builder.php(252): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\PostgresConnection), Object(Illuminate\Database\Schema\Grammars\PostgresGrammar))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Builder.php(191): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/support/Facades/Facade.php(221): Illuminate\Database\Schema\Builder->dropIfExists('alimentos')
+#8 /var/www/html/AE2017-BACKEND/database/migrations/2017_11_08_033041_alimentos.php(31): Illuminate\Support\Facades\Facade::__callStatic('dropIfExists', Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(359): Alimentos->down()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Concerns/ManagesTransactions.php(29): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}(Object(Illuminate\Database\PostgresConnection))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(364): Illuminate\Database\Connection->transaction(Object(Closure))
+#12 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(334): Illuminate\Database\Migrations\Migrator->runMigration(Object(Alimentos), 'down')
+#13 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(257): Illuminate\Database\Migrations\Migrator->runDown('/var/www/html/A...', Object(stdClass), false)
+#14 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(208): Illuminate\Database\Migrations\Migrator->rollbackMigrations(Array, Array, Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Migrations/RollbackCommand.php(63): Illuminate\Database\Migrations\Migrator->rollback(Array, Array)
+#16 [internal function]: Illuminate\Database\Console\Migrations\RollbackCommand->handle()
+#17 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#21 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(180): Illuminate\Container\Container->call(Array)
+#22 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Command/Command.php(262): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#23 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(167): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#24 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(888): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RollbackCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(125): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[2BP01]: Dependent objects still exist: 7 ERROR:  cannot drop table alimentos because other objects depend on it
+DETAIL:  constraint det_ing_ali_alimento_id_foreign on table det_ing_ali depends on table alimentos
+HINT:  Use DROP ... CASCADE to drop the dependent objects too. (SQL: drop table if exists "alimentos") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('drop table if e...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(459): Illuminate\Database\Connection->run('drop table if e...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Blueprint.php(86): Illuminate\Database\Connection->statement('drop table if e...')
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Builder.php(252): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\PostgresConnection), Object(Illuminate\Database\Schema\Grammars\PostgresGrammar))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Builder.php(191): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/support/Facades/Facade.php(221): Illuminate\Database\Schema\Builder->dropIfExists('alimentos')
+#6 /var/www/html/AE2017-BACKEND/database/migrations/2017_11_08_033041_alimentos.php(31): Illuminate\Support\Facades\Facade::__callStatic('dropIfExists', Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(359): Alimentos->down()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Concerns/ManagesTransactions.php(29): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}(Object(Illuminate\Database\PostgresConnection))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(364): Illuminate\Database\Connection->transaction(Object(Closure))
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(334): Illuminate\Database\Migrations\Migrator->runMigration(Object(Alimentos), 'down')
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(257): Illuminate\Database\Migrations\Migrator->runDown('/var/www/html/A...', Object(stdClass), false)
+#12 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(208): Illuminate\Database\Migrations\Migrator->rollbackMigrations(Array, Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Migrations/RollbackCommand.php(63): Illuminate\Database\Migrations\Migrator->rollback(Array, Array)
+#14 [internal function]: Illuminate\Database\Console\Migrations\RollbackCommand->handle()
+#15 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#19 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(180): Illuminate\Container\Container->call(Array)
+#20 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Command/Command.php(262): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#21 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(167): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#22 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(888): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RollbackCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(125): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 {main}  
+=======
 [2017-11-10 03:36:59] lumen.ERROR: ErrorException: Missing argument 1 for Illuminate\Database\Eloquent\Builder::find(), called in /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Model.php on line 1417 and defined in /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Builder.php:283
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Builder.php(283): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'Missing argumen...', '/var/www/html/n...', 283, Array)
@@ -3463,6 +3534,9 @@ Stack trace:
 #17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #18 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #19 {main}  
+<<<<<<< HEAD
+>>>>>>> 02e7f1ada46055fa3a6313f3a80b890c5d18e8c8
+=======
 [2017-11-10 05:55:15] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Cannot use object of type stdClass as array in /var/www/html/nutriservices/app/Http/Controllers/MenuController.php:63
 Stack trace:
 #0 [internal function]: App\Http\Controllers\MenuController->getMenus()
@@ -3575,6 +3649,9 @@ Stack trace:
 #14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
+<<<<<<< HEAD
+>>>>>>> 55ad05e221576708d44ba1726023bb7bbdf587a1
+=======
 [2017-11-12 06:28:04] lumen.ERROR: ErrorException: Creating default object from empty value in /var/www/html/nutriservices/app/Http/Controllers/MenuController.php:182
 Stack trace:
 #0 /var/www/html/nutriservices/app/Http/Controllers/MenuController.php(182): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'Creating defaul...', '/var/www/html/n...', 182, Array)
@@ -3594,6 +3671,9 @@ Stack trace:
 #14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
+<<<<<<< HEAD
+>>>>>>> 3037bfe76d6a0286e5bd9c23b5b29bbf33b5569d
+=======
 [2017-11-16 15:12:05] lumen.ERROR: PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "medicamentos" of relation "pacientes" does not exist
 LINE 1: ...ape_paterno", "email", "fecha_naci", "fecha_reg", "medicamen...
                                                              ^ in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:458
@@ -3801,6 +3881,9 @@ Stack trace:
 #26 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #27 /var/www/html/nutriservices/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #28 {main}  
+<<<<<<< HEAD
+>>>>>>> 168646fbcb396a919eeb8d816c61de1d1b2517c3
+=======
 [2017-11-18 20:31:57] lumen.ERROR: PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "cita_id" does not exist
 LINE 1: ...fec_hor", "paciente_id") values ($1, $2) returning "cita_id"
                                                               ^
@@ -3889,6 +3972,9 @@ Stack trace:
 #18 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #19 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #20 {main}  
+<<<<<<< HEAD
+>>>>>>> f00192f8d8ba76082b4c1d8c05a53a650850d12e
+=======
 [2017-11-18 22:07:33] lumen.ERROR: PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  invalid reference to FROM-clause entry for table "pacientes"
 LINE 1: ...inner join "pacientes" on "citas"."paciente_id" = "citas"."p...
                                                              ^
@@ -3944,6 +4030,9 @@ Stack trace:
 #18 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #19 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #20 {main}  
+<<<<<<< HEAD
+>>>>>>> b3e590c987d3b71e5eb2a06cd9a119280e0244e6
+=======
 [2017-11-18 22:27:39] lumen.ERROR: PDOException: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: "'0" in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:330
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
@@ -3993,6 +4082,9 @@ Stack trace:
 #18 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #19 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #20 {main}  
+<<<<<<< HEAD
+>>>>>>> 276f1b7d1efe0feee9d3fdbd93090b8d88543f4c
+=======
 [2017-11-22 00:02:47] lumen.ERROR: PDOException: SQLSTATE[42702]: Ambiguous column: 7 ERROR:  la referencia a la columna «paciente_id» es ambigua
 LINE 1: ...esumen_citas"."cita_id" = "citas"."cita_id" where "paciente_...
                                                              ^ in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:330
@@ -4834,6 +4926,74 @@ Stack trace:
 #15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 3c8ff69c87b648a6ff9b6226b1db6cf8a491d8a5
+[2017-11-24 08:27:02] lumen.ERROR: PDOException: SQLSTATE[42P07]: Duplicate table: 7 ERROR:  relation "resumen_citas" already exists in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:458
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(458): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('create table "r...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('create table "r...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(459): Illuminate\Database\Connection->run('create table "r...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Blueprint.php(86): Illuminate\Database\Connection->statement('create table "r...')
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Builder.php(252): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\PostgresConnection), Object(Illuminate\Database\Schema\Grammars\PostgresGrammar))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Builder.php(165): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/support/Facades/Facade.php(221): Illuminate\Database\Schema\Builder->create('resumen_citas', Object(Closure))
+#8 /var/www/html/AE2017-BACKEND/database/migrations/2017_11_22_014357_create_resumen_cita_table.php(44): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(359): CreateResumenCitaTable->up()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Concerns/ManagesTransactions.php(29): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}(Object(Illuminate\Database\PostgresConnection))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(364): Illuminate\Database\Connection->transaction(Object(Closure))
+#12 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(177): Illuminate\Database\Migrations\Migrator->runMigration(Object(CreateResumenCitaTable), 'up')
+#13 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(146): Illuminate\Database\Migrations\Migrator->runUp('/var/www/html/A...', 1, false)
+#14 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(95): Illuminate\Database\Migrations\Migrator->runPending(Array, Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Migrations/MigrateCommand.php(69): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#16 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->handle()
+#17 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#21 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(180): Illuminate\Container\Container->call(Array)
+#22 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Command/Command.php(262): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#23 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(167): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#24 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(888): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(125): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42P07]: Duplicate table: 7 ERROR:  relation "resumen_citas" already exists (SQL: create table "resumen_citas" ("resumen_cita_id" serial primary key not null, "braso" decimal(18, 2) null, "bcontraido" decimal(18, 2) null, "cintura" decimal(18, 2) null, "muslo" decimal(18, 2) null, "cadera" decimal(18, 2) null, "pantorrilla" decimal(18, 2) null, "muneca" decimal(18, 2) null, "tricipal" decimal(18, 2) null, "sespinale" decimal(18, 2) null, "sescapular" decimal(18, 2) null, "abdominal" decimal(18, 2) null, "bicipital" decimal(18, 2) null, "pmuslo" decimal(18, 2) null, "sliaco" decimal(18, 2) null, "ppantorrillas" decimal(18, 2) null, "pliegues4" decimal(18, 2) null, "pliegues8" decimal(18, 2) null, "tipodieta" decimal(18, 2) null, "observacion" varchar(30) null, "paciente_id" integer null, "cita_id" integer null)) in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('create table "r...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(459): Illuminate\Database\Connection->run('create table "r...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Blueprint.php(86): Illuminate\Database\Connection->statement('create table "r...')
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Builder.php(252): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\PostgresConnection), Object(Illuminate\Database\Schema\Grammars\PostgresGrammar))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Schema/Builder.php(165): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/support/Facades/Facade.php(221): Illuminate\Database\Schema\Builder->create('resumen_citas', Object(Closure))
+#6 /var/www/html/AE2017-BACKEND/database/migrations/2017_11_22_014357_create_resumen_cita_table.php(44): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(359): CreateResumenCitaTable->up()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Concerns/ManagesTransactions.php(29): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}(Object(Illuminate\Database\PostgresConnection))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(364): Illuminate\Database\Connection->transaction(Object(Closure))
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(177): Illuminate\Database\Migrations\Migrator->runMigration(Object(CreateResumenCitaTable), 'up')
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(146): Illuminate\Database\Migrations\Migrator->runUp('/var/www/html/A...', 1, false)
+#12 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Migrations/Migrator.php(95): Illuminate\Database\Migrations\Migrator->runPending(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Migrations/MigrateCommand.php(69): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->handle()
+#15 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#19 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(180): Illuminate\Container\Container->call(Array)
+#20 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Command/Command.php(262): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#21 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(167): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#22 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(888): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(125): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 {main}  
+=======
 [2017-11-26 00:26:09] lumen.ERROR: PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  falta una entrada para la tabla «resumen_cita» en la cláusula FROM
 LINE 1: ...lect "resumen_citas".* from "resumen_citas" where "resumen_c...
                                                              ^ in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:330
@@ -5539,6 +5699,7 @@ Stack trace:
 #17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #18 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
 #19 {main}  
+>>>>>>> 0b771d77e3c95652b5b0c83eef63989b71f11846
 =======
 [2017-11-25 05:09:13] lumen.ERROR: ErrorException: include(/var/www/html/nutriservices/vendor/composer/../../database/migrations/2017_11_25_050818_Grupos.php): failed to open stream: No such file or directory in /var/www/html/nutriservices/vendor/composer/ClassLoader.php:444
 Stack trace:
@@ -5781,6 +5942,9 @@ Stack trace:
 #23 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #24 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #25 {main}  
+<<<<<<< HEAD
+>>>>>>> d2912ab711272ca914b8bbabf70f1fe5cb348d25
+=======
 [2017-11-26 00:24:53] lumen.ERROR: PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "alimento_id" does not exist
 LINE 1: select "alimento_id" from "det_pac_men" where "menu_id" = $1...
                ^ in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:330
@@ -5853,7 +6017,13 @@ Stack trace:
 #14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
+<<<<<<< HEAD
+>>>>>>> e248e76a875170ae7fe31afd7c1e854e553488e8
+=======
 >>>>>>> 2fd150b5769851703f95bbedc11f9b7719d1d9a5
+<<<<<<< HEAD
+>>>>>>> 0b771d77e3c95652b5b0c83eef63989b71f11846
+=======
 [2017-11-26 02:24:31] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected '<<' (T_SL) in C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\ResumenCitaController.php:96
 Stack trace:
 #0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('C:\\Users\\jorge\\...')
@@ -5933,6 +6103,25 @@ Stack trace:
 #23 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #24 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
 #25 {main}  
+<<<<<<< HEAD
+>>>>>>> 675ad3ac8d586abf488585c3fd1d39802d060bd9
+[2017-11-26 02:50:29] lumen.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "migrate:rollack" is not defined.
+
+Did you mean one of these?
+    migrate
+    migrate:install
+    migrate:refresh
+    migrate:reset
+    migrate:rollback
+    migrate:status in /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php:596
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(205): Symfony\Component\Console\Application->find('migrate:rollack')
+#1 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(125): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main}  
+=======
 [2017-11-26 02:35:03] lumen.ERROR: PDOException: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  inserción o actualización en la tabla «resumen_citas» viola la llave foránea «resumen_citas_cita_id_foreign»
 DETAIL:  La llave (cita_id)=(3) no está presente en la tabla «citas». in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\illuminate\database\Connection.php:330
 Stack trace:
@@ -6248,6 +6437,147 @@ Stack trace:
 #23 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #24 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
 #25 {main}  
+<<<<<<< HEAD
+>>>>>>> 7149b39b29982621e83d3851e3ab368b5ef44834
+[2017-11-28 06:35:03] lumen.ERROR: PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "kcal" of relation "alimentos" does not exist
+LINE 1: insert into "alimentos" ("descripcion", "kcal", "tipo", "um"...
+                                                ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:458
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(458): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('insert into "al...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('insert into "al...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(459): Illuminate\Database\Connection->run('insert into "al...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(411): Illuminate\Database\Connection->statement('insert into "al...', Array)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(2118): Illuminate\Database\Connection->insert('insert into "al...', Array)
+#6 /var/www/html/AE2017-BACKEND/database/seeds/DatabaseSeeder.php(92): Illuminate\Database\Query\Builder->insert(Array)
+#7 [internal function]: DatabaseSeeder->run()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Seeder.php(120): Illuminate\Container\Container->call(Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Seeds/SeedCommand.php(63): Illuminate\Database\Seeder->__invoke()
+#14 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Eloquent/Concerns/GuardsAttributes.php(122): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#15 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Seeds/SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#16 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->handle()
+#17 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#21 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(180): Illuminate\Container\Container->call(Array)
+#22 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Command/Command.php(262): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#23 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(167): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#24 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(888): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(125): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "kcal" of relation "alimentos" does not exist
+LINE 1: insert into "alimentos" ("descripcion", "kcal", "tipo", "um"...
+                                                ^ (SQL: insert into "alimentos" ("descripcion", "kcal", "tipo", "um") values (Pescado frito, 23, Desayuno, dos filetes), (Sopa de verduras, 23, Desayuno, medio litro), (Carne asada, 23, Comida, dos filetes), (Cereal, 23, Cena, una taza de leche), (Yogurth, 23, Cena, una taza)) in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('insert into "al...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(459): Illuminate\Database\Connection->run('insert into "al...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(411): Illuminate\Database\Connection->statement('insert into "al...', Array)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(2118): Illuminate\Database\Connection->insert('insert into "al...', Array)
+#4 /var/www/html/AE2017-BACKEND/database/seeds/DatabaseSeeder.php(92): Illuminate\Database\Query\Builder->insert(Array)
+#5 [internal function]: DatabaseSeeder->run()
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Seeder.php(120): Illuminate\Container\Container->call(Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Seeds/SeedCommand.php(63): Illuminate\Database\Seeder->__invoke()
+#12 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Eloquent/Concerns/GuardsAttributes.php(122): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#13 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Seeds/SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#14 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->handle()
+#15 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#19 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(180): Illuminate\Container\Container->call(Array)
+#20 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Command/Command.php(262): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#21 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(167): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#22 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(888): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(125): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 {main}  
+[2017-11-28 06:36:43] lumen.ERROR: PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "configuraciones" does not exist
+LINE 1: insert into "configuraciones" ("usuario", "pwd") values ($1,...
+                    ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:458
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(458): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('insert into "co...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('insert into "co...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(459): Illuminate\Database\Connection->run('insert into "co...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(411): Illuminate\Database\Connection->statement('insert into "co...', Array)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(2118): Illuminate\Database\Connection->insert('insert into "co...', Array)
+#6 /var/www/html/AE2017-BACKEND/database/seeds/DatabaseSeeder.php(16): Illuminate\Database\Query\Builder->insert(Array)
+#7 [internal function]: DatabaseSeeder->run()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Seeder.php(120): Illuminate\Container\Container->call(Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Seeds/SeedCommand.php(63): Illuminate\Database\Seeder->__invoke()
+#14 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Eloquent/Concerns/GuardsAttributes.php(122): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#15 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Seeds/SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#16 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->handle()
+#17 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#21 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(180): Illuminate\Container\Container->call(Array)
+#22 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Command/Command.php(262): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#23 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(167): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#24 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(888): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(125): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "configuraciones" does not exist
+LINE 1: insert into "configuraciones" ("usuario", "pwd") values ($1,...
+                    ^ (SQL: insert into "configuraciones" ("usuario", "pwd") values (admin, 21232f297a57a5a743894a0e4a801fc3)) in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('insert into "co...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(459): Illuminate\Database\Connection->run('insert into "co...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(411): Illuminate\Database\Connection->statement('insert into "co...', Array)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(2118): Illuminate\Database\Connection->insert('insert into "co...', Array)
+#4 /var/www/html/AE2017-BACKEND/database/seeds/DatabaseSeeder.php(16): Illuminate\Database\Query\Builder->insert(Array)
+#5 [internal function]: DatabaseSeeder->run()
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Seeder.php(120): Illuminate\Container\Container->call(Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Seeds/SeedCommand.php(63): Illuminate\Database\Seeder->__invoke()
+#12 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Eloquent/Concerns/GuardsAttributes.php(122): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#13 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Console/Seeds/SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#14 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->handle()
+#15 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#19 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(180): Illuminate\Container\Container->call(Array)
+#20 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Command/Command.php(262): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#21 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Command.php(167): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#22 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(888): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 /var/www/html/AE2017-BACKEND/vendor/symfony/console/Application.php(125): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /var/www/html/AE2017-BACKEND/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 /var/www/html/AE2017-BACKEND/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 {main}  
+=======
 <<<<<<< HEAD
 [2017-11-28 15:47:41] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Cannot use object of type stdClass as array in /var/www/html/nutriservices/app/Http/Controllers/MenuController.php:256
 Stack trace:
@@ -6706,6 +7036,9 @@ Stack trace:
 #14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
 >>>>>>> 6a5f8ef7a58b91c3c376c2eec909c8a41738e8d8
 #15 {main}  
+<<<<<<< HEAD
+>>>>>>> 8f68fa74a8ed9475262f2524ea10455fbeb534b1
+=======
 [2017-11-29 05:44:43] lumen.ERROR: ReflectionException: Class App\Http\Controllers\CitasController does not exist in /var/www/html/nutriservices/vendor/illuminate/container/Container.php:752
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(752): ReflectionClass->__construct('App\\Http\\Contro...')
@@ -6933,6 +7266,9 @@ Stack trace:
 #18 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #19 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #20 {main}  
+<<<<<<< HEAD
+>>>>>>> 703fdd62007a6ebe860dfab019771c79f30acf3f
+=======
 [2017-11-30 06:15:33] lumen.ERROR: BadMethodCallException: Call to undefined method Illuminate\Database\Query\Builder::firts() in /var/www/html/nutriservices/vendor/illuminate/database/Query/Builder.php:2457
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/illuminate/database/Eloquent/Builder.php(1273): Illuminate\Database\Query\Builder->__call('firts', Array)
@@ -7348,6 +7684,9 @@ Stack trace:
 #14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
+<<<<<<< HEAD
+>>>>>>> e540a6ce238fe9e1215caa19ae15a8151ec284b8
+=======
 [2017-11-30 16:35:13] lumen.ERROR: PDOException: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: "2017-11-29" in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:330
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
@@ -8631,6 +8970,9 @@ Stack trace:
 #14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
+<<<<<<< HEAD
+>>>>>>> 8629b9d7e22e213887475574ff77ee884f7bb560
+=======
 [2017-12-02 22:02:49] lumen.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: There are no commands defined in the "vendor" namespace. in /var/www/html/nutriservices/vendor/symfony/console/Application.php:528
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/symfony/console/Application.php(562): Symfony\Component\Console\Application->findNamespace('vendor')
@@ -9173,6 +9515,14 @@ Stack trace:
 #26 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #27 /var/www/html/nutriservices/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #28 {main}  
+<<<<<<< HEAD
+>>>>>>> f0b117bc6f8aa2da34d9dd5fe93552a0778cf36a
+[2017-12-03 00:06:44] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Class 'Intervention\Image\ImageServiceProvider' not found in /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Application.php:183
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/bootstrap/app.php(87): Laravel\Lumen\Application->register('Intervention\\Im...')
+#1 /var/www/html/AE2017-BACKEND/artisan(18): require('/var/www/html/A...')
+#2 {main}  
+=======
 [2017-12-03 01:05:24] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected 'if' (T_IF) in /var/www/html/nutriservices/app/Http/Controllers/MenuController.php:344
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/var/www/html/n...')
@@ -9351,6 +9701,9 @@ Stack trace:
 #7 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #8 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #9 {main}  
+<<<<<<< HEAD
+>>>>>>> 1f5ece94cbf057e385d93c260e63d861db60bb35
+=======
 [2017-12-03 05:08:46] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function user() on null in /var/www/html/nutriservices/app/Http/Middleware/ExampleMiddleware.php:29
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/illuminate/pipeline/Pipeline.php(149): App\Http\Middleware\ExampleMiddleware->handle(Object(Illuminate\Http\Request), Object(Closure))
@@ -9395,6 +9748,9 @@ Stack trace:
 #6 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #7 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #8 {main}  
+<<<<<<< HEAD
+>>>>>>> 988ab2d5005252e4008bc293876a0996bd4223ee
+=======
 [2017-12-04 14:29:28] lumen.ERROR: Intervention\Image\Exception\NotReadableException: Image source not readable in /var/www/html/nutriservices/vendor/intervention/image/src/Intervention/Image/AbstractDecoder.php:345
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/intervention/image/src/Intervention/Image/AbstractDriver.php(64): Intervention\Image\AbstractDecoder->init('/var/www/html/n...')
@@ -9483,6 +9839,9 @@ Stack trace:
 #17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #18 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #19 {main}  
+<<<<<<< HEAD
+>>>>>>> ca05a31fc8a97739d238457a858e8d624a6143d9
+=======
 [2017-12-04 15:33:54] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Type error: Argument 1 passed to Illuminate\Database\Grammar::columnize() must be of the type array, integer given, called in /var/www/html/nutriservices/vendor/illuminate/database/Query/Grammars/Grammar.php on line 131 in /var/www/html/nutriservices/vendor/illuminate/database/Grammar.php:124
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/illuminate/database/Query/Grammars/Grammar.php(131): Illuminate\Database\Grammar->columnize(5)
@@ -9716,6 +10075,9 @@ Stack trace:
 #14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
+<<<<<<< HEAD
+>>>>>>> 42a94ba87053505fdc5ccddde73d0de194bf4df4
+=======
 [2017-12-05 01:03:36] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined function App\Http\Controllers\arrar() in C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\CitaController.php:279
 Stack trace:
 #0 [internal function]: App\Http\Controllers\CitaController->getSinSeguimiento()
@@ -10507,6 +10869,9 @@ Stack trace:
 #14 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #15 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
+<<<<<<< HEAD
+>>>>>>> c92ed027cc9d01fcf2b609120a773b54fec55d72
+=======
 [2017-12-05 03:52:36] lumen.ERROR: PDOException: SQLSTATE[08P01]: <<Unknown error>>: 7 ERROR:  bind message supplies 0 parameters, but prepared statement "pdo_stmt_00000005" requires 1 in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:330
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
@@ -10606,6 +10971,795 @@ Stack trace:
 #17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #18 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #19 {main}  
+<<<<<<< HEAD
+>>>>>>> 39292be13e34fba2a6a40d0bf41b709114df08c3
+[2017-12-05 15:21:09] lumen.ERROR: PDOException: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: "null" in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "citas"....', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "citas"....', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "citas"....', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "citas"....', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/CitaController.php(98): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\CitaController->getCitasByPaciente(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\CitaController), 'getCitasByPacie...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: "null" (SQL: select "citas".*, "pacientes"."nombre", "pacientes"."ape_paterno", "pacientes"."ape_materno" from "citas" inner join "pacientes" on "citas"."paciente_id" = "pacientes"."paciente_id" where "pacientes"."paciente_id" = null) in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "citas"....', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "citas"....', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "citas"....', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/CitaController.php(98): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\CitaController->getCitasByPaciente(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\CitaController), 'getCitasByPacie...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-05 18:01:49] lumen.ERROR: PDOException: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: "null" in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "citas"....', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "citas"....', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "citas"....', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "citas"....', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/CitaController.php(98): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\CitaController->getCitasByPaciente(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\CitaController), 'getCitasByPacie...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: "null" (SQL: select "citas".*, "pacientes"."nombre", "pacientes"."ape_paterno", "pacientes"."ape_materno" from "citas" inner join "pacientes" on "citas"."paciente_id" = "pacientes"."paciente_id" where "pacientes"."paciente_id" = null) in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "citas"....', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "citas"....', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "citas"....', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/CitaController.php(98): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\CitaController->getCitasByPaciente(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\CitaController), 'getCitasByPacie...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-05 18:26:41] lumen.ERROR: ErrorException: json_decode() expects parameter 1 to be string, array given in /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php:44
+Stack trace:
+#0 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'json_decode() e...', '/var/www/html/A...', 44, Array)
+#1 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(44): json_decode(Array)
+#2 [internal function]: App\Http\Controllers\MenuController->setMenu(Object(Illuminate\Http\Request))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'setMenu', Array)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#16 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#17 {main}  
+[2017-12-05 18:26:46] lumen.ERROR: ErrorException: json_decode() expects parameter 1 to be string, array given in /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php:44
+Stack trace:
+#0 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'json_decode() e...', '/var/www/html/A...', 44, Array)
+#1 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(44): json_decode(Array)
+#2 [internal function]: App\Http\Controllers\MenuController->setMenu(Object(Illuminate\Http\Request))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'setMenu', Array)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#16 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#17 {main}  
+[2017-12-05 18:26:56] lumen.ERROR: ErrorException: json_decode() expects parameter 1 to be string, array given in /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php:44
+Stack trace:
+#0 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'json_decode() e...', '/var/www/html/A...', 44, Array)
+#1 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(44): json_decode(Array)
+#2 [internal function]: App\Http\Controllers\MenuController->setMenu(Object(Illuminate\Http\Request))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'setMenu', Array)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#16 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#17 {main}  
+[2017-12-06 04:28:59] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ (SQL: select "alimento_id", "porciones" from "det_ali_men" where "menu_id" = 3 group by "alimento_id") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-06 04:29:28] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ (SQL: select "alimento_id", "porciones" from "det_ali_men" where "menu_id" = 3 group by "alimento_id") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-06 04:30:36] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ (SQL: select "alimento_id", "porciones" from "det_ali_men" where "menu_id" = 3 group by "alimento_id") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-06 04:30:52] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ (SQL: select "alimento_id", "porciones" from "det_ali_men" where "menu_id" = 3 group by "alimento_id") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-06 04:33:42] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ (SQL: select "alimento_id", "porciones" from "det_ali_men" where "menu_id" = 3 group by "alimento_id") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-06 04:36:29] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ (SQL: select "alimento_id", "porciones" from "det_ali_men" where "menu_id" = 3 group by "alimento_id") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-06 04:36:55] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ (SQL: select "alimento_id", "porciones" from "det_ali_men" where "menu_id" = 3 group by "alimento_id") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-06 04:39:02] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ (SQL: select "alimento_id", "porciones" from "det_ali_men" where "menu_id" = 3 group by "alimento_id") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-06 06:28:13] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ (SQL: select "alimento_id", "porciones" from "det_ali_men" where "menu_id" = 3 group by "alimento_id") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-06 08:21:59] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:330
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(330): PDOStatement->execute()
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(657): Illuminate\Database\Connection->Illuminate\Database\{closure}('select "aliment...', Array)
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#6 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#7 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#10 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#11 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#19 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#20 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#21 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
+                              ^ (SQL: select "alimento_id", "porciones" from "det_ali_men" where "menu_id" = 3 group by "alimento_id") in /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php:664
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(624): Illuminate\Database\Connection->runQueryCallback('select "aliment...', Array, Object(Closure))
+#1 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Connection.php(333): Illuminate\Database\Connection->run('select "aliment...', Array, Object(Closure))
+#2 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1705): Illuminate\Database\Connection->select('select "aliment...', Array, true)
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/database/Query/Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
+#4 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(349): Illuminate\Database\Query\Builder->get()
+#5 [internal function]: App\Http\Controllers\MenuController->getMenusUltimaCita(Object(Illuminate\Http\Request))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'getMenusUltimaC...', Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#16 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#17 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#18 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#19 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#20 {main}  
+[2017-12-06 18:17:05] lumen.ERROR: ErrorException: json_decode() expects parameter 1 to be string, array given in /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php:44
+Stack trace:
+#0 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'json_decode() e...', '/var/www/html/A...', 44, Array)
+#1 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(44): json_decode(Array)
+#2 [internal function]: App\Http\Controllers\MenuController->setMenu(Object(Illuminate\Http\Request))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'setMenu', Array)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#16 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#17 {main}  
+[2017-12-06 18:18:58] lumen.ERROR: ErrorException: json_decode() expects parameter 1 to be string, array given in /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php:44
+Stack trace:
+#0 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'json_decode() e...', '/var/www/html/A...', 44, Array)
+#1 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(44): json_decode(Array)
+#2 [internal function]: App\Http\Controllers\MenuController->setMenu(Object(Illuminate\Http\Request))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'setMenu', Array)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#16 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#17 {main}  
+[2017-12-06 18:18:59] lumen.ERROR: ErrorException: json_decode() expects parameter 1 to be string, array given in /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php:44
+Stack trace:
+#0 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'json_decode() e...', '/var/www/html/A...', 44, Array)
+#1 /var/www/html/AE2017-BACKEND/app/Http/Controllers/MenuController.php(44): json_decode(Array)
+#2 [internal function]: App\Http\Controllers\MenuController->setMenu(Object(Illuminate\Http\Request))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\MenuController), 'setMenu', Array)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#15 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#16 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#17 {main}  
+[2017-12-06 23:44:24] lumen.ERROR: ErrorException: Undefined offset: 0 in /var/www/html/AE2017-BACKEND/vendor/illuminate/support/Collection.php:1677
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/support/Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', '/var/www/html/A...', 1677, Array)
+#1 /var/www/html/AE2017-BACKEND/app/Http/Controllers/ExpedienteController.php(30): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+[2017-12-06 23:44:24] lumen.ERROR: ErrorException: Undefined offset: 0 in /var/www/html/AE2017-BACKEND/vendor/illuminate/support/Collection.php:1677
+Stack trace:
+#0 /var/www/html/AE2017-BACKEND/vendor/illuminate/support/Collection.php(1677): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined offse...', '/var/www/html/A...', 1677, Array)
+#1 /var/www/html/AE2017-BACKEND/app/Http/Controllers/ExpedienteController.php(30): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\ExpedienteController->getExpediente(Object(Illuminate\Http\Request))
+#3 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#4 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#5 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#6 /var/www/html/AE2017-BACKEND/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#7 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#8 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(316): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#9 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#10 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#11 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#12 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#13 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#14 /var/www/html/AE2017-BACKEND/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#15 /var/www/html/AE2017-BACKEND/public/index.php(28): Laravel\Lumen\Application->run()
+#16 {main}  
+=======
 [2017-12-07 02:43:34] lumen.ERROR: PDOException: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "det_ali_men.porciones" must appear in the GROUP BY clause or be used in an aggregate function
 LINE 1: select "alimento_id", "porciones" from "det_ali_men" where "...
                               ^ in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:330
@@ -10659,6 +11813,9 @@ Stack trace:
 #18 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #19 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #20 {main}  
+<<<<<<< HEAD
+>>>>>>> a674ee2805e4e510b3eb4860bf0043c4a0a59362
+=======
 [2017-12-07 03:55:46] lumen.ERROR: ErrorException: json_decode() expects parameter 1 to be string, array given in /var/www/html/nutriservices/app/Http/Controllers/MenuController.php:44
 Stack trace:
 #0 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'json_decode() e...', '/var/www/html/n...', 44, Array)
@@ -11012,6 +12169,9 @@ Stack trace:
 #20 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #21 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #22 {main}  
+<<<<<<< HEAD
+>>>>>>> 1c9ae02248cb4225acdf1e5048d23d0c4090b06c
+=======
 [2017-12-07 04:35:12] lumen.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Uncaught ErrorException: Undefined variable: status in /var/www/html/nutriservices/app/Http/Controllers/CitaController.php:57
 Stack trace:
 #0 /var/www/html/nutriservices/app/Http/Controllers/CitaController.php(57): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(8, 'Undefined varia...', '/var/www/html/n...', 57, Array)
@@ -11025,6 +12185,9 @@ Stack trace:
 #1 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
 #2 {main}  
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> fdb5e1cb18a521b071faff4c5c6f4d5465f38d96
+=======
 [2017-12-07 18:36:46] lumen.ERROR: PDOException: SQLSTATE[2BP01]: Dependent objects still exist: 7 ERROR:  cannot drop table pacientes because other objects depend on it
 DETAIL:  constraint expedientes_paciente_id_foreign on table expedientes depends on table pacientes
 HINT:  Use DROP ... CASCADE to drop the dependent objects too. in /var/www/html/nutriservices/vendor/illuminate/database/Connection.php:458
@@ -11094,6 +12257,7 @@ Stack trace:
 #26 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #27 /var/www/html/nutriservices/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #28 {main}  
+>>>>>>> db18f57690dc41a39539d074a0ec8ddedd00af2a
 =======
 [2017-12-07 05:41:59] lumen.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function toArray() on null in C:\Users\jorge\lumen\AE2017-BACKEND\app\Http\Controllers\MenuController.php:353
 Stack trace:
@@ -11113,6 +12277,9 @@ Stack trace:
 #13 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #14 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
 #15 {main}  
+<<<<<<< HEAD
+>>>>>>> 34437fdc278e3a91b47d9519116dc198b98821f6
+=======
 >>>>>>> 553618ec60564383f6e4eaa2cc0b13d5d50d5f6b
 [2017-12-07 19:45:53] lumen.ERROR: ErrorException: Creating default object from empty value in /var/www/html/nutriservices/app/Http/Controllers/PacienteController.php:423
 Stack trace:
@@ -11343,6 +12510,9 @@ Stack trace:
 #14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #15 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #16 {main}  
+<<<<<<< HEAD
+>>>>>>> db18f57690dc41a39539d074a0ec8ddedd00af2a
+=======
 [2017-12-07 20:58:15] lumen.ERROR: Intervention\Image\Exception\NotReadableException: Image source not readable in /var/www/html/nutriservices/vendor/intervention/image/src/Intervention/Image/AbstractDecoder.php:345
 Stack trace:
 #0 /var/www/html/nutriservices/vendor/intervention/image/src/Intervention/Image/AbstractDriver.php(64): Intervention\Image\AbstractDecoder->init('/var/www/html/n...')
@@ -11387,6 +12557,9 @@ Stack trace:
 #17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #18 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #19 {main}  
+<<<<<<< HEAD
+>>>>>>> df473d8de691a947bef981d2109f9258f99606b7
+=======
 [2017-12-08 21:41:02] lumen.ERROR: Intervention\Image\Exception\NotReadableException: Unable to init from given binary data. in C:\Users\jorge\lumen\AE2017-BACKEND\vendor\intervention\image\src\Intervention\Image\Gd\Decoder.php:113
 Stack trace:
 #0 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\intervention\image\src\Intervention\Image\AbstractDecoder.php(342): Intervention\Image\Gd\Decoder->initFromBinary('\xA5\xA7"z{^')
@@ -11432,3 +12605,4 @@ Stack trace:
 #17 C:\Users\jorge\lumen\AE2017-BACKEND\vendor\laravel\lumen-framework\src\Concerns\RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #18 C:\Users\jorge\lumen\AE2017-BACKEND\public\index.php(28): Laravel\Lumen\Application->run()
 #19 {main}  
+>>>>>>> 5efe25b91c3fc024db2d0de0cebf1d3aa9d7dadc
