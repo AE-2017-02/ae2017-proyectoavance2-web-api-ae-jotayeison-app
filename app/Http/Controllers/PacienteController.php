@@ -424,8 +424,8 @@ class PacienteController extends Controller
                 $img  = Image::make($file)->resize(200,260)->encode('jpg');
                 $img->save(storage_path('recursos/perfiles/'.$filename));
 
-                //$paciente->domicilio = $request->input('domicilio')?$request->input('domicilio'):$paciente->domicilio;
-                //$paciente->telefono = $request->input('telefono')?$request->input('telefono'):$paciente->telefono;
+                $paciente->domicilio = $request->input('domicilio')?$request->input('domicilio'):$paciente->domicilio;
+                $paciente->telefono = $request->input('telefono')?$request->input('telefono'):$paciente->telefono;
                 $paciente->save();
 
                 return response()->json([
