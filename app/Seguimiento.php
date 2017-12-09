@@ -32,6 +32,7 @@ class Seguimiento extends Model
 
     public $primaryKey = "seguimiento_id";
     public $timestamps = false;
+    public $table  = "seguimientos";
     /**
      * The attributes excluded from the model's JSON form.
      *

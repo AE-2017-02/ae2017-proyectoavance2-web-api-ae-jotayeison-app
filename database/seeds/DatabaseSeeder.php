@@ -138,9 +138,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('det_ali_men')->insert([
-            ['alimento_id' => 1 , 'menu_id' => 1 , 'porciones' => 23],
-            ['alimento_id' => 2 , 'menu_id' => 1 , 'porciones' => 44],
-            ['alimento_id' => 3 , 'menu_id' => 1 , 'porciones' => 21],
+            ['alimento_id' => 1 , 'menu_id' => 1 , 'porciones' => 2],
+            ['alimento_id' => 2 , 'menu_id' => 1 , 'porciones' => 1],
+            ['alimento_id' => 3 , 'menu_id' => 1 , 'porciones' => 2],
         ]);
 
         DB::table('det_pac_men')->insert([

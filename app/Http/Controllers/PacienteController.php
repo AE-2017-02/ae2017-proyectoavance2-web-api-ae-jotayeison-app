@@ -475,8 +475,8 @@ class PacienteController extends Controller
         $fecha = date('Y-m-d');
         if ($request->input('foto')){
             $id = $request->input('id');
-
-            $filename = "paciente".$id."-".$fecha.".jpg";
+            $count =  Seguimiento::where('paciente_id',$id)->count('paciente_id');
+            $filename = "paciente".$id."-".($count+1)."-".$fecha.".jpg";
             $seguimiento = new Seguimiento();
             $seguimiento->fecha = $fecha;
             $seguimiento->foto = $filename;
@@ -530,7 +530,7 @@ class PacienteController extends Controller
     }//obtener imagenes de seguimiento de un paciente
 
 
-    public function deleteSeguimiento(Request $request){
+    public function deleteSeguimientos(Request $request){
         $this->validate($request,['id' => 'required']);
         $id = $request->input('id');
         $seguimiento = Seguimiento::where('paciente_id',$id)->get()->toArray();
@@ -539,7 +539,7 @@ class PacienteController extends Controller
             unlink($file);
         }
 
-        DB::table('seguimiento')->where('paciente_id',$id)->delete();
+        DB::table('seguimientos')->where('paciente_id',$id)->delete();
 
         return response()->json([
             'status' => 'ok',
@@ -551,5 +551,25 @@ class PacienteController extends Controller
 
     }//eleminar el seguimiento de fotos de un paciente
 
+
+
+    public function deleteSeguimiento(Request $request){
+        $this->validate($request,['id' => 'required']);
+        $id = $request->input('id');
+        $seguimiento = Seguimiento::find($id);
+        if($seguimiento != null){
+            $file = storage_path('recursos/seguimientos/'.$seguimiento->foto);
+            unlink($file);
+            $seguimiento->delete();
+        }
+
+        return response()->json([
+            'status' => 'ok',
+            'code' => 200,
+            'result' => 'Se elimino el seguimiento'
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+    }//eliminar una seguimiento en especifico
 
 }//PacienteController
