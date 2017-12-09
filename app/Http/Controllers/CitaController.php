@@ -238,12 +238,14 @@ class CitaController extends Controller
     public function getLastDates(){
         $pacientes = Paciente::where('activo',true)->get();
         $datos = array();
+        print_r($pacientes);
         foreach ($pacientes as $paciente){
             $d  = array();
             date_default_timezone_set('america/mazatlan');
             $fecha = date('Y-m-d');
             //die($fecha);
             $citas = Cita::where([["paciente_id",$paciente->paciente_id],['fecha','>=',$fecha],['status',1]])->get()->toArray();
+
             if (sizeof($citas)>0){
                 $d['paciente_id'] = $paciente->paciente_id;
                 $d['paciente'] = $paciente->nombre." ".$paciente->ape_paterno." ".$paciente->ape_materno;
