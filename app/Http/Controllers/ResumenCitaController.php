@@ -170,6 +170,9 @@ class ResumenCitaController extends Controller {
 
     }//actualiza datos de un resumen de citas
     public function getResumenCitas(Request $request){
+        $this->validate($request,[
+            'paciente_id' => 'required'
+        ]);
         $resumencitas = null;
         $paciente_id = $request->input('paciente_id');
         $resumencitas = DB::table('resumen_citas')
