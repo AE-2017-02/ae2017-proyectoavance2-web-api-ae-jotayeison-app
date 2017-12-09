@@ -426,6 +426,7 @@ class PacienteController extends Controller
 
                 $paciente->domicilio = $request->input('domicilio')?$request->input('domicilio'):$paciente->domicilio;
                 $paciente->telefono = $request->input('telefono')?$request->input('telefono'):$paciente->telefono;
+                $paciente->pwd = $request->input('pwd1')?md5($request->input('pwd1')):$paciente->pwd;
                 $paciente->save();
 
                 return response()->json([
