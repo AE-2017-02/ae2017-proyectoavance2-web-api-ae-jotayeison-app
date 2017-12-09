@@ -238,7 +238,7 @@ class CitaController extends Controller
     public function getLastDates(){
         $pacientes = Paciente::where('activo',true)->get();
         $datos = array();
-        print_r($pacientes);
+        
         foreach ($pacientes as $paciente){
             $d  = array();
             date_default_timezone_set('america/mazatlan');
