@@ -350,7 +350,7 @@ class MenuController extends Controller
             $tipodieta = $menusResumen->tipodieta; //obtenemos el json de los menus asignados en la dieta
             $dieta  = json_decode($tipodieta); //decodificamos para obtner un array de objetos, cada objeto equivale a un json de un menu
             $menus = array();
-
+            print_r($dieta);
             foreach ($dieta as $d){
                 $menu_info = Menu::find($d->menu_id);//->toArray();
                 $alimentos_id = DB::table('det_ali_men')->select('alimento_id','porciones')->where('menu_id',$d->menu_id)->groupBy('alimento_id','porciones')->get();
