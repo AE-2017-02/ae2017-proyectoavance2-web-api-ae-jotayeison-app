@@ -56,6 +56,7 @@ $router->post('setPicturesSeg','PacienteController@setPictureSeguimiento');
 $router->post('deleteSeguimientos','PacienteController@deleteSeguimientos');
 $router->post('deleteSeguimiento','PacienteController@deleteSeguimiento');
 
+$router->get('getPacienteByCorreo','PacienteController@getPacienteByCorreo');
 
 /*
  *      MENUS

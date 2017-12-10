@@ -149,6 +149,28 @@ class PacienteController extends Controller
 
     }//getPaciente
 
+    public function getPacienteByCorreo(Request $request){
+
+        $this->validate($request,[
+            'correo' => 'required'
+        ]);
+
+        $correo = $request->input('correo');
+        $pacientes = json_decode(Paciente::where('email',$correo)->get());
+        $paciente="";
+        foreach($pacientes as $pac){
+            $paciente=$pac;
+        }
+        return response()->json([
+            'status' => 'OK',
+            'code' => 200,
+            'result' => $paciente
+        ],200)
+            ->header('Access-Control-Allow-Origin','*')
+            ->header('Content-Type', 'application/json');
+
+    }//getTelefonoByCorreo
+
     public function getPacientes(Request $request){
 
         $pacientes = null;
