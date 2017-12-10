@@ -213,16 +213,57 @@ class CitaController extends Controller
         $this->validate($request,['fecha'=>'required']);
         $fecha = $request->input('fecha');
 
+        $horarios=[];
+        $configuraciones =json_decode(DB::table('configuraciones')
+            ->select('configuraciones.horario')
+            ->get());
+        $horario=[];
+        foreach ($configuraciones as $config){
+            $horario=json_decode($config->horario);
+        }
+        $citas=DB::table('citas')
+            ->select('citas.hora')
+            ->where('citas.fecha',$fecha)
+            ->get();
 
-        $horarios = [
-            '8:00',
-            '8:15',
-            '8:30',
-            '8:45',
-            '9:00',
-            '10:00',
-            '11:00'
-        ];
+        $array_dias['Sunday'] = "domingo";
+        $array_dias['Monday'] = "lunes";
+        $array_dias['Tuesday'] = "martes";
+        $array_dias['Wednesday'] = "miercoles";
+        $array_dias['Thursday'] = "jueves";
+        $array_dias['Friday'] = "viernes";
+        $array_dias['Saturday'] = "sabado";
+        $diasemana=$array_dias[date('l', strtotime($fecha))];
+        $dia=$horario->$diasemana;
+
+        $incremento=$horario->duracion;
+
+        $hora=strtotime($dia->inicio);
+        $fin=strtotime($dia->fin);
+
+        $descansoini=strtotime($dia->inini);
+        $descansofin=strtotime($dia->infin);
+
+        $array=[];
+        foreach ($citas as $cita){
+            array_push($array, $cita->hora);
+
+        }
+        while($hora<$fin){
+
+            if (!in_array(date("h:i:s",$hora),$array)) {
+                if($hora>=$descansoini&&$hora<$descansofin){
+
+                }
+                else {
+                    array_push($horarios, date("h:i:s", $hora));
+                }
+            }
+            $hora=strtotime ( $incremento ,$hora);
+        }
+
+
+
 
 
         return response()->json([
