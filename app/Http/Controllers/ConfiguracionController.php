@@ -43,16 +43,17 @@ class ConfiguracionController extends Controller
     }//login()
 
     public function setConfig(Request $request){
-        $this->validate($request, [
+        /*$this->validate($request, [
             'consultorio' => 'required',
             'telefono' => 'required',
             'direccion' => 'required',
             'horario' => 'required'
-        ]);
-        $nombre = $request->input('consultorio');
-        $telefono = $request->input('telefono');
-        $direccion = $request->input('direccion');
-        $horario = $request->input('horario');
+        ]);*/
+        $conf = Configuracion::find(1);
+        $nombre = $request->input('consultorio')?$request->input('consultorio'):$conf->consultorio;
+        $telefono = $request->input('telefono')?$request->input('telefono'):$conf->telefono;
+        $direccion = $request->input('direccion')?$request->input('direccion'):$conf->direccion;
+        $horario = $request->input('horario')?$request->input('horario'):$conf->horario;
 
             if($request->hasFile("logo") && $request->file("logo")->isValid() == false){
                 return response()->json([
@@ -73,7 +74,7 @@ class ConfiguracionController extends Controller
             $ruta = "imagenes/".$filename;
         }//subimos el logo al server
 
-        $conf = Configuracion::find(1);
+
         $conf->consultorio = $nombre;
         $conf->telefono = $telefono;
         $conf->direccion = $direccion;

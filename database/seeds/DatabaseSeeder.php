@@ -128,23 +128,23 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('alimentos')->insert([
-            ['descripcion'=>strtoupper('Pescado frito'),'um'=>'dos filetes','grupo_id' => 2],
-            ['descripcion'=>strtoupper('Sopa de verduras'),'um'=>'medio litro','grupo_id' => 1],
-            ['descripcion'=>strtoupper('Carne asada'),'um'=>'dos filetes','grupo_id' => 2],
-            ['descripcion'=>strtoupper('Cereal'),'um'=>'una taza de leche','grupo_id' => 4],
-            ['descripcion'=>strtoupper('Yogurth'),'um'=>'una taza' ,'grupo_id' => 5],
-            ['descripcion'=>strtoupper('Sandwich de pollo'),'um'=>'1 sandwich' ,'grupo_id' => 5],
+            ['descripcion'=>strtoupper('Pescado frito'),'um'=>'dos filetes','grupo_id' => 2,'can_recomendada' => 2],
+            ['descripcion'=>strtoupper('Sopa de verduras'),'um'=>'medio litro','grupo_id' => 1,'can_recomendada' => 0.5],
+            ['descripcion'=>strtoupper('Carne asada'),'um'=>'dos filetes','grupo_id' => 2,'can_recomendada' => 2],
+            ['descripcion'=>strtoupper('Cereal'),'um'=>'una taza de leche','grupo_id' => 4,'can_recomendada' => 1],
+            ['descripcion'=>strtoupper('Yogurth'),'um'=>'una taza' ,'grupo_id' => 5,'can_recomendada' => 1],
+            ['descripcion'=>strtoupper('Sandwich de pollo'),'um'=>'1 sandwich' ,'grupo_id' => 5,'can_recomendada' => 1],
 
-            ['descripcion'=>strtoupper('Huevos'),'um'=>'dos huevos al gusto' ,'grupo_id' => 5],
-            ['descripcion'=>strtoupper('Salmon'),'um'=>'1 filete' ,'grupo_id' => 2],
-            ['descripcion'=>strtoupper('Patata hervida'),'um'=>'1 patata' ,'grupo_id' => 3],
-            ['descripcion'=>strtoupper('Atun'),'um'=>'1 sobre' ,'grupo_id' => 2],
-            ['descripcion'=>strtoupper('Zanahoria'),'um'=>'dos zanahorias' ,'grupo_id' => 1],
-            ['descripcion'=>strtoupper('Fresas'),'um'=>'tres fresas' ,'grupo_id' => 6],
+            ['descripcion'=>strtoupper('Huevos'),'um'=>'dos huevos al gusto' ,'grupo_id' => 5,'can_recomendada' => 2],
+            ['descripcion'=>strtoupper('Salmon'),'um'=>'1 filete' ,'grupo_id' => 2,'can_recomendada' => 1],
+            ['descripcion'=>strtoupper('Patata hervida'),'um'=>'1 patata' ,'grupo_id' => 3,'can_recomendada' => 1],
+            ['descripcion'=>strtoupper('Atun'),'um'=>'1 sobre' ,'grupo_id' => 2,'can_recomendada' => 1],
+            ['descripcion'=>strtoupper('Zanahoria'),'um'=>'dos zanahorias' ,'grupo_id' => 1,'can_recomendada' => 2],
+            ['descripcion'=>strtoupper('Fresas'),'um'=>'tres fresas' ,'grupo_id' => 6,'can_recomendada' => 3],
 
-            ['descripcion'=>strtoupper('Cafe'),'um'=>'1 taza' ,'grupo_id' => 5],
-            ['descripcion'=>strtoupper('Jugo de naranja'),'um'=>'1 vaso' ,'grupo_id' => 6],
-            ['descripcion'=>strtoupper('Agua de limon'),'um'=>'2 vaso' ,'grupo_id' => 6],
+            ['descripcion'=>strtoupper('Cafe'),'um'=>'1 taza' ,'grupo_id' => 5,'can_recomendada' => 1],
+            ['descripcion'=>strtoupper('Jugo de naranja'),'um'=>'1 vaso' ,'grupo_id' => 6,'can_recomendada' => 1],
+            ['descripcion'=>strtoupper('Agua de limon'),'um'=>'2 vaso' ,'grupo_id' => 6,'can_recomendada' => 2],
 
         ]);
 
