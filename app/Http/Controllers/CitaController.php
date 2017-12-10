@@ -256,7 +256,7 @@ class CitaController extends Controller
 
                 }
                 else {
-                    array_push($horarios, date("h:i:s", $hora));
+                    array_push($horarios, date("h:i", $hora));
                 }
             }
             $hora=strtotime ( $incremento ,$hora);
