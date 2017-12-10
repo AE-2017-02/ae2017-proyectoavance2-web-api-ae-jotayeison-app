@@ -18,7 +18,7 @@ class Configuraciones extends Migration
             $table->string('consultorio',150)->nullable();
             $table->string('telefono',50)->nullable();
             $table->string('direccion',150)->nullable();
-            $table->string('horario',100)->nullable();
+            $table->json('horario')->nullable();
             $table->string('usuario',50);
             $table->string('pwd',500);
             $table->string('logo',20)->nullable();

@@ -15,7 +15,7 @@ class Menus extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->increments('menu_id');
-            $table->string('nombre',30);
+            $table->string('nombre',200);
             $table->decimal('energia',18,2);
             $table->decimal('grasas',18,2);
             $table->decimal('proteinas',18,2);
