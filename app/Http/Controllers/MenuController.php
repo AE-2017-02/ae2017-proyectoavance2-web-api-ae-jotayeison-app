@@ -371,6 +371,7 @@ class MenuController extends Controller
 
                 }
                 $menu_info['tipo'] = $d->tipo;
+                $menu_info['orden'] = $d->orden;
                 $menu_info['alimentos'] = $alimentos;
                 $menus[] = $menu_info;
 
