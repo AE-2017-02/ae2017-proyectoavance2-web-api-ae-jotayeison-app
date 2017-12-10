@@ -23,30 +23,94 @@ class CitaController extends Controller
      * @param  Request  $request
      * @return Response
      */
+     public function horas($fecha){
+        $horarios=[];
+        $configuraciones =json_decode(DB::table('configuraciones')
+            ->select('configuraciones.horario')
+            ->get());
+        $horario=[];
+        foreach ($configuraciones as $config){
+            $horario=json_decode($config->horario);
+        }
+        $citas=DB::table('citas')
+            ->select('citas.hora')
+            ->where('citas.fecha',$fecha)
+            ->get();
+
+        $array_dias['Sunday'] = "domingo";
+        $array_dias['Monday'] = "lunes";
+        $array_dias['Tuesday'] = "martes";
+        $array_dias['Wednesday'] = "miercoles";
+        $array_dias['Thursday'] = "jueves";
+        $array_dias['Friday'] = "viernes";
+        $array_dias['Saturday'] = "sabado";
+        $diasemana=$array_dias[date('l', strtotime($fecha))];
+        $dia=$horario->$diasemana;
+
+        $incremento=$horario->duracion;
+
+        $hora=strtotime($dia->inicio);
+        $fin=strtotime($dia->fin);
+
+        $descansoini=strtotime($dia->inini);
+        $descansofin=strtotime($dia->infin);
+
+        $array=[];
+        foreach ($citas as $cita){
+            array_push($array, $cita->hora);
+
+        }
+        while($hora<$fin){
+
+            if (!in_array(date("h:i:s",$hora),$array)) {
+                if($hora>=$descansoini&&$hora<$descansofin){
+
+                }
+                else {
+                    array_push($horarios, date("h:i:s", $hora));
+                }
+            }
+            $hora=strtotime ( $incremento ,$hora);
+        }
+        return $horarios;
+    }
+
+
     public function insert(Request $request){
         $this->validate($request,[
             'fecha' => 'required',
             'hora'  => 'required',
             'paciente' => 'required'
         ]);
-        $fecha = $request->input('fecha');
-        $hora = $request->input('hora');
+        $fecha =$request->input('fecha');
+        $hora = date('h:i:s', strtotime($request->input('hora')));
         $id = $request->input('paciente');
         $cita = new Cita();
         $cita->fecha = $fecha;
         $cita->hora =$hora;
         $cita->status = 0;
         $cita->paciente_id = $id;
-        $cita->save();
+        $array=$this->horas($fecha);
 
-        return response()->json([
-            'status' => 'OK',
-            'code' => 200,
-            'result' => 'Se registro la cita correctamente'
-        ],200)
-            ->header('Access-Control-Allow-Origin','*')
-            ->header('Content-Type', 'application/json');
-
+        if(in_array($hora,$array)) {
+            $cita->save();
+            return response()->json([
+                'status' => 'OK',
+                'code' => 200,
+                'result' => 'Se registro la cita correctamente'
+            ], 200)
+                ->header('Access-Control-Allow-Origin', '*')
+                ->header('Content-Type', 'application/json');
+        }
+        else{
+            return response()->json([
+                'status' => 'Error',
+                'code' => 405,
+                'result' => 'La hora no es valida o no se encuentra disponible'
+            ], 200)
+                ->header('Access-Control-Allow-Origin', '*')
+                ->header('Content-Type', 'application/json');
+        }
     }//insertar cita
 
     public function getCitas(Request $request){
@@ -146,17 +210,38 @@ class CitaController extends Controller
         $cita->hora = $request->input('hora')?$request->input('hora'):$cita->hora;
         $cita->status = $request->input('status')?$request->input('status'):$cita->status;
         $cita->motivo = $request->input('motivo')?$request->input('motivo'):$cita->motivo;
-        $cita->save();
 
-
-        return response()->json([
-            'status' => 'OK',
-            'code' => 200,
-            'result' => 'Se actualizo la cita'
-        ],200)
-            ->header('Access-Control-Allow-Origin','*')
-            ->header('Content-Type', 'application/json');
-
+        if($request->input('fecha')||$request->input('hora')) {
+            $array = $this->horas($cita->fecha);
+            if (in_array($cita->hora, $array)) {
+                $cita->save();
+                return response()->json([
+                    'status' => 'OK',
+                    'code' => 200,
+                    'result' => 'Se actualizo la cita correctamente'
+                ], 200)
+                    ->header('Access-Control-Allow-Origin', '*')
+                    ->header('Content-Type', 'application/json');
+            } else {
+                return response()->json([
+                    'status' => 'Error',
+                    'code' => 405,
+                    'result' => 'La hora no es valida o no se encuentra disponible'
+                ], 200)
+                    ->header('Access-Control-Allow-Origin', '*')
+                    ->header('Content-Type', 'application/json');
+            }
+        }
+        else{
+            $cita->save();
+            return response()->json([
+                'status' => 'OK',
+                'code' => 200,
+                'result' => 'Se actualizo la cita'
+            ], 200)
+                ->header('Access-Control-Allow-Origin', '*')
+                ->header('Content-Type', 'application/json');
+        }
 
     }//actualizar cita
 
@@ -208,8 +293,7 @@ class CitaController extends Controller
     ##
     ## Movil
     ##
-
-    public function getHorarios(Request $request){
+        public function getHorarios(Request $request){
         $this->validate($request,['fecha'=>'required']);
         $fecha = $request->input('fecha');
 
