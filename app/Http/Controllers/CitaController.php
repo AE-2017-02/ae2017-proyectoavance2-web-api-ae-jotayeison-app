@@ -214,6 +214,7 @@ class CitaController extends Controller
         $fecha = $request->input('fecha');
 
         $horarios=[];
+        $horarios2=[];
         $configuraciones =json_decode(DB::table('configuraciones')
             ->select('configuraciones.horario')
             ->get());
@@ -257,11 +258,15 @@ class CitaController extends Controller
                 }
                 else {
                     array_push($horarios, date("h:i", $hora));
+                    array_push($horarios2, date("h:i:s", $hora));
                 }
             }
             $hora=strtotime ( $incremento ,$hora);
         }
-
+        $horas=[
+            'hm'=>$horarios,
+            'hms'=>$horarios2
+        ];
 
 
 
@@ -269,7 +274,7 @@ class CitaController extends Controller
         return response()->json([
             'status' => 'OK',
             'code' => 200,
-            'result' => $horarios
+            'result' => $horas
         ],200)
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
