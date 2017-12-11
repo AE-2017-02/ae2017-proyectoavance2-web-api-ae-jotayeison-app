@@ -169,7 +169,7 @@ class ConfiguracionController extends Controller
             $mail->Password = $config->pwd_email;
             $mail->setFrom($config->email , $config->consultorio?'Nutrimental':$config->consultorio);
             $mail->Subject = "Recuperar Contraseña";
-            $mail->MsgHTML('<form  action="http://104.131.121.55:8080/changePasswordLogin" method="post">
+            $mail->MsgHTML('<form  action="http://104.131.121.55/changePasswordLogin" method="post">
                 Capture la nueva contraseña para su cuenta de administrador:<br><br>
                 <input type="password" placeholder="Nueva Contraseña" id="pwd" name="pwd">
                 <br><br>

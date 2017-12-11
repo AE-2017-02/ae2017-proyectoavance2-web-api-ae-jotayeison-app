@@ -16561,3 +16561,25 @@ Stack trace:
 #17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
 #18 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
 #19 {main}  
+[2017-12-11 12:09:47] lumen.ERROR: PHPMailer\PHPMailer\Exception: SMTP Error: Could not authenticate. in /var/www/html/nutriservices/vendor/phpmailer/phpmailer/src/PHPMailer.php:1911
+Stack trace:
+#0 /var/www/html/nutriservices/vendor/phpmailer/phpmailer/src/PHPMailer.php(1725): PHPMailer\PHPMailer\PHPMailer->smtpConnect(Array)
+#1 /var/www/html/nutriservices/vendor/phpmailer/phpmailer/src/PHPMailer.php(1481): PHPMailer\PHPMailer\PHPMailer->smtpSend('Date: Mon, 11 D...', 'This is a multi...')
+#2 /var/www/html/nutriservices/vendor/phpmailer/phpmailer/src/PHPMailer.php(1320): PHPMailer\PHPMailer\PHPMailer->postSend()
+#3 /var/www/html/nutriservices/app/Http/Controllers/ConfiguracionController.php(179): PHPMailer\PHPMailer\PHPMailer->send()
+#4 [internal function]: App\Http\Controllers\ConfiguracionController->forgotPassword()
+#5 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#6 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#7 /var/www/html/nutriservices/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#8 /var/www/html/nutriservices/vendor/illuminate/container/Container.php(549): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#9 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(373): Illuminate\Container\Container->call(Array, Array)
+#10 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(339): Laravel\Lumen\Application->callControllerCallable(Array, Array)
+#11 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(313): Laravel\Lumen\Application->callLumenController(Object(App\Http\Controllers\ConfiguracionController), 'forgotPassword', Array)
+#12 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(275): Laravel\Lumen\Application->callControllerAction(Array)
+#13 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(260): Laravel\Lumen\Application->callActionOnArrayBasedRoute(Array)
+#14 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(160): Laravel\Lumen\Application->handleFoundRoute(Array)
+#15 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(413): Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#16 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(166): Laravel\Lumen\Application->sendThroughPipeline(Array, Object(Closure))
+#17 /var/www/html/nutriservices/vendor/laravel/lumen-framework/src/Concerns/RoutesRequests.php(107): Laravel\Lumen\Application->dispatch(NULL)
+#18 /var/www/html/nutriservices/public/index.php(28): Laravel\Lumen\Application->run()
+#19 {main}  
