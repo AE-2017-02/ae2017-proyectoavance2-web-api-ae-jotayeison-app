@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         DB::table('configuraciones')->insert([
             'usuario' => 'admin',
             'pwd' => md5('admin'),
+            'logo' => 'imagenes/logo.png',
             'horario' => '{"duracion":"+15 minute","lunes":{"inicio":"9:00:00","fin":"18:00:00","inini":"14:00:00","infin":"16:00:00"},"martes":{"inicio":"9:00:00","fin":"18:00:00","inini":"14:00:00","infin":"16:00:00"},"miercoles":{"inicio":"9:00:00","fin":"18:00:00","inini":"14:00:00","infin":"16:00:00"},"jueves":{"inicio":"9:00:00","fin":"18:00:00","inini":"14:00:00","infin":"16:00:00"},"viernes":{"inicio":"9:00:00","fin":"18:00:00","inini":"14:00:00","infin":"16:00:00"},"sabado":{"inicio":"9:00:00","fin":"14:00:00","inini":null,"infin":null},"domingo":{"inicio":null,"fin":null,"inini":null,"infin":null}}'
         ]);
 

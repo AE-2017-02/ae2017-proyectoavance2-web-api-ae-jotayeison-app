@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Configuracion;
 use PHPMailer\PHPMailer\PHPMailer;
-
+use Intervention\Image\Facades\Image;
 
 class ConfiguracionController extends Controller
 {
@@ -54,6 +54,8 @@ class ConfiguracionController extends Controller
         $telefono = $request->input('telefono')?$request->input('telefono'):$conf->telefono;
         $direccion = $request->input('direccion')?$request->input('direccion'):$conf->direccion;
         $horario = $request->input('horario')?$request->input('horario'):$conf->horario;
+        $email = $request->input('email')?$request->input('email'):$conf->email;
+        $pwd_email = $request->input('pwd_email')?$request->input('pwd_email'):$conf->pwd_email;
 
             if($request->hasFile("logo") && $request->file("logo")->isValid() == false){
                 return response()->json([
@@ -66,12 +68,24 @@ class ConfiguracionController extends Controller
                 ->header('Content-Type', 'application/json');
             }//retorna error solo cuando se sube la imagen/file y algo salio mal pero no es obligatorio subirla
          
-        $ruta = "";
+        $ruta = $conf->logo;
         if($request->hasFile("logo") && $request->file("logo")->isValid() ){
-            $path = base_path("public/imagenes/");
-            $filename = "logo.".$request->file('logo')->getClientOriginalExtension();
-            $request->file("logo")->move($path , $filename);
-            $ruta = "imagenes/".$filename;
+
+            if ($ruta != null || $ruta != '' ){
+                if (unlink(base_path('public/'.$conf->logo))) {
+                    $path = base_path("public/imagenes/");
+                    $filename = "logo.".$request->file('logo')->getClientOriginalExtension();
+                    $request->file("logo")->move($path , $filename);
+                    $ruta = "imagenes/".$filename;
+                }
+            }else{
+                $path = base_path("public/imagenes/");
+                $filename = "logo.".$request->file('logo')->getClientOriginalExtension();
+                $request->file("logo")->move($path , $filename);
+                $ruta = "imagenes/".$filename;
+            }
+
+
         }//subimos el logo al server
 
 
@@ -80,6 +94,8 @@ class ConfiguracionController extends Controller
         $conf->direccion = $direccion;
         $conf->horario = $horario;
         $conf->logo = $ruta;
+        $conf->email = $email;
+        $conf->pwd_email = $pwd_email;
         $conf->save();
 
         return response()->json([
@@ -93,7 +109,10 @@ class ConfiguracionController extends Controller
 
     public function getConfig(){
         $conf = Configuracion::find(1);
-        $conf->logo = "http://".$_SERVER['REMOTE_ADDR']."/public/".$conf->logo;
+        if ($conf->logo != null || $conf->logo != ''){
+            $foto =(string) Image::make(base_path('public/'.$conf->logo))->encode("data-url");
+            $conf->logo =$foto;
+        }
         return response()->json([
             'status' => 'OK',
             'code' => 200,
