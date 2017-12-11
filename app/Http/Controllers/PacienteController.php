@@ -430,6 +430,7 @@ class PacienteController extends Controller
 
     public function setPicture(Request $request){
         $this->validate($request,['id' => 'required']);
+        $id = $request->input('id');
         if ($request->input('foto')){
             //if ($request->file('foto')->isValid()){
                 ##visualizar la imagen
@@ -438,7 +439,6 @@ class PacienteController extends Controller
                 ##get imagen en base64
                 //$img  = (string)Image::make($file)->resize(200,260)->encode('data-url');
                 //echo strlen($img);
-                $id = $request->input('id');
                 $paciente = Paciente::find($id);
                 $filename = "paciente".$id.".jpg";
                 $paciente->foto = $filename;
@@ -454,11 +454,25 @@ class PacienteController extends Controller
                 return response()->json([
                     'status' => 'OK',
                     'code' => 200,
-                    'result' => "Imagen guardada"
+                    'result' => "Datos de perfil guardados"
                 ],200)
                     ->header('Access-Control-Allow-Origin','*')
                     ->header('Content-Type', 'application/json');
             //}
+        }else{
+            $paciente = Paciente::find($id);
+            $paciente->domicilio = $request->input('domicilio')?$request->input('domicilio'):$paciente->domicilio;
+            $paciente->telefono = $request->input('telefono')?$request->input('telefono'):$paciente->telefono;
+            $paciente->pwd = $request->input('pwd1')?md5($request->input('pwd1')):$paciente->pwd;
+            $paciente->save();
+
+            return response()->json([
+                'status' => 'OK',
+                'code' => 200,
+                'result' => "Datos de perfil guardados"
+            ],200)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
         }
 
 
