@@ -51,6 +51,7 @@ class ConfiguracionController extends Controller
         ]);*/
         $conf = Configuracion::find(1);
         $nombre = $request->input('consultorio')?$request->input('consultorio'):$conf->consultorio;
+        $usuario = $request->input('usuario')?$request->input('usuario'):$conf->usuario;
         $telefono = $request->input('telefono')?$request->input('telefono'):$conf->telefono;
         $direccion = $request->input('direccion')?$request->input('direccion'):$conf->direccion;
         $horario = $request->input('horario')?$request->input('horario'):$conf->horario;
@@ -90,6 +91,7 @@ class ConfiguracionController extends Controller
 
 
         $conf->consultorio = $nombre;
+        $conf->usuario = $usuario;
         $conf->telefono = $telefono;
         $conf->direccion = $direccion;
         $conf->horario = $horario;
