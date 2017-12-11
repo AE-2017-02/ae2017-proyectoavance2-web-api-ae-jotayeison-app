@@ -107,7 +107,7 @@ class CitaController extends Controller
                 'status' => 'Error',
                 'code' => 405,
                 'result' => 'La hora no es valida o no se encuentra disponible'
-            ], 200)
+            ], 405)
                 ->header('Access-Control-Allow-Origin', '*')
                 ->header('Content-Type', 'application/json');
         }
