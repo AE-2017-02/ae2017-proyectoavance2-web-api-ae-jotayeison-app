@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Configuracion;
-
+use PHPMailer\PHPMailer\PHPMailer;
 
 
 class ConfiguracionController extends Controller
@@ -120,6 +120,71 @@ class ConfiguracionController extends Controller
             ->header('Access-Control-Allow-Origin','*')
             ->header('Content-Type', 'application/json');
     }//changePassword
+
+    public function changePasswordLogin(Request $request){
+        $this->validate($request, [
+            'pwd' => 'required',
+        ]);
+        $new = $request->input('pwd');
+        $conf = \App\Configuracion::find(1);
+        $conf->pwd = md5($new);
+        $conf->save();
+
+        return redirect('http://104.131.121.55:8080');
+    }//changePassword
+
+    public function forgotPassword(){
+        $mail = new PHPMailer(true);
+        $config = Configuracion::find(1);
+        try {
+
+            $mail->isSMTP(); // tell to use smtp
+            $mail->CharSet = "utf-8"; // set charset to utf8
+            $mail->SMTPAuth = true;  // use smpt auth
+            $mail->SMTPSecure = "tls"; // or ssl
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 587; // most likely something different for you. This is the mailtrap.io port i use for testing.
+            $mail->Username = $config->email ;
+            $mail->Password = $config->pwd_email;
+            $mail->setFrom($config->email , $config->consultorio?'Nutrimental':$config->consultorio);
+            $mail->Subject = "Recuperar Contraseña";
+            $mail->MsgHTML('<form  action="http://104.131.121.55:8080/changePasswordLogin" method="post">
+                Capture la nueva contraseña para su cuenta de administrador:<br><br>
+                <input type="password" placeholder="Nueva Contraseña" id="pwd" name="pwd">
+                <br><br>
+                <button type="submit">Recuperar</button>
+            </form>');
+            $mail->addAddress($config->email, $config->consultorio?'Nutrimental':$config->consultorio);
+            $mail->send();
+
+            return response()->json([
+                "status" => "ok",
+                "code" => 200,
+                "result" => 'Se envio un correo para cambiar la contraseña'
+            ],200)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
+
+        } catch (phpmailerException $e) {
+            return response()->json([
+                "status" => "fail",
+                "code" => 400,
+                "result" => "Error al mandar el correo"
+            ],400)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
+        } catch (Exception $e) {
+            return response()->json([
+                "status" => "fail",
+                "code" => 400,
+                "result" => "Error al mandar el correo"
+            ],400)
+                ->header('Access-Control-Allow-Origin','*')
+                ->header('Content-Type', 'application/json');
+        }
+
+
+    }//olvido contraseña
 
 }//Configuracion
 

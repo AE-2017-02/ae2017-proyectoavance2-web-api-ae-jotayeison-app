@@ -31,6 +31,8 @@ $router->post('login','ConfiguracionController@login');
 $router->post('setConfig','ConfiguracionController@setConfig');
 $router->get('getConfig','ConfiguracionController@getConfig');
 $router->post('changePassword','ConfiguracionController@changePassword');
+$router->post('changePasswordLogin','ConfiguracionController@changePasswordLogin');
+$router->get('forgot','ConfiguracionController@forgotPassword');
 
 /*
  *      PRE-REGISTRO DEL PACIENTE
