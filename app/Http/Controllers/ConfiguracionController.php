@@ -143,9 +143,7 @@ class ConfiguracionController extends Controller
     }//changePassword
 
     public function changePasswordLogin(Request $request){
-        $this->validate($request, [
-            'pwd' => 'required',
-        ]);
+        #talves agregar un render de un mensaje que indique que debe ingresar contraseña
         $new = $request->input('pwd');
         $conf = \App\Configuracion::find(1);
         $conf->pwd = md5($new);
@@ -170,11 +168,11 @@ class ConfiguracionController extends Controller
             $mail->setFrom($config->email , $config->consultorio?'Nutrimental':$config->consultorio);
             $mail->Subject = "Recuperar Contraseña";
             $mail->MsgHTML('<form  action="http://104.131.121.55/changePasswordLogin" method="post">
-                Capture la nueva contraseña para su cuenta de administrador:<br><br>
-                <input type="password" placeholder="Nueva Contraseña" id="pwd" name="pwd">
+                <div style="text-align: center; background-color: darkorange;"><br><label style="color:white;"><strong>Capture la nueva contraseña para su cuenta de administrador:</strong></label><br><br>
+                <input type="password" required style="width: 50%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #cc;border-radius: 4px;box-sizing: border-box;" placeholder="Nueva Contraseña" id="pwd" name="pwd">
                 <br><br>
-                <button type="submit">Recuperar</button>
-            </form>');
+                <button type="submit" style="background-color: #4CAF50;width: 50%;color:white;padding:14px 20px;margin:8px 0;border:none;-webkit-border-radius: 4px;cursor:hand;;-moz-border-radius: 4px;cursor:hand;;border-radius: 4px;cursor:hand;;">Recuperar</button>
+            </form></div>');
             $mail->addAddress($config->email, $config->consultorio?'Nutrimental':$config->consultorio);
             $mail->send();
 
