@@ -342,7 +342,7 @@ class MenuController extends Controller
         $this->validate($request,['id' => 'required']);
 
         $id = $request->input('id'); //id de paciente
-        $ultimaCita = Cita::where('paciente_id',$id)->max('cita_id');//obtenemos id de ultima cita
+        $ultimaCita = Cita::where([['paciente_id',$id],['status',3]])->max('cita_id');//obtenemos id de ultima cita
         $menusResumen = Resumen_cita::where('cita_id',$ultimaCita)->first();
 
         if ($menusResumen && $ultimaCita){
@@ -382,7 +382,7 @@ class MenuController extends Controller
                     'status' => 'fail',
                     'code' => 400,
                     'result' => ['error' => 'No se encontraron resultados']
-                ],200)
+                ],400)
                     ->header('Access-Control-Allow-Origin','*')
                     ->header('Content-Type', 'application/json');
 
@@ -403,7 +403,7 @@ class MenuController extends Controller
                 'status' => 'fail',
                 'code' => 400,
                 'result' => ['error' => 'No se encontraron resultados']
-            ],200)
+            ],400)
                 ->header('Access-Control-Allow-Origin','*')
                 ->header('Content-Type', 'application/json');
         }
@@ -415,3 +415,4 @@ class MenuController extends Controller
 
 
 }//
+
