@@ -149,7 +149,7 @@ class ConfiguracionController extends Controller
         $conf->pwd = md5($new);
         $conf->save();
 
-        return redirect('http://104.131.121.55:8080');
+        return redirect('http://104.131.121.55:8080')->header('Access-Control-Allow-Origin','*');
     }//changePassword
 
     public function forgotPassword(){
