@@ -343,7 +343,7 @@ class MenuController extends Controller
 
         $id = $request->input('id'); //id de paciente
         $ultimaCita = Cita::where([['paciente_id',$id],['status',3]])->max('cita_id');//obtenemos id de ultima cita
-        $menusResumen = Resumen_cita::where('cita_id',$ultimaCita)->first();
+        $menusResumen = Resumen_cita::where('cita_id',$ultimaCita)->orderBy('resumen_cita_id','desc')->first();
 
         if ($menusResumen && $ultimaCita){
 
