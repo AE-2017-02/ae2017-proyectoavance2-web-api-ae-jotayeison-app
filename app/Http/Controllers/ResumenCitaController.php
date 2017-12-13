@@ -35,6 +35,7 @@ class ResumenCitaController extends Controller {
             ->header('Content-Type', 'application/json');
     }//
     public function insert(Request $request){
+        $this->validate($request , ['cita_id' => 'unique:resumen_citas,cita_id']);
         /*$this->validate($request,[
             'brazo' => 'required',
             'bcontraido' => 'required',
