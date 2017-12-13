@@ -355,7 +355,7 @@ class MenuController extends Controller
                 $menu_info = Menu::find($d->menu_id);//->toArray();
                 $alimentos_id = DB::table('det_ali_men')->select('alimento_id','porciones')->where('menu_id',$d->menu_id)->groupBy('alimento_id','porciones')->get();
                 $alimentos = array();
-
+                $menu_info['resumen_id'] = $menusResumen->resumen_cita_id;
                 foreach ($alimentos_id as $a){
                     $alimento = Alimento::find($a->alimento_id)->toArray();
                     $id_grupo  = $alimento['grupo_id'];
